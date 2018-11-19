@@ -15,8 +15,7 @@ public class playerscript : MonoBehaviour {
     {
         controller = GetComponent<CharacterController>();
 
-        // let the gameObject fall down
-        gameObject.transform.position = new Vector3(0, 5, 0);
+        // let the gameObject fall downz
         walk = GetComponent<Animation>();
     foreach (AnimationState state in walk)
     {
@@ -34,7 +33,23 @@ public class playerscript : MonoBehaviour {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection = moveDirection * speed;
-            transform.Rotate(Vector3.up * Time.deltaTime*90);
+            //if (Input.GetKeyDown(KeyCode.D))
+            //{
+            //    transform.rotation = Quaternion.Euler(0,90,0);
+            //}
+            //if (Input.GetKeyDown(KeyCode.A))
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 270, 0);
+            //}
+            //if (Input.GetKeyDown(KeyCode.W))
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 0, 0);
+            //}
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 180, 0);
+            //}
+            transform.rotation = Quaternion.Euler(moveDirection*90);
             walk.Play();
             if (Input.GetButton("Jump"))
             {
