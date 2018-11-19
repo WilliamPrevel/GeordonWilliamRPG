@@ -1,0 +1,63 @@
+# Blender MTL File: 'SentinelLingerie00.blend'
+# Material Count: 5
+
+newmtl SE_Lingerie00_Body
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\BODY_SE_BD_N_00.dds
+map_Bump -bm 0.500000 textures\\BODY_SE_BD_N_00_NR.tga
+
+newmtl SE_Lingerie00_Feet
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\FEET_SE_FT_N_00.dds
+map_Bump -bm 0.500000 textures\\FEET_SE_FT_N_00_NR.dds
+
+newmtl SE_Lingerie00_Hair
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd textures\HAIR_CO_HR_N_14.tga
+map_Bump -bm 0.500000 textures\\HAIR_CO_HR_N_14_NR.dds
+map_d textures\\HAIR_CO_HR_N_14.tga
+
+newmtl SE_Lingerie00_Hands
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\HANDS_SE_GL_N_00.dds
+map_Bump -bm 0.500000 textures\\HANDS_SE_GL_N_00_NR.dds
+
+newmtl SE_Lingerie00_Head
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\HEAD_SE_FC_N_07.dds
+map_Bump -bm 0.500000 textures\\HEAD_SE_FC_N_07_NR.tga
