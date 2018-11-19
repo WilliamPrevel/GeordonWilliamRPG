@@ -49,10 +49,11 @@ public class playerscript : MonoBehaviour {
             //{
             //    transform.rotation = Quaternion.Euler(0, 180, 0);
             //}
-            transform.rotation = Quaternion.Euler(moveDirection*90);
+            transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
             walk.Play();
             if (Input.GetButton("Jump"))
             {
+                Debug.LogError("WILLIAM");
                 moveDirection.y = jumpSpeed;
             }
         }
