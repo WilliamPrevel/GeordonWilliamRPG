@@ -34,7 +34,8 @@ public class playerscript : MonoBehaviour {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection = moveDirection * speed;
-
+            transform.Rotate(Vector3.up * Time.deltaTime*90);
+            walk.Play();
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
@@ -42,7 +43,7 @@ public class playerscript : MonoBehaviour {
         }
 
         // Apply gravity
-        moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
+     moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
         // Move the controller
         controller.Move(moveDirection * Time.deltaTime);
