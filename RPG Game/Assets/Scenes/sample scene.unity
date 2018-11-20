@@ -566,7 +566,7 @@ Animation:
   m_GameObject: {fileID: 865432241}
   m_Enabled: 0
   serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
+  m_Animation: {fileID: 7400004, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   m_Animations:
   - {fileID: 7400010, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   - {fileID: 7400012, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
@@ -579,7 +579,7 @@ Animation:
   - {fileID: 7400004, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   - {fileID: 7400000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   - {fileID: 7400002, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_PlayAutomatically: 1
   m_AnimatePhysics: 1
   m_CullingType: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   gravity: 20
   turnSpeed: 90
   walk: {fileID: 865432242}
-  mycamera: {fileID: 0}
+  mycamera: {fileID: 684215612}
 --- !u!54 &865432247
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -776,7 +776,15 @@ Prefab:
     - target: {fileID: 9500000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 85adcab9e891c3d4ea49d5de4b88ec85, type: 2}
+      objectReference: {fileID: 9100000, guid: 06f05a5e8ba332942befa9ac35aa1817, type: 2}
+    - target: {fileID: 9500000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
+      propertyPath: m_AllowConstantClipSamplingOptimization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
+      propertyPath: m_KeepAnimatorControllerStateOnDisable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   m_IsPrefabAsset: 0

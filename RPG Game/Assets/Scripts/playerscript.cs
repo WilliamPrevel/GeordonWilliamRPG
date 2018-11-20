@@ -57,7 +57,7 @@ public class playerscript : MonoBehaviour {
     if (Input.GetKeyDown(KeyCode.A))
     {
             //transform.rotation = Quaternion.Euler(0, 270, 0);
-            walk.CrossFade("run");
+           // walk.CrossFade("run");
     }
      //       //if (Input.GetKeyDown(KeyCode.W))
      //       //{
