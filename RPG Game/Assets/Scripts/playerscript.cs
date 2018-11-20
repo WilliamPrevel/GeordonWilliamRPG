@@ -9,8 +9,18 @@ public class playerscript : MonoBehaviour {
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public float turnSpeed = 45;
+    public int HP = 100;
+    public int MAXHP = 100;
+    public int MP = 0;
+    public int MAXMP = 0;
+    public float attackDamage = 10;
+    public float armor = 0;
+    public bool covfefe;
+    public int exp = 0;
+    public int LV = 1;
+    public int MAXLV = 1;
     //bits
-    public Animation walk;
+    public Animator walk;
     public Camera mycamera;
     private Rigidbody mybody;
     private CharacterController controller;
@@ -30,12 +40,12 @@ public class playerscript : MonoBehaviour {
         // controller = GetComponent<CharacterController>();
         rotator = transform.rotation;
         mybody = GetComponent<Rigidbody>();
-        walk = GetComponent<Animation>();
-        walk.wrapMode = WrapMode.Loop;
-        foreach (AnimationState state in walk)
-    {
-        state.speed = 2F;
-    }
+       // walk = GetComponent<Animation>();
+      //  walk.wrapMode = WrapMode.Loop;
+    //    foreach (AnimationState state in walk)
+    //{
+    //    state.speed = 2F;
+    //}
     }
 
     void Update()
@@ -50,23 +60,26 @@ public class playerscript : MonoBehaviour {
      //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
      //       moveDirection = transform.TransformDirection(moveDirection);
      //       moveDirection = moveDirection * speed;
-     //       //if (Input.GetKeyDown(KeyCode.D))
-     //       //{
-     //       //    transform.rotation = Quaternion.Euler(0,90,0);
-     //       //}
-    if (Input.GetKeyDown(KeyCode.A))
+     if (Input.GetKeyDown(KeyCode.D))
+    {
+            walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
+        }
+    else if (Input.GetKeyDown(KeyCode.A))
     {
             //transform.rotation = Quaternion.Euler(0, 270, 0);
-           // walk.CrossFade("run");
+           walk.Play("run");
     }
-     //       //if (Input.GetKeyDown(KeyCode.W))
-     //       //{
-     //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
-     //       //}
-     //       //if (Input.GetKeyDown(KeyCode.S))
-     //       //{
-     //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
-     //       //}
+    else if (Input.GetKeyDown(KeyCode.W))
+    {
+            walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+   else if (Input.GetKeyDown(KeyCode.S))
+   {
+            walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
+        } else
+        {
+            walk.Play("idle");
+        }
      //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
      //       walk.Play();
     if (Input.GetButton("Jump"))
@@ -122,6 +135,7 @@ public class playerscript : MonoBehaviour {
     private void Attack()
     {
         //hit things
+        walk.Play("attack1");
     }
     private void Turn()
     {
