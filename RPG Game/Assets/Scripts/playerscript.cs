@@ -31,9 +31,10 @@ public class playerscript : MonoBehaviour {
         rotator = transform.rotation;
         mybody = GetComponent<Rigidbody>();
         walk = GetComponent<Animation>();
-    foreach (AnimationState state in walk)
+        walk.wrapMode = WrapMode.Loop;
+        foreach (AnimationState state in walk)
     {
-        state.speed = 0.5F;
+        state.speed = 2F;
     }
     }
 
@@ -53,10 +54,11 @@ public class playerscript : MonoBehaviour {
      //       //{
      //       //    transform.rotation = Quaternion.Euler(0,90,0);
      //       //}
-     //       //if (Input.GetKeyDown(KeyCode.A))
-     //       //{
-     //       //    transform.rotation = Quaternion.Euler(0, 270, 0);
-     //       //}
+    if (Input.GetKeyDown(KeyCode.A))
+    {
+            //transform.rotation = Quaternion.Euler(0, 270, 0);
+            walk.CrossFade("run");
+    }
      //       //if (Input.GetKeyDown(KeyCode.W))
      //       //{
      //       //    transform.rotation = Quaternion.Euler(0, 0, 0);

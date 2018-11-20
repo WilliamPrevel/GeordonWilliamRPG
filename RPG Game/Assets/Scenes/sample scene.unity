@@ -415,7 +415,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684215610}
   m_LocalRotation: {x: 0.27587405, y: 0.10573379, z: 0.04418542, w: 0.95433825}
-  m_LocalPosition: {x: -0.51, y: 1.52, z: -1.62}
+  m_LocalPosition: {x: -1.05, y: 3.9, z: -5.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 865432243}
@@ -603,7 +603,7 @@ MonoBehaviour:
   runSpeed: 12
   jumpSpeed: 8
   gravity: 20
-  turnSpeed: 12
+  turnSpeed: 90
   walk: {fileID: 865432242}
   mycamera: {fileID: 0}
 --- !u!54 &865432247
@@ -773,6 +773,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 85adcab9e891c3d4ea49d5de4b88ec85, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332a8a5bfb2fc4a18944ffe0345b93c7, type: 3}
   m_IsPrefabAsset: 0
