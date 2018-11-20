@@ -20,7 +20,7 @@ public class playerscript : MonoBehaviour {
     public int LV = 1;
     public int MAXLV = 1;
     //bits
-    public Animator walk;
+    public Animator anim;
     public Camera mycamera;
     private Rigidbody mybody;
     private CharacterController controller;
@@ -41,64 +41,72 @@ public class playerscript : MonoBehaviour {
         rotator = transform.rotation;
         mybody = GetComponent<Rigidbody>();
        // walk = GetComponent<Animation>();
-      //  walk.wrapMode = WrapMode.Loop;
-    //    foreach (AnimationState state in walk)
-    //{
-    //    state.speed = 2F;
-    //}
+        //  walk.wrapMode = WrapMode.Loop;
+        //    foreach (AnimationState state in walk)
+        //{
+        //    state.speed = 2F;
+        //}
     }
 
     void Update()
     {
         InputManager();
         Turn();
-     //   if (controller.isGrounded)
-     //   {
-     //       // We are grounded, so recalculate
-     //       // move direction directly from axes
+        //   if (controller.isGrounded)
+        //   {
+        //       // We are grounded, so recalculate
+        //       // move direction directly from axes
 
-     //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-     //       moveDirection = transform.TransformDirection(moveDirection);
-     //       moveDirection = moveDirection * speed;
-     if (Input.GetKeyDown(KeyCode.D))
-    {
-            walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
-        }
-    else if (Input.GetKeyDown(KeyCode.A))
-    {
-            //transform.rotation = Quaternion.Euler(0, 270, 0);
-           walk.Play("run");
-    }
-    else if (Input.GetKeyDown(KeyCode.W))
-    {
-            walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-   else if (Input.GetKeyDown(KeyCode.S))
-   {
-            walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
-        } else
+        //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        //       moveDirection = transform.TransformDirection(moveDirection);
+        //       moveDirection = moveDirection * speed;
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            walk.Play("idle");
+            //walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
         }
-     //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
-     //       walk.Play();
-    if (Input.GetButton("Jump"))
-          {
-             Debug.LogError("WILLIAM DO STUFF");
-     //           moveDirection.y = jumpSpeed;
-          }
-     //   }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            //transform.rotation = Quaternion.Euler(0, 270, 0);
+           //walk.Play("run");
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            //walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            //walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            //walk.Play("idle");
+        }
+        //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
+        //       walk.Play();
+        if (Input.GetButtonDown("Jump"))
+        {
+            //Debug.LogError("WILLIAM DO STUFF");
+            anim.SetBool("bIsAttacking", true);
+            Invoke("FinishAttack", .80f);
+            //moveDirection.y = jumpSpeed;
+        }
 
-     //   // Apply gravity
-     //moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
+        // Apply gravity
+        //moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
-     //   // Move the controller
-     //   controller.Move(moveDirection * Time.deltaTime);
+        // Move the controller
+        // controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void FinishAttack()
+    {
+        anim.SetBool("bIsAttacking", false);
     }
     private void FixedUpdate()
     {
         //physics
         Move();
+        //mycamera.velocity = (5, 5, 5);
     }
     private void InputManager()
     {
@@ -124,7 +132,7 @@ public class playerscript : MonoBehaviour {
         if (isRunning)
         {
             //move faster, change animation.
-            mybody.velocity = Vector3.forward * forwardMotion * runSpeed;
+            mybody.velocity = gameObject.transform.forward * forwardMotion * runSpeed;
         } 
         
     }
@@ -135,7 +143,7 @@ public class playerscript : MonoBehaviour {
     private void Attack()
     {
         //hit things
-        walk.Play("attack1");
+        //walk.Play("attack1");
     }
     private void Turn()
     {
