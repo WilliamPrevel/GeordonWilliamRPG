@@ -105,7 +105,7 @@ public class playerscript : MonoBehaviour {
     private void Move()
     {
         //move and stuf
-        mybody.velocity = Vector3.forward * forwardMotion * speed;
+        mybody.velocity = gameObject.transform.forward * forwardMotion * speed;
         if (isRunning)
         {
             //move faster, change animation.
