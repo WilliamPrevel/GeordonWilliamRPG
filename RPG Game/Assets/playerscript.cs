@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerscript : MonoBehaviour {
+    //vars
     public float speed = 6.0f;
+    public float runSpeed = 12.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public float turnSpeed = 12;
+    //bits
     public Animation walk;
-
-    private Vector3 moveDirection = Vector3.zero;
+    private Rigidbody mybody;
     private CharacterController controller;
-
+    //controls
+    private Vector3 moveDirection = Vector3.zero;
+    private float forwardMotion;
+    private float lrMotion;
+    private bool isRunning = false;
+    Quaternion rotator;
+    //functions
     void Start()
     {
-        controller = GetComponent<CharacterController>();
-
-        // let the gameObject fall downz
+        // controller = GetComponent<CharacterController>();
+        rotator = transform.rotation;
+        mybody = GetComponent<Rigidbody>();
         walk = GetComponent<Animation>();
     foreach (AnimationState state in walk)
     {
@@ -25,43 +34,88 @@ public class playerscript : MonoBehaviour {
 
     void Update()
     {
-        if (controller.isGrounded)
+        InputManager();
+        Turn();
+     //   if (controller.isGrounded)
+     //   {
+     //       // We are grounded, so recalculate
+     //       // move direction directly from axes
+
+     //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+     //       moveDirection = transform.TransformDirection(moveDirection);
+     //       moveDirection = moveDirection * speed;
+     //       //if (Input.GetKeyDown(KeyCode.D))
+     //       //{
+     //       //    transform.rotation = Quaternion.Euler(0,90,0);
+     //       //}
+     //       //if (Input.GetKeyDown(KeyCode.A))
+     //       //{
+     //       //    transform.rotation = Quaternion.Euler(0, 270, 0);
+     //       //}
+     //       //if (Input.GetKeyDown(KeyCode.W))
+     //       //{
+     //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
+     //       //}
+     //       //if (Input.GetKeyDown(KeyCode.S))
+     //       //{
+     //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
+     //       //}
+     //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
+     //       walk.Play();
+    if (Input.GetButton("Jump"))
+          {
+             Debug.LogError("WILLIAM");
+     //           moveDirection.y = jumpSpeed;
+          }
+     //   }
+
+     //   // Apply gravity
+     //moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
+
+     //   // Move the controller
+     //   controller.Move(moveDirection * Time.deltaTime);
+    }
+    private void FixedUpdate()
+    {
+        //physics
+        Move();
+    }
+    private void InputManager()
+    {
+        forwardMotion = Input.GetAxis("Vertical");
+        lrMotion = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.E))
         {
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection = moveDirection * speed;
-            //if (Input.GetKeyDown(KeyCode.D))
-            //{
-            //    transform.rotation = Quaternion.Euler(0,90,0);
-            //}
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    transform.rotation = Quaternion.Euler(0, 270, 0);
-            //}
-            //if (Input.GetKeyDown(KeyCode.W))
-            //{
-            //    transform.rotation = Quaternion.Euler(0, 0, 0);
-            //}
-            //if (Input.GetKeyDown(KeyCode.S))
-            //{
-            //    transform.rotation = Quaternion.Euler(0, 180, 0);
-            //}
-            transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
-            walk.Play();
-            if (Input.GetButton("Jump"))
-            {
-                Debug.LogError("WILLIAM");
-                moveDirection.y = jumpSpeed;
-            }
+            isRunning = true;
+        } else
+        {
+            isRunning = false;
         }
-
-        // Apply gravity
-     moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
-
-        // Move the controller
-        controller.Move(moveDirection * Time.deltaTime);
+        //lets be organized here. functions for everything.
+    }
+    private void Move()
+    {
+        //move and stuf
+        mybody.velocity = Vector3.forward * forwardMotion * speed;
+        if (isRunning)
+        {
+            //move faster, change animation.
+            mybody.velocity = Vector3.forward * forwardMotion * runSpeed;
+        } 
+        
+    }
+    private void Attack()
+    {
+        //hit things
+    }
+    private void Turn()
+    {
+       rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
+        transform.rotation = rotator;
+        //rotate character
+    }
+    private void SummonBlock()
+    {
+        //I was thinking we could have some physicsy fun by throwing things in the air akin to cryonis in botw.
     }
 }
