@@ -8,15 +8,20 @@ public class playerscript : MonoBehaviour {
     public float runSpeed = 12.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
-    public float turnSpeed = 12;
+    public float turnSpeed = 45;
     //bits
     public Animation walk;
+    public Camera mycamera;
     private Rigidbody mybody;
     private CharacterController controller;
+    
     //controls
     private Vector3 moveDirection = Vector3.zero;
     private float forwardMotion;
     private float lrMotion;
+    private float verticalCameraMotion;
+    private float horizontalCameraMotion;
+    private float aimingMotion;
     private bool isRunning = false;
     Quaternion rotator;
     //functions
@@ -64,7 +69,7 @@ public class playerscript : MonoBehaviour {
      //       walk.Play();
     if (Input.GetButton("Jump"))
           {
-             Debug.LogError("WILLIAM");
+             Debug.LogError("WILLIAM DO STUFF");
      //           moveDirection.y = jumpSpeed;
           }
      //   }
@@ -84,6 +89,10 @@ public class playerscript : MonoBehaviour {
     {
         forwardMotion = Input.GetAxis("Vertical");
         lrMotion = Input.GetAxis("Horizontal");
+        aimingMotion = Input.GetAxis("Mouse ScrollWheel");
+        verticalCameraMotion = Input.GetAxis("Mouse X");
+        horizontalCameraMotion = Input.GetAxis("Mouse X");
+
         if (Input.GetKey(KeyCode.E))
         {
             isRunning = true;
@@ -103,6 +112,10 @@ public class playerscript : MonoBehaviour {
             mybody.velocity = Vector3.forward * forwardMotion * runSpeed;
         } 
         
+    }
+    private void Jump()
+    {
+        //boing boing m'f'cker
     }
     private void Attack()
     {
