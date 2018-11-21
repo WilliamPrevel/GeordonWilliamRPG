@@ -19,6 +19,7 @@ public class playerscript : MonoBehaviour {
     public int exp = 0;
     public int LV = 1;
     public int MAXLV = 1;
+    public float weaponLength = 0.5f;
     //bits
     public Animator anim;
     public Camera mycamera;
@@ -34,6 +35,7 @@ public class playerscript : MonoBehaviour {
     private float aimingMotion;
     private bool isRunning = false;
     Quaternion rotator;
+    RaycastHit hit;
     //functions
     void Start()
     {
@@ -60,9 +62,13 @@ public class playerscript : MonoBehaviour {
         //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         //       moveDirection = transform.TransformDirection(moveDirection);
         //       moveDirection = moveDirection * speed;
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             //anim.SetBool("isWalking", true);  //walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
+            if (isRunning)
+            {
+
+            }
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
@@ -91,21 +97,40 @@ public class playerscript : MonoBehaviour {
         }
         //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
         //       walk.Play();
+        //its actually attacking
         if (Input.GetButtonDown("Jump"))
         {
-            //Debug.LogError("WILLIAM DO STUFF");
+            Debug.LogError("WILLIAM DO STUFF");
             anim.SetBool("bIsAttacking", true);
+            Invoke("DoDamage", .50f);
             Invoke("FinishAttack", .80f);
-            //moveDirection.y = jumpSpeed;
+            //DoDamage();
+            // moveDirection.y = jumpSpeed;
         }
 
         // Apply gravity
-        //moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
+      //  moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 
         // Move the controller
         // controller.Move(moveDirection * Time.deltaTime);
     }
-
+    private void DoDamage()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+            if(hit.transform.gameObject.tag == "Enemy")
+            {
+              //  hit.transform.gameObject.getComponent<Enemy>;
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.Log("Did not Hit");
+        }
+    }
     private void FinishAttack()
     {
         anim.SetBool("bIsAttacking", false);
@@ -157,8 +182,11 @@ public class playerscript : MonoBehaviour {
     }
     private void Turn()
     {
-       rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
-        transform.rotation = rotator;
+       // if (isRunning == false)
+       // {
+            rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
+            transform.rotation = rotator;
+       // }
         //rotate character
     }
     private void SummonBlock()
