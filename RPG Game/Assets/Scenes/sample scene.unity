@@ -927,12 +927,42 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 90
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1481027148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481027142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768423ca480a674499301b6b98e866e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1481027145}
+  player: {fileID: 215933106}
+  EnemyType: SpiderLady
+  speed: 6
+  runSpeed: 12
+  jumpSpeed: 8
+  gravity: 20
+  turnSpeed: 1.5
+  sightDistance: 10
+  HP: 50
+  MAXHP: 50
+  MP: 0
+  MAXMP: 0
+  attackDamage: 20
+  armor: 0
+  covfefe: 1
+  exp: 50
+  LV: 1
+  MAXLV: 50
 --- !u!1001 &1633835581
 Prefab:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     public Animator anim;
     public Transform player;
+    protected Rigidbody mybody;
+    Quaternion rotator;
     public string EnemyType;
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
@@ -25,7 +27,8 @@ public class Enemy : MonoBehaviour {
     private bool isAttacking;
     void Start()
     {
-
+        rotator = transform.rotation;
+        mybody = GetComponentInChildren<Rigidbody>();
     }
 
     void Update()
@@ -36,7 +39,7 @@ public class Enemy : MonoBehaviour {
         {
              if(EnemyType == "SpiderLady")
                 {
-                   anim.SetBool("bIsAttacking", true);
+                   anim.SetBool("isAttacking", true);
                 }
             Vector3 direction = player.position - this.transform.position;
             
@@ -52,6 +55,10 @@ public class Enemy : MonoBehaviour {
 
             }
 
+        }
+         else if (EnemyType == "SpiderLady")
+        {
+            anim.SetBool("isAttacking", false);
         }
 
     }
