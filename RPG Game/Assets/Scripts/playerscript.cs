@@ -39,7 +39,7 @@ public class playerscript : MonoBehaviour {
     {
         // controller = GetComponent<CharacterController>();
         rotator = transform.rotation;
-        mybody = GetComponent<Rigidbody>();
+        mybody = GetComponentInChildren<Rigidbody>();
        // walk = GetComponent<Animation>();
         //  walk.wrapMode = WrapMode.Loop;
         //    foreach (AnimationState state in walk)
@@ -62,24 +62,32 @@ public class playerscript : MonoBehaviour {
         //       moveDirection = moveDirection * speed;
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
+            //anim.SetBool("isWalking", true);  //walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            //transform.rotation = Quaternion.Euler(0, 270, 0);
-           //walk.Play("run");
+          //  anim.SetBool("isWalking", true);  //transform.rotation = Quaternion.Euler(0, 270, 0);
+                                              //walk.Play("run");
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            //walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
+           // anim.SetBool("isWalking", true);//walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            //walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
+           //walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
             //walk.Play("idle");
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
         //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
         //       walk.Play();
@@ -119,9 +127,11 @@ public class playerscript : MonoBehaviour {
         if (Input.GetKey(KeyCode.E))
         {
             isRunning = true;
+            anim.SetBool("isRunning", true);
         } else
         {
             isRunning = false;
+            anim.SetBool("isRunning", false);
         }
         //lets be organized here. functions for everything.
     }

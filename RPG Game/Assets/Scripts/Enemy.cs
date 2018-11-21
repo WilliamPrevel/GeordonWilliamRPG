@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
     public int exp = 0;
     public int LV = 1;
     public int MAXLV = 1;
+    private bool isAttacking;
     void Start()
     {
 
