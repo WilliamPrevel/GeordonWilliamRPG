@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
+    public Animator anim;
     public Transform player;
+    public string EnemyType;
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
     public float jumpSpeed = 8.0f;
@@ -43,7 +44,10 @@ public class Enemy : MonoBehaviour {
 
             if (direction.magnitude > 5)
             {
-
+                if(EnemyType == "SpiderLady")
+                {
+                   anim.SetBool("bIsAttacking", true);
+                }
                 this.transform.Translate(0, 0, 0.05f); 
 
             }

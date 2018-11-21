@@ -13,7 +13,7 @@ public class playerscript : MonoBehaviour {
     public int MAXHP = 100;
     public int MP = 0;
     public int MAXMP = 0;
-    public float attackDamage = 10;
+    public int attackDamage = 10;
     public float armor = 0;
     public bool covfefe;
     public int exp = 0;
@@ -23,6 +23,7 @@ public class playerscript : MonoBehaviour {
     //bits
     public Animator anim;
     public Camera mycamera;
+    public GameObject hitenemy;
     private Rigidbody mybody;
     private CharacterController controller;
     
@@ -39,54 +40,14 @@ public class playerscript : MonoBehaviour {
     //functions
     void Start()
     {
-        // controller = GetComponent<CharacterController>();
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
-       // walk = GetComponent<Animation>();
-        //  walk.wrapMode = WrapMode.Loop;
-        //    foreach (AnimationState state in walk)
-        //{
-        //    state.speed = 2F;
-        //}
     }
 
     void Update()
     {
         InputManager();
         Turn();
-        //   if (controller.isGrounded)
-        //   {
-        //       // We are grounded, so recalculate
-        //       // move direction directly from axes
-
-        //       moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        //       moveDirection = transform.TransformDirection(moveDirection);
-        //       moveDirection = moveDirection * speed;
-        if (Input.GetKey(KeyCode.D))
-        {
-            //anim.SetBool("isWalking", true);  //walk.Play("run");//       //    transform.rotation = Quaternion.Euler(0,90,0);
-            if (isRunning)
-            {
-
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-          //  anim.SetBool("isWalking", true);  //transform.rotation = Quaternion.Euler(0, 270, 0);
-                                              //walk.Play("run");
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-           // anim.SetBool("isWalking", true);//walk.Play("run"); //       //    transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-           //walk.Play("run");  //       //    transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            //walk.Play("idle");
-        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isWalking", true);
@@ -95,39 +56,29 @@ public class playerscript : MonoBehaviour {
         {
             anim.SetBool("isWalking", false);
         }
-        //       transform.rotation = Quaternion.AngleAxis(Time.deltaTime,Vector3.up);//Euler(moveDirection*90);
-        //       walk.Play();
-        //its actually attacking
-        if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetButtonDown("Jump"))   //its actually attacking
         {
             Debug.LogError("WILLIAM DO STUFF");
-            anim.SetBool("bIsAttacking", true);
-            Invoke("DoDamage", .50f);
-            Invoke("FinishAttack", .80f);
-            //DoDamage();
-            // moveDirection.y = jumpSpeed;
+            Attack();
         }
-
-        // Apply gravity
-      //  moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
-
-        // Move the controller
-        // controller.Move(moveDirection * Time.deltaTime);
     }
     private void DoDamage()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.Log("Hit");
             if(hit.transform.gameObject.tag == "Enemy")
             {
-              //  hit.transform.gameObject.getComponent<Enemy>;
+                hitenemy = hit.transform.gameObject;
+              hit.transform.gameObject.GetComponent<Enemy>();
+                hitenemy.GetComponent<Enemy>().HP -= attackDamage;
             }
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             Debug.Log("Did not Hit");
         }
     }
@@ -139,7 +90,6 @@ public class playerscript : MonoBehaviour {
     {
         //physics
         Move();
-        //mycamera.velocity = (5, 5, 5);
     }
     private void InputManager()
     {
@@ -178,16 +128,15 @@ public class playerscript : MonoBehaviour {
     private void Attack()
     {
         //hit things
-        //walk.Play("attack1");
+        anim.SetBool("bIsAttacking", true);
+        Invoke("DoDamage", .50f);
+        Invoke("FinishAttack", .80f);
     }
     private void Turn()
     {
-       // if (isRunning == false)
-       // {
+        //rotate character
             rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
             transform.rotation = rotator;
-       // }
-        //rotate character
     }
     private void SummonBlock()
     {
