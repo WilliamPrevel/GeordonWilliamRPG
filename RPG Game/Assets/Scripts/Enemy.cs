@@ -34,7 +34,10 @@ public class Enemy : MonoBehaviour {
         if (Vector3.Distance(player.position, this.transform.position) < sightDistance)
             
         {
-
+             if(EnemyType == "SpiderLady")
+                {
+                   anim.SetBool("bIsAttacking", true);
+                }
             Vector3 direction = player.position - this.transform.position;
             
 
@@ -44,10 +47,7 @@ public class Enemy : MonoBehaviour {
 
             if (direction.magnitude > 5)
             {
-                if(EnemyType == "SpiderLady")
-                {
-                   anim.SetBool("bIsAttacking", true);
-                }
+              
                 this.transform.Translate(0, 0, 0.05f); 
 
             }
