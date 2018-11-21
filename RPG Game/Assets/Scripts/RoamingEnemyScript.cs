@@ -9,10 +9,12 @@ public class RoamingEnemyScript : Enemy {
     public int roamdistance = 30;
     public int roamTime = 10;
     private int roam = 10;
+    
     // Use this for initialization
     void Start () {
         roam = roamTime;
-       // InvokeRepeating("Roam", 5f, 1000);
+        //rotator = transform.rotation;
+        mybody = GetComponentInChildren<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -29,21 +31,15 @@ public class RoamingEnemyScript : Enemy {
 
     private void Roam()
     {
-        destination = Random.insideUnitCircle * roamdistance;
+        Vector2 getdestination = Random.insideUnitCircle * roamdistance;
+        destination = new Vector3(getdestination.x, 0, getdestination.y);
             if (EnemyType == "SpiderLady")
             {
                 anim.SetBool("isWalking", true);
             }
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
-            
-        Quaternion.LookRotation(destination), turnSpeed);
-        destination = destination - transform.position;
-        if (destination.magnitude > 5)
-        {
-
-            this.transform.Translate(0, 0, 0.05f);
-
-        }
-      mybody.velocity = gameObject.transform.forward * speed;
+        Quaternion restrictor = Quaternion.Euler(0,1,0);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), turnSpeed) * restrictor;
+        destination = destination - (transform.position);
+        mybody.velocity = gameObject.transform.forward * speed;
     }
 }

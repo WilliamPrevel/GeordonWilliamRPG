@@ -894,7 +894,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1481027142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c606b1180b03f144c8805e325479389b, type: 3}
   m_Name: 
@@ -951,7 +951,7 @@ MonoBehaviour:
   runSpeed: 12
   jumpSpeed: 8
   gravity: 20
-  turnSpeed: 1.5
+  turnSpeed: 200
   sightDistance: 10
   HP: 50
   MAXHP: 50
@@ -963,6 +963,8 @@ MonoBehaviour:
   exp: 50
   LV: 1
   MAXLV: 50
+  roamdistance: 200
+  roamTime: 100
 --- !u!1001 &1633835581
 Prefab:
   m_ObjectHideFlags: 0
