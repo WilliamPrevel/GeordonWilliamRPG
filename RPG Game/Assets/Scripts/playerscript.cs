@@ -98,7 +98,11 @@ public class playerscript : MonoBehaviour {
         aimingMotion = Input.GetAxis("Mouse ScrollWheel");
         verticalCameraMotion = Input.GetAxis("Mouse X");
         horizontalCameraMotion = Input.GetAxis("Mouse X");
-
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyUp(KeyCode.S))
+        {
+            //turn around
+            rotator *= Quaternion.AngleAxis(180, Vector3.up);
+        }
         if (Input.GetKey(KeyCode.E))
         {
             isRunning = true;
@@ -113,8 +117,9 @@ public class playerscript : MonoBehaviour {
     private void Move()
     {
         //move and stuf
-        mybody.velocity = gameObject.transform.forward * forwardMotion * speed;
+        mybody.velocity = gameObject.transform.forward * Mathf.Abs(forwardMotion) * speed; 
         if (isRunning)
+            if (isRunning)
         {
             //move faster, change animation.
             mybody.velocity = gameObject.transform.forward * forwardMotion * runSpeed;
