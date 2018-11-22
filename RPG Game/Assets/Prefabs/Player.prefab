@@ -5564,10 +5564,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  runSpeed: 60
+  runSpeed: 18
   jumpSpeed: 8
   gravity: 20
-  turnSpeed: 45
+  turnSpeed: 90
   HP: 100
   MAXHP: 100
   MP: 0

@@ -6,6 +6,7 @@ public class floatingBarScript : MonoBehaviour {
         float HP;
         float MAXHP;
         float currenthp;
+    public Camera mycam;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,7 +14,12 @@ public class floatingBarScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       HP = gameObject.GetComponentInParent<Enemy>().HP;
+
+        //look at camera code:
+        var n = mycam.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(n);
+
+        HP = gameObject.GetComponentInParent<Enemy>().HP;
        MAXHP = gameObject.GetComponentInParent<Enemy>().MAXHP;
        currenthp = HP / MAXHP;
         if (HP >= MAXHP || HP <=0)
