@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public Transform player;
     protected Rigidbody mybody;
     Quaternion rotator;
+    Quaternion restrictor = Quaternion.Euler(0, 1, 0);
     public string EnemyType;
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     public int exp = 0;
     public int LV = 1;
     public int MAXLV = 1;
+   
     private bool isAttacking;
     void Start()
     {
@@ -44,10 +46,10 @@ public class Enemy : MonoBehaviour
             }
             Vector3 direction = player.position - this.transform.position;
 
-
+           
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
-            Quaternion.LookRotation(direction), turnSpeed);
+            Quaternion.LookRotation(direction)*restrictor, turnSpeed);
 
             if (direction.magnitude > 5)
             {
