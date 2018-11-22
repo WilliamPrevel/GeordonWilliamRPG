@@ -20,6 +20,7 @@ public class playerscript : MonoBehaviour {
     public int LV = 1;
     public int MAXLV = 1;
     public float weaponLength = 0.5f;
+    private bool isattacking;
     //bits
     public Animator anim;
     public Camera mycamera;
@@ -48,21 +49,14 @@ public class playerscript : MonoBehaviour {
     {
         InputManager();
         Turn();
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("isWalking", true);
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
-
-        if (Input.GetButtonDown("Jump"))   //its actually attacking
-        {
-            Debug.LogError("WILLIAM DO STUFF");
-            Attack();
-        }
     }
+
+    private void FixedUpdate()
+    {
+        //physics
+        Move();
+    }
+
     private void DoDamage()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
@@ -86,12 +80,9 @@ public class playerscript : MonoBehaviour {
     private void FinishAttack()
     {
         anim.SetBool("bIsAttacking", false);
+        isattacking = false;
     }
-    private void FixedUpdate()
-    {
-        //physics
-        Move();
-    }
+ 
     private void InputManager()
     {
         forwardMotion = Input.GetAxis("Vertical");
@@ -106,6 +97,24 @@ public class playerscript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.E))
         {
+            if(isattacking == false)
+            Attack();
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Debug.LogError("WILLIAM DO STUFF");
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
             isRunning = true;
             anim.SetBool("isRunning", true);
         } else
@@ -113,7 +122,6 @@ public class playerscript : MonoBehaviour {
             isRunning = false;
             anim.SetBool("isRunning", false);
         }
-        //lets be organized here. functions for everything.
     }
     private void Move()
     {
@@ -134,6 +142,7 @@ public class playerscript : MonoBehaviour {
     private void Attack()
     {
         //hit things
+        isattacking = true;
         anim.SetBool("bIsAttacking", true);
         Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
