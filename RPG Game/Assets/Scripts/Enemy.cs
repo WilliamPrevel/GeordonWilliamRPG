@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
     public Animator anim;
     public Transform player;
     protected Rigidbody mybody;
@@ -35,32 +36,42 @@ public class Enemy : MonoBehaviour {
     {
 
         if (Vector3.Distance(player.position, this.transform.position) < sightDistance)
-            
+
         {
-             if(EnemyType == "SpiderLady")
-                {
-                   anim.SetBool("isAttacking", true);
-                }
+            if (EnemyType == "SpiderLady")
+            {
+                anim.SetBool("isAttacking", true);
+            }
             Vector3 direction = player.position - this.transform.position;
-            
+
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
-            Quaternion.LookRotation(direction), turnSpeed); 
+            Quaternion.LookRotation(direction), turnSpeed);
 
             if (direction.magnitude > 5)
             {
-              
-                this.transform.Translate(0, 0, 0.05f); 
+
+                this.transform.Translate(0, 0, 0.05f);
 
             }
 
         }
-         else if (EnemyType == "SpiderLady")
+        else if (EnemyType == "SpiderLady")
         {
             anim.SetBool("isAttacking", false);
         }
+        if (HP <= 0)
+        {
+            if (EnemyType == "SpiderLady")
+            {
+                anim.SetBool("isDead", true);
+            }
+            Invoke("Dead", 5);
+        }
 
     }
-
+    private void Dead(){
+        gameObject.SetActive(false);
+    }
 }

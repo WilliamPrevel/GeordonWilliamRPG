@@ -74,6 +74,7 @@ public class playerscript : MonoBehaviour {
                 hitenemy = hit.transform.gameObject;
               hit.transform.gameObject.GetComponent<Enemy>();
                 hitenemy.GetComponent<Enemy>().HP -= attackDamage;
+                Debug.Log("Hit Enemy");
             }
         }
         else
