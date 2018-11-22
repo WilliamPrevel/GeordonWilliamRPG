@@ -14,6 +14,7 @@ public class playerscript : MonoBehaviour {
     public int MP = 0;
     public int MAXMP = 0;
     public int attackDamage = 10;
+    public int MPDrain;
     public float armor = 0;
     public bool covfefe;
     public int exp = 0;
@@ -66,7 +67,7 @@ public class playerscript : MonoBehaviour {
             if(hit.transform.gameObject.tag == "Enemy")
             {
                 hitenemy = hit.transform.gameObject;
-              hit.transform.gameObject.GetComponent<Enemy>();
+                hit.transform.gameObject.GetComponent<Enemy>();
                 hitenemy.GetComponent<Enemy>().HP -= attackDamage;
                 Debug.Log("Hit Enemy");
             }
@@ -77,6 +78,28 @@ public class playerscript : MonoBehaviour {
             Debug.Log("Did not Hit");
         }
     }
+    private void DoMoreDamage()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.Log("Hit");
+            if (hit.transform.gameObject.tag == "Enemy")
+            {
+                hitenemy = hit.transform.gameObject;
+                hit.transform.gameObject.GetComponent<Enemy>();
+                hitenemy.GetComponent<Enemy>().HP -= attackDamage*2;
+                GetComponent<playerscript>().MP -= MPDrain;
+                Debug.Log("Hit Enemy");
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            Debug.Log("Did not Hit");
+        }
+    }
+
     private void FinishAttack()
     {
         anim.SetBool("bIsAttacking", false);
@@ -102,7 +125,8 @@ public class playerscript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            Debug.LogError("WILLIAM DO STUFF");
+            if (isattacking == false)
+            SAttack();
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -149,6 +173,15 @@ public class playerscript : MonoBehaviour {
         Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
     }
+    private void SAttack()
+    {
+        //hit things
+        isattacking = true;
+        anim.SetBool("bIsAttacking", true);
+        Invoke("DoMoreDamage", .50f);
+        Invoke("FinishAttack", .80f);
+    }
+
     private void Turn()
     {
         //rotate character

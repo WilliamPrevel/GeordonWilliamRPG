@@ -20,13 +20,15 @@ public class Enemy : MonoBehaviour
     public int MAXHP = 50;
     public int MP = 0;
     public int MAXMP = 0;
-    public float attackDamage = 20;
+    public int attackDamage = 20;
     public float armor = 0;
     public bool covfefe;
     public int exp = 0;
     public int LV = 1;
     public int MAXLV = 1;
-   
+    RaycastHit hit;
+    public GameObject hitplayer;
+
     private bool isAttacking;
     void Start()
     {
@@ -45,8 +47,10 @@ public class Enemy : MonoBehaviour
                 anim.SetBool("isAttacking", true);
             }
             Vector3 direction = player.position - this.transform.position;
+            hitplayer.transform.gameObject.GetComponent<playerscript>();
+            hitplayer.GetComponent<playerscript>().HP -= attackDamage;
 
-           
+
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
             Quaternion.LookRotation(direction)*restrictor, turnSpeed);
