@@ -126,14 +126,16 @@ public class playerscript : MonoBehaviour {
     private void Move()
     {
         //move and stuf
-        mybody.velocity = gameObject.transform.forward * Mathf.Abs(forwardMotion) * speed; 
-        if (isRunning)
-            if (isRunning)
+        if (isattacking == false)
         {
-            //move faster, change animation.
-            mybody.velocity = gameObject.transform.forward * forwardMotion * runSpeed;
-        } 
-        
+            mybody.velocity = gameObject.transform.forward * Mathf.Abs(forwardMotion) * speed;
+            if (isRunning)
+                if (isRunning)
+                {
+                    //move faster, change animation.
+                    mybody.velocity = gameObject.transform.forward * forwardMotion * runSpeed;
+                }
+        }
     }
     private void Jump()
     {
