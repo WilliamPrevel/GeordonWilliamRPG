@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBarScript : MonoBehaviour {
+public class HealthBarScript : MonoBehaviour
+{
 
     private HealthSystemScript healthSystem;
 
@@ -19,6 +20,6 @@ public class HealthBarScript : MonoBehaviour {
     }
     private void Update()
     {
-        //transform.Find("Bar").localScale = new Vector3(healthSystem.GetHealthPercent(), 1);
+        
     }
 }
