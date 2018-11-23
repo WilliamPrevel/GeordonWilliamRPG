@@ -25,7 +25,7 @@ public class playerscript : MonoBehaviour {
     //bits
     public Animator anim;
     public Camera mycamera;
-    public GameObject hitenemy;
+    private GameObject hitenemy;
     private Rigidbody mybody;
     private CharacterController controller;
     
@@ -85,12 +85,13 @@ public class playerscript : MonoBehaviour {
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
                 Debug.Log("Hit");
-                if (hit.transform.gameObject.tag == "Enemy")
+            MP -= MPDrain;
+            if (hit.transform.gameObject.tag == "Enemy")
                 {
                     hitenemy = hit.transform.gameObject;
                     hit.transform.gameObject.GetComponent<Enemy>();
                     hitenemy.GetComponent<Enemy>().HP -= attackDamage * 2;
-                    MP = GetComponent<playerscript>().MP - MPDrain;
+                    
                     Debug.Log("Hit Enemy");
                 }
             }
@@ -129,9 +130,9 @@ public class playerscript : MonoBehaviour {
         {
             if (isattacking == false)
             {
-                if (MP > MPDrain)
+                if (MP >= MPDrain)
                 {
-
+                    
                     SAttack();
                 }
                 else
