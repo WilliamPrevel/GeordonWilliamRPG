@@ -717,6 +717,37 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 215933105}
+    - target: {fileID: 223346897967061284, guid: 013470aa661774048a18d199f423cd37,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 684215612}
+    - target: {fileID: 224559734547072300, guid: 013470aa661774048a18d199f423cd37,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 372
+      objectReference: {fileID: 0}
+    - target: {fileID: 224559734547072300, guid: 013470aa661774048a18d199f423cd37,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 235
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371775285435000, guid: 013470aa661774048a18d199f423cd37, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164454256792702, guid: 013470aa661774048a18d199f423cd37, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205046882677920, guid: 013470aa661774048a18d199f423cd37, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194576503797138, guid: 013470aa661774048a18d199f423cd37, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.046
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013470aa661774048a18d199f423cd37, type: 2}
   m_IsPrefabAsset: 0

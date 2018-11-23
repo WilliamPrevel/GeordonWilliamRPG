@@ -22,6 +22,6 @@ public class BetterMPBar : MonoBehaviour {
         MAXMP = player.GetComponentInParent<playerscript>().MAXMP;
         currentmp = MP / MAXMP;
         gameObject.transform.localScale = new Vector3(currentmp, 1, 1);
-        Debug.Log(currentmp);
+       // Debug.Log(currentmp);
     }
 }

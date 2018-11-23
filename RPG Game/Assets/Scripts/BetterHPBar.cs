@@ -22,6 +22,6 @@ public class BetterHPBar : MonoBehaviour
         MAXHP = player.GetComponentInParent<playerscript>().MAXHP;
         currenthp = HP / MAXHP;
         gameObject.transform.localScale = new Vector3(currenthp, 1, 1);
-        Debug.Log(currenthp);
+       // Debug.Log(currenthp);
     }
 }
