@@ -7,7 +7,7 @@ public class BetterMPBar : MonoBehaviour {
 
     float MP;
     float MAXMP;
-    float currenthp;
+    float currentmp;
     public GameObject player;
     // Use this for initialization
     void Start()
@@ -20,15 +20,15 @@ public class BetterMPBar : MonoBehaviour {
     {
         MP = player.GetComponentInParent<playerscript>().MP;
         MAXMP = player.GetComponentInParent<playerscript>().MAXMP;
-        currenthp = MP / MAXMP;
+        currentmp = MP / MAXMP;
         if (MP >= MAXMP || MP <= 0)
         {
             gameObject.transform.localScale = new Vector3(0, 0, 0);
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(currenthp, 1, 1);
+            gameObject.transform.localScale = new Vector3(currentmp, 1, 1);
         }
-        Debug.Log(currenthp);
+        Debug.Log(currentmp);
     }
 }

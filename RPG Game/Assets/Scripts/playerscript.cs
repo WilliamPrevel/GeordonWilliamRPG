@@ -11,10 +11,10 @@ public class playerscript : MonoBehaviour {
     public float turnSpeed = 45;
     public int HP = 100;
     public int MAXHP = 100;
-    public int MP = 0;
-    public int MAXMP = 0;
+    public int MP = 100;
+    public int MAXMP = 100;
     public int attackDamage = 10;
-    public int MPDrain;
+    public int MPDrain = 10;
     public float armor = 0;
     public bool covfefe;
     public int exp = 0;
@@ -80,24 +80,26 @@ public class playerscript : MonoBehaviour {
     }
     private void DoMoreDamage()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log("Hit");
-            if (hit.transform.gameObject.tag == "Enemy")
+        
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
             {
-                hitenemy = hit.transform.gameObject;
-                hit.transform.gameObject.GetComponent<Enemy>();
-                hitenemy.GetComponent<Enemy>().HP -= attackDamage*2;
-                GetComponent<playerscript>().MP -= MPDrain;
-                Debug.Log("Hit Enemy");
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+                Debug.Log("Hit");
+                if (hit.transform.gameObject.tag == "Enemy")
+                {
+                    hitenemy = hit.transform.gameObject;
+                    hit.transform.gameObject.GetComponent<Enemy>();
+                    hitenemy.GetComponent<Enemy>().HP -= attackDamage * 2;
+                    MP = GetComponent<playerscript>().MP - MPDrain;
+                    Debug.Log("Hit Enemy");
+                }
             }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            Debug.Log("Did not Hit");
-        }
+            else
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+                Debug.Log("Did not Hit");
+            }
+        
     }
 
     private void FinishAttack()
@@ -125,8 +127,16 @@ public class playerscript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            if (isattacking == false)
-            SAttack();
+            if (MP > MPDrain)
+            {
+                if (isattacking == false)
+                    SAttack();
+            }
+            else
+            {
+                Attack();
+            }
+
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -178,8 +188,8 @@ public class playerscript : MonoBehaviour {
         //hit things
         isattacking = true;
         anim.SetBool("bIsAttacking", true);
-        Invoke("DoMoreDamage", .50f);
-        Invoke("FinishAttack", .80f);
+        Invoke("DoMoreDamage", .100f);
+        Invoke("FinishAttack", .160f);
     }
 
     private void Turn()
