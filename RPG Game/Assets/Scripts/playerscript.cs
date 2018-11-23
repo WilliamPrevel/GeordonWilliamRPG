@@ -127,16 +127,18 @@ public class playerscript : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            if (MP > MPDrain)
+            if (isattacking == false)
             {
-                if (isattacking == false)
-                    SAttack();
-            }
-            else
-            {
-                Attack();
-            }
+                if (MP > MPDrain)
+                {
 
+                    SAttack();
+                }
+                else
+                {
+                    Attack();
+                }
+            }
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -188,8 +190,8 @@ public class playerscript : MonoBehaviour {
         //hit things
         isattacking = true;
         anim.SetBool("bIsAttacking", true);
-        Invoke("DoMoreDamage", .100f);
-        Invoke("FinishAttack", .160f);
+        Invoke("DoMoreDamage", .50f);
+        Invoke("FinishAttack", .80f);
     }
 
     private void Turn()

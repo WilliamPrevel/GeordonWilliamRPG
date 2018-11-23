@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public float gravity = 20.0f;
     public float turnSpeed = 1.1f;
     public float sightDistance = 10;
+    public float weaponLength = 10;
+    public int attackDelay = 10;
     public int HP = 50;
     public int MAXHP = 50;
     public int MP = 0;
@@ -28,7 +30,6 @@ public class Enemy : MonoBehaviour
     public int MAXLV = 1;
     RaycastHit hit;
     public GameObject hitplayer;
-
     private bool isAttacking;
     void Start()
     {
@@ -47,8 +48,7 @@ public class Enemy : MonoBehaviour
                 anim.SetBool("isAttacking", true);
             }
             Vector3 direction = player.position - this.transform.position;
-            hitplayer.transform.gameObject.GetComponent<playerscript>();
-            hitplayer.GetComponent<playerscript>().HP -= attackDamage;
+            Invoke("Attack", attackDelay);
 
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
@@ -80,4 +80,41 @@ public class Enemy : MonoBehaviour
     private void Dead(){
         gameObject.SetActive(false);
     }
+
+    //convert these to enemy versions of these functions.
+    private void DoDamage()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.Log("Hit");
+            if (hit.transform.gameObject.tag == "Player")
+            {
+                hitplayer = hit.transform.gameObject;
+                hit.transform.gameObject.GetComponent<playerscript>();
+                hitplayer.GetComponent<playerscript>().HP -= attackDamage;
+                Debug.Log("Hit Player");
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            Debug.Log("Did not Hit Player");
+        }
+    }
+
+    private void FinishAttack()
+    {
+        anim.SetBool("isAttacking", false);
+        isAttacking = false;
+    }
+
+    private void Attack()
+    {
+        //hit things
+        isAttacking = true;
+        Invoke("DoDamage", .50f);
+        Invoke("FinishAttack", .80f);
+    }
+
 }
