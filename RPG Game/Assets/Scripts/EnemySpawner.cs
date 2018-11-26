@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public GameObject AnEnemy;
     public MultiPurposePool thePool;
-
+    public GameObject player;
     void Start()
     {
         StartCoroutine(SpawnTimer());
@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour {
 
         GameObject newEnemy = thePool.GetPooledObject();
         newEnemy.transform.position = new Vector3(randomX, 10, randomZ);
+        newEnemy.GetComponent<Enemy>().player = player;
         newEnemy.SetActive(true);
     }
 }

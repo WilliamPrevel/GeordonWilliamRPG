@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform hats;
+    public Transform exphats;
+    public Transform hphats;
+    public Transform mphats;
+    public Transform superhats;
     public Animator anim;
-    public Transform player;
+    public GameObject player;
     protected Rigidbody mybody;
     Quaternion rotator;
     Quaternion restrictor = Quaternion.Euler(0, 1, 0);
@@ -31,7 +34,7 @@ public class Enemy : MonoBehaviour
     public int MAXLV = 1;
     RaycastHit hit;
     private bool droppedloot = false;
-    public GameObject hitplayer;
+    protected GameObject hitplayer;
     private bool isAttacking;
     void Start()
     {
@@ -42,14 +45,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        if (Vector3.Distance(player.position, this.transform.position) < sightDistance)
+        if (Vector3.Distance(player.transform.position, this.transform.position) < sightDistance)
 
         {
             if (EnemyType == "SpiderLady")
             {
                 anim.SetBool("isAttacking", true);
             }
-            Vector3 direction = player.position - this.transform.position;
+            Vector3 direction = player.transform.position - this.transform.position;
             Invoke("Attack", attackDelay);
 
 
@@ -124,7 +127,31 @@ public class Enemy : MonoBehaviour
     }
     private void DropLoot()
     {
-        Instantiate(hats,this.gameObject.transform.position, Quaternion.identity);
+        int expdrops = Random.Range(1, 10);
+        int hpdrops = Random.Range(1, 3);
+        int mpdrops = Random.Range(1, 3);
+        int superdrops = Random.Range(0, 1);
+
+        for (int i = 0; i < expdrops; i++)
+        {
+            Instantiate(exphats, this.gameObject.transform.position, Quaternion.identity);
+            exphats.GetComponent<ItemPickUp>().player = player;
+        }
+        for (int i = 0; i < hpdrops; i++)
+        {
+            Instantiate(hphats, this.gameObject.transform.position, Quaternion.identity);
+            hphats.GetComponent<ItemPickUp>().player = player;
+        }
+        for (int i = 0; i < mpdrops; i++)
+        {
+            Instantiate(mphats, this.gameObject.transform.position, Quaternion.identity);
+            mphats.GetComponent<ItemPickUp>().player = player;
+        }
+        for (int i = 0; i < superdrops; i++)
+        {
+            Instantiate(superhats, this.gameObject.transform.position, Quaternion.identity);
+            superhats.GetComponent<ItemPickUp>().player = player;
+        }
         droppedloot = true;
     //summon exp
     //we will worry about changing weapons and other items in polish

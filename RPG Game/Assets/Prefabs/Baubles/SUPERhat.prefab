@@ -3713,7 +3713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef75f3570f0d8564cbbe00a78e8341e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1727477186529222, guid: 44371672be5b37e4c916c53b97df0a26, type: 2}
   expvalue: 5
   isEXP: 1
   isHP: 1
