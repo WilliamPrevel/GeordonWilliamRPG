@@ -577,6 +577,8 @@ MonoBehaviour:
   gravity: 20
   turnSpeed: 1.1
   sightDistance: 10
+  weaponLength: 10
+  attackDelay: 10
   HP: 20
   MAXHP: 20
   MP: 10
@@ -587,6 +589,7 @@ MonoBehaviour:
   exp: 5
   LV: 1
   MAXLV: 1
+  hitplayer: {fileID: 0}
   roamdistance: 3000
   roamTime: 1000
   jump: {x: 5, y: 5, z: 5}

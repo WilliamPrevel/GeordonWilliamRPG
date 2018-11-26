@@ -50,9 +50,23 @@ public class playerscript : MonoBehaviour {
     {
         InputManager();
         Turn();
+        statCheck();
+        
+    }
+
+    private void statCheck()
+    {
         if(exp > LV * 100 && LV < MAXLV)
         {
             Levelup();
+        }
+        if(HP > MAXHP)
+        {
+            HP = MAXHP;
+        }
+        if (MP > MAXMP)
+        {
+            MP = MAXMP;
         }
     }
 

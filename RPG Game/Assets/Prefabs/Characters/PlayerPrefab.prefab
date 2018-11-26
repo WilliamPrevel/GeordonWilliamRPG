@@ -5235,6 +5235,7 @@ MonoBehaviour:
   MP: 0
   MAXMP: 0
   attackDamage: 10
+  MPDrain: 10
   armor: 0
   covfefe: 0
   exp: 0
@@ -5243,7 +5244,6 @@ MonoBehaviour:
   weaponLength: 5
   anim: {fileID: 95517950726770076}
   mycamera: {fileID: 20600265504732884}
-  hitenemy: {fileID: 0}
 --- !u!114 &114399648170900750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5265,6 +5265,7 @@ MonoBehaviour:
   MP: 0
   MAXMP: 0
   attackDamage: 10
+  MPDrain: 10
   armor: 0
   covfefe: 0
   exp: 0
@@ -5273,7 +5274,6 @@ MonoBehaviour:
   weaponLength: 5
   anim: {fileID: 95517950726770076}
   mycamera: {fileID: 20600265504732884}
-  hitenemy: {fileID: 0}
 --- !u!136 &136845740193000464
 CapsuleCollider:
   m_ObjectHideFlags: 1

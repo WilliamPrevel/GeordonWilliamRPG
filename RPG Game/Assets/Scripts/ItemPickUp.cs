@@ -6,6 +6,9 @@ public class ItemPickUp : MonoBehaviour {
     public GameObject player;
     public int expvalue = 5;
     private bool approachPlayer = false;
+    public bool isEXP = true;
+    public bool isHP = false;
+    public bool isMana = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -44,6 +47,12 @@ public class ItemPickUp : MonoBehaviour {
     {
         //return to object pool
         gameObject.SetActive(false);
-        player.GetComponent<playerscript>().exp += expvalue;
+        //giveboost
+        if(isEXP)
+             player.GetComponent<playerscript>().exp += expvalue;
+        if(isHP)
+              player.GetComponent<playerscript>().HP += 10;
+        if (isMana)
+              player.GetComponent<playerscript>().MP += 10;
     }
 }
