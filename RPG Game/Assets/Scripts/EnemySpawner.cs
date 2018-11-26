@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             Spawn(AnEnemy);
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(10f);
         }
     }
 
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour {
         float randomZ = Random.Range(-100f, 100f);
         float randomX = Random.Range(-100f, 100f);
 
-        GameObject newEnemy = thePool.GetPooledObject(enemy.tag);
+        GameObject newEnemy = thePool.GetPooledObject();
         newEnemy.transform.position = new Vector3(randomX, 10, randomZ);
         newEnemy.SetActive(true);
     }

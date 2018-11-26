@@ -5,7 +5,7 @@ using UnityEngine;
 public class MultiPurposePool : MonoBehaviour {
 
     public List<GameObject> pooledObjects;
-    public GameObject objectToPoolA;
+    public GameObject objectToPool;
     public int amountToPool;
 
     public static MultiPurposePool SharedInstance;
@@ -20,39 +20,25 @@ public class MultiPurposePool : MonoBehaviour {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < amountToPool; i++)
         {
-            pooledObjects.Add(setGameObj(objectToPoolA));
+            GameObject obj = (GameObject)Instantiate(objectToPool);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
         }
-
+        
     }
 
-    GameObject setGameObj(GameObject objToPool)
-    {
-        GameObject obj = (GameObject)Instantiate(objToPool);
-        obj.SetActive(false);
-        return obj;
-    }
-
-    public GameObject GetPooledObject(string tag)
+    public GameObject GetPooledObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (pooledObjects[i] && !pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            if (pooledObjects[i] && !pooledObjects[i].activeInHierarchy)
             {
                 return pooledObjects[i];
             }
         }
-        GameObject blah = null;
-        if (tag == objectToPoolA.tag)
-        {
-            blah = objectToPoolA;
-        }
-        
-        
-
-        GameObject obj = (GameObject)Instantiate(blah);
+        GameObject obj = (GameObject)Instantiate(objectToPool);
         obj.SetActive(false);
         pooledObjects.Add(obj);
         return obj;
-
     }
 }
