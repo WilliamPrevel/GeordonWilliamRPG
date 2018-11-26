@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     public int MAXHP = 50;
     public int MP = 0;
     public int MAXMP = 0;
-    public int attackDamage = 20;
+    public int attackDamage = 10;
     public float armor = 0;
     public bool covfefe;
     public int exp = 0;
@@ -136,8 +136,8 @@ public class Enemy : MonoBehaviour
     private void DropLoot()
     {
         int expdrops = Random.Range(1, 10);
-        int hpdrops = Random.Range(1, 3);
-        int mpdrops = Random.Range(1, 3);
+        int hpdrops = Random.Range(2, 3);
+        int mpdrops = Random.Range(2, 3);
         int superdrops = Random.Range(0, 1);
 
         for (int i = 0; i < expdrops; i++)

@@ -12,12 +12,14 @@ public class JumpingEnemyScript : Enemy {
     public Vector3 jump;
     public float jumpForce = 2.0f;
     public bool isGrounded;
+
     // Use this for initialization
     void Start()
     {
         roam = roamTime;
         mybody = GetComponentInChildren<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        
     }
 
     // Update is called once per frame
@@ -70,4 +72,4 @@ public class JumpingEnemyScript : Enemy {
     {
         isGrounded = true;
     }
-    }
+}

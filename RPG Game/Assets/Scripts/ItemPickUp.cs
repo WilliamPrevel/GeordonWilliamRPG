@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour {
     public GameObject player;
-    public int expvalue = 5;
+    public int expvalue;
     private bool approachPlayer = false;
     public bool isEXP = true;
     public bool isHP = false;
