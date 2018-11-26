@@ -26,7 +26,7 @@ public class MultiPurposePool : MonoBehaviour {
         }
         
     }
-
+    //return to pool
     public GameObject GetPooledObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)

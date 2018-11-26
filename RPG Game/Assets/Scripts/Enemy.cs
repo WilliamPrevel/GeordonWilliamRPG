@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Transform hats;
     public Animator anim;
     public Transform player;
     protected Rigidbody mybody;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
     public int LV = 1;
     public int MAXLV = 1;
     RaycastHit hit;
+    private bool droppedloot = false;
     public GameObject hitplayer;
     private bool isAttacking;
     void Start()
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
-            Quaternion.LookRotation(direction)*restrictor, turnSpeed);
+            Quaternion.LookRotation(direction) * restrictor, turnSpeed);
 
             if (direction.magnitude > 5)
             {
@@ -77,8 +79,11 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    private void Dead(){
-        DropLoot();
+    private void Dead() {
+        if (droppedloot == false)
+        {
+            DropLoot();
+        }
         //WILL UPDATE THIS TO RETURN TO OBJECT POOL
         gameObject.SetActive(false);
     }
@@ -119,9 +124,11 @@ public class Enemy : MonoBehaviour
     }
     private void DropLoot()
     {
-        //summon exp
-        //we will worry about changing weapons and other items in polish
-        //set exphats player object to this scripts player object!
-        //set exphat's exp value to this things exp value!
-    }
+        Instantiate(hats,this.gameObject.transform.position, Quaternion.identity);
+        droppedloot = true;
+    //summon exp
+    //we will worry about changing weapons and other items in polish
+    //set exphats player object to this scripts player object!
+    //set exphat's exp value to this things exp value!
+}
 }
