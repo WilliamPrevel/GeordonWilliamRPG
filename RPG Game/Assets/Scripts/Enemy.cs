@@ -33,10 +33,10 @@ public class Enemy : MonoBehaviour
     public int LV = 1;
     public int MAXLV = 1;
     RaycastHit hit;
-    private bool droppedloot = false;
+    protected bool droppedloot = false;
     protected GameObject hitplayer;
-    private bool isAttacking;
-    private bool isDead = false;
+    public bool isAttacking;
+    protected bool isDead = false;
     void Start()
     {
         rotator = transform.rotation;
@@ -54,8 +54,12 @@ public class Enemy : MonoBehaviour
                 anim.SetBool("isAttacking", true);
             }
             Vector3 direction = player.transform.position - this.transform.position;
-            Invoke("Attack", attackDelay);
-
+            //1 attack at a time
+            if (isAttacking == false)
+            {
+                Attack();
+                Debug.Log("Attack!");
+            }
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
@@ -98,19 +102,18 @@ public class Enemy : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log("Hit");
             if (hit.transform.gameObject.tag == "Player")
             {
                 hitplayer = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<playerscript>();
                 hitplayer.GetComponent<playerscript>().HP -= attackDamage;
-                Debug.Log("Hit Player");
+               // Debug.Log("Hit Player");
             }
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            Debug.Log("Did not Hit Player");
+            //Debug.Log("Did not Hit Player");
         }
     }
 
@@ -123,7 +126,7 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         //hit things
-        if (!isDead)
+        if (isDead == false)
         {
             isAttacking = true;
             Invoke("DoDamage", .50f);
