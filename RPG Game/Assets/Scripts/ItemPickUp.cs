@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemPickUp : MonoBehaviour {
     public GameObject player;
     public int expvalue = 5;
+    private bool approachPlayer = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,7 +13,11 @@ public class ItemPickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+ Vector3 direction = player.transform.position - this.transform.position;
+        if (approachPlayer) { 
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 90);
+            this.transform.Translate(0, 0, 0.2f);
+        }
     }
 
     private void OnTriggerEnter(Collider player)
@@ -20,18 +25,19 @@ public class ItemPickUp : MonoBehaviour {
         if(player.gameObject.tag == "Player")
         {
             gotoPlayer();
-            Invoke("Despawn", 3);
+            Invoke("DeSpawn", 0.2f);
         }
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "player")
+        {
+            DeSpawn();
+        }
+    }
     private void gotoPlayer()
     {
-        Vector3 direction = player.transform.position - this.transform.position;
-        while (direction.x + direction.y + direction.z > 0.2)
-        {
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 90);
-            this.transform.Translate(0, 0, 0.2f);
-        }
+        approachPlayer = true;
     }
 
     private void DeSpawn()
