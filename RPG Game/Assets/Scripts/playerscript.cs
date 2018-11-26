@@ -68,6 +68,11 @@ public class playerscript : MonoBehaviour {
         {
             MP = MAXMP;
         }
+        if (HP <= 0)
+        {
+            anim.SetBool("isDead", true);
+            Invoke("Dead", 5);
+        }
     }
 
     private void FixedUpdate()
@@ -236,5 +241,10 @@ public class playerscript : MonoBehaviour {
     private void SummonBlock()
     {
         //I was thinking we could have some physicsy fun by throwing things in the air akin to cryonis in botw.
+    }
+
+    private void Dead()
+    {
+
     }
 }

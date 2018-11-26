@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     private bool droppedloot = false;
     protected GameObject hitplayer;
     private bool isAttacking;
+    private bool isDead = false;
     void Start()
     {
         rotator = transform.rotation;
@@ -74,6 +75,7 @@ public class Enemy : MonoBehaviour
         }
         if (HP <= 0)
         {
+            isDead = true;
             if (EnemyType == "SpiderLady")
             {
                 anim.SetBool("isDead", true);
@@ -121,9 +123,12 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         //hit things
-        isAttacking = true;
-        Invoke("DoDamage", .50f);
-        Invoke("FinishAttack", .80f);
+        if (!isDead)
+        {
+            isAttacking = true;
+            Invoke("DoDamage", .50f);
+            Invoke("FinishAttack", .80f);
+        }
     }
     private void DropLoot()
     {
