@@ -13,7 +13,7 @@ public class RoamingEnemyScript : Enemy {
     // Use this for initialization
     void Start () {
         roam = roamTime;
-        //rotator = transform.rotation;
+        rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
     }
 	

@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public GameObject player;
     protected Rigidbody mybody;
-    Quaternion rotator;
-    Quaternion restrictor = Quaternion.Euler(0, 1, 0);
+    protected Quaternion rotator;
+    protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);
     public string EnemyType;
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
