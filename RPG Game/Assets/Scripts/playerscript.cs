@@ -19,7 +19,7 @@ public class playerscript : MonoBehaviour {
     public bool covfefe;
     public int exp = 0;
     public int LV = 1;
-    public int MAXLV = 1;
+    public int MAXLV = 100;
     public float weaponLength = 0.5f;
     private bool isattacking;
     //bits
@@ -50,6 +50,10 @@ public class playerscript : MonoBehaviour {
     {
         InputManager();
         Turn();
+        if(exp > LV * 100 && LV < MAXLV)
+        {
+            Levelup();
+        }
     }
 
     private void FixedUpdate()
@@ -201,6 +205,20 @@ public class playerscript : MonoBehaviour {
             rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
             transform.rotation = rotator;
     }
+
+    private void Levelup()
+    {
+        speed++;
+        runSpeed++;
+        jumpSpeed++;
+        MAXHP+= 10;
+        MAXMP+=10;
+        attackDamage++;
+        covfefe = true;
+        exp = 0;
+        LV++;
+}
+
     private void SummonBlock()
     {
         //I was thinking we could have some physicsy fun by throwing things in the air akin to cryonis in botw.

@@ -78,10 +78,11 @@ public class Enemy : MonoBehaviour
 
     }
     private void Dead(){
+        DropLoot();
+        //WILL UPDATE THIS TO RETURN TO OBJECT POOL
         gameObject.SetActive(false);
     }
 
-    //convert these to enemy versions of these functions.
     private void DoDamage()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
@@ -116,5 +117,11 @@ public class Enemy : MonoBehaviour
         Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
     }
-
+    private void DropLoot()
+    {
+        //summon exp
+        //we will worry about changing weapons and other items in polish
+        //set exphats player object to this scripts player object!
+        //set exphat's exp value to this things exp value!
+    }
 }
