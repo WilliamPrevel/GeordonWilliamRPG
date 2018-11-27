@@ -11,10 +11,9 @@ public class laserscript : MonoBehaviour {
 	void Start () {
 		
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
+	
+	// Update is called once per frame
+	void Update () {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
@@ -26,10 +25,9 @@ public class laserscript : MonoBehaviour {
                 // Debug.Log("Hit Player");
             }
         }
-    
-            //for (int i = 0; i < range; i++)
-         //   {
-                laser.SetPosition(0, hit.transform.position);
-          //  }
+        for (int i = 0; i < range; i++)
+        {
+            laser.SetPosition(i,hit.transform.position);
         }
+    }
 }
