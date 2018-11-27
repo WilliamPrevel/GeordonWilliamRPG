@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 106399181}
   - component: {fileID: 106399180}
   m_Layer: 5
-  m_Name: ManaName
+  m_Name: EXPName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1917799850}
+      objectReference: {fileID: 1917799849}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bdac5dbcdc5f6442bc47c0c408a0aab, type: 2}
   m_IsPrefabAsset: 0
@@ -425,7 +425,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460569952}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 01d02e6479ceb5f4e8cba90e253c6981, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -739,7 +739,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1917799850}
+      objectReference: {fileID: 1917799849}
     - target: {fileID: 114349189102795050, guid: a880f827b7a7c014ea3d6c9606a41fe8,
         type: 2}
       propertyPath: mycam
@@ -755,6 +755,26 @@ Prefab:
       propertyPath: hitplayer
       value: 
       objectReference: {fileID: 1917799849}
+    - target: {fileID: 114596508948459126, guid: a880f827b7a7c014ea3d6c9606a41fe8,
+        type: 2}
+      propertyPath: exphats
+      value: 
+      objectReference: {fileID: 935160039}
+    - target: {fileID: 114596508948459126, guid: a880f827b7a7c014ea3d6c9606a41fe8,
+        type: 2}
+      propertyPath: hphats
+      value: 
+      objectReference: {fileID: 1078369055}
+    - target: {fileID: 114596508948459126, guid: a880f827b7a7c014ea3d6c9606a41fe8,
+        type: 2}
+      propertyPath: superhats
+      value: 
+      objectReference: {fileID: 2028335670}
+    - target: {fileID: 114596508948459126, guid: a880f827b7a7c014ea3d6c9606a41fe8,
+        type: 2}
+      propertyPath: mphats
+      value: 
+      objectReference: {fileID: 1785352326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a880f827b7a7c014ea3d6c9606a41fe8, type: 2}
   m_IsPrefabAsset: 0
@@ -999,6 +1019,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1917799849}
+    - target: {fileID: 114000357221109414, guid: 984b55501d2fd38488cad51bebc597f6,
+        type: 2}
+      propertyPath: expvalue
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 984b55501d2fd38488cad51bebc597f6, type: 2}
   m_IsPrefabAsset: 0
@@ -1152,7 +1177,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4dbf2ba782ce5844ea4163ae64072f4a, type: 2}
+  - {fileID: 2100000, guid: 01d02e6479ceb5f4e8cba90e253c6981, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1256,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1727120403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 184.5461, y: 8.489522, z: 184.31934}
+  m_LocalPosition: {x: 184.5461, y: 10.6, z: 184.31934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1642212893}
@@ -1419,11 +1444,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1727477186529222, guid: 44371672be5b37e4c916c53b97df0a26,
     type: 2}
   m_PrefabInternal: {fileID: 1188618954}
---- !u!4 &1917799850 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4284634061409454, guid: 44371672be5b37e4c916c53b97df0a26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1188618954}
 --- !u!1001 &1932089889
 Prefab:
   m_ObjectHideFlags: 0
@@ -1521,9 +1541,19 @@ Prefab:
       objectReference: {fileID: 1460483270}
     - target: {fileID: 114373046212682826, guid: cacb496eab02148449999da4f7425fdb,
         type: 2}
+      propertyPath: amountToPool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114373046212682826, guid: cacb496eab02148449999da4f7425fdb,
+        type: 2}
       propertyPath: objectToPool
       value: 
-      objectReference: {fileID: 1460483270}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114633931891723690, guid: cacb496eab02148449999da4f7425fdb,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1917799849}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cacb496eab02148449999da4f7425fdb, type: 2}
   m_IsPrefabAsset: 0
