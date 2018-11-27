@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 public class gatescript : MonoBehaviour
 {
     public string sceneto = "sample scene";
+    public int playerLevelRequired;
+    private int LV;
+    private GameObject player;
     // Use this for initialization
     void Start()
     {
-
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -18,9 +21,14 @@ public class gatescript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        LV = player.GetComponentInParent<playerscript>().LV;
+        if (LV >= playerLevelRequired)
         {
-            SceneManager.LoadScene(sceneto, LoadSceneMode.Single);
+            if (other.gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene(sceneto, LoadSceneMode.Single);
+
+            }
         }
     }
 }

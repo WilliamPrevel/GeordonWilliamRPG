@@ -20,8 +20,8 @@ public class floatingBarScript : MonoBehaviour {
         transform.rotation = Quaternion.LookRotation(n);
 
         HP = gameObject.GetComponentInParent<Enemy>().HP;
-       MAXHP = gameObject.GetComponentInParent<Enemy>().MAXHP;
-       currenthp = HP / MAXHP;
+        MAXHP = gameObject.GetComponentInParent<Enemy>().MAXHP;
+        currenthp = HP / MAXHP;
         if (HP >= MAXHP || HP <=0)
         {
             gameObject.transform.localScale = new Vector3(0, 0, 0);
