@@ -14,12 +14,13 @@ public class laserscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        hitplayer = hit.transform.gameObject;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             if (hit.transform.gameObject.tag == "Player")
             {
-                hitplayer = hit.transform.gameObject;
+              //hitplayer = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<playerscript>();
                 hitplayer.GetComponent<playerscript>().HP -= 1;
                 // Debug.Log("Hit Player");
