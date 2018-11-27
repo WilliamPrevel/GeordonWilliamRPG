@@ -39,16 +39,18 @@ public class playerscript : MonoBehaviour {
     private bool isRunning = false;
     Quaternion rotator;
     RaycastHit hit;
+   InputManager putter = InputManager.GetInstance();
     //functions
     void Start()
     {
+        forwardMotion = 0;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
     }
 
     void Update()
     {
-        InputManager();
+        EventManager();
         Turn();
         statCheck();
         
@@ -131,23 +133,25 @@ public class playerscript : MonoBehaviour {
         anim.SetBool("bIsAttacking", false);
         isattacking = false;
     }
- 
-    private void InputManager()
+
+    private void EventManager()
     {
         forwardMotion = Input.GetAxis("Vertical");
         lrMotion = Input.GetAxis("Horizontal");
         aimingMotion = Input.GetAxis("Mouse ScrollWheel");
-        verticalCameraMotion = Input.GetAxis("Mouse X");
+        verticalCameraMotion = Input.GetAxis("Mouse Y");
         horizontalCameraMotion = Input.GetAxis("Mouse X");
+
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyUp(KeyCode.S))
         {
             //turn around
             rotator *= Quaternion.AngleAxis(180, Vector3.up);
         }
+
         if (Input.GetKey(KeyCode.E))
         {
-            if(isattacking == false)
-            Attack();
+            if (isattacking == false)
+                Attack();
         }
         if (Input.GetKey(KeyCode.Q))
         {
@@ -155,7 +159,7 @@ public class playerscript : MonoBehaviour {
             {
                 if (MP >= MPDrain)
                 {
-                    
+
                     SAttack();
                 }
                 else
@@ -177,7 +181,8 @@ public class playerscript : MonoBehaviour {
         {
             isRunning = true;
             anim.SetBool("isRunning", true);
-        } else
+        }
+        else
         {
             isRunning = false;
             anim.SetBool("isRunning", false);
@@ -189,7 +194,6 @@ public class playerscript : MonoBehaviour {
         if (isattacking == false)
         {
             mybody.velocity = gameObject.transform.forward * Mathf.Abs(forwardMotion) * speed;
-            if (isRunning)
                 if (isRunning)
                 {
                     //move faster, change animation.
