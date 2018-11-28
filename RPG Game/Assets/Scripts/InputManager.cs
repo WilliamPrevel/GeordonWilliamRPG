@@ -89,6 +89,6 @@ public class InputManager : MonoBehaviour
 
     void Ping()
     {
-        Debug.Log("Ping");
+      //  Debug.Log("Ping");
     }
 }
