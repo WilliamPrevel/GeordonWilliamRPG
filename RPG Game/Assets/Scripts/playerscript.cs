@@ -28,7 +28,7 @@ public class playerscript : MonoBehaviour {
     private GameObject hitenemy;
     private Rigidbody mybody;
     private CharacterController controller;
-    
+    public Weapon currentWeapon;
     //controls
     private Vector3 moveDirection = Vector3.zero;
     private float forwardMotion;
@@ -46,6 +46,7 @@ public class playerscript : MonoBehaviour {
         forwardMotion = 0;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
+        currentWeapon = GetComponentInChildren<Weapon>();
     }
 
     void Update()
@@ -83,50 +84,50 @@ public class playerscript : MonoBehaviour {
         Move();
     }
 
-    private void DoDamage()
-    {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            Debug.Log("Hit");
-            if(hit.transform.gameObject.tag == "Enemy")
-            {
-                hitenemy = hit.transform.gameObject;
-                hit.transform.gameObject.GetComponent<Enemy>();
-                hitenemy.GetComponent<Enemy>().HP -= attackDamage;
-                Debug.Log("Hit Enemy");
-            }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            Debug.Log("Did not Hit");
-        }
-    }
-    private void DoMoreDamage()
-    {
+    //private void DoDamage()
+    //{
+    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+    //    {
+    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+    //        Debug.Log("Hit");
+    //        if(hit.transform.gameObject.tag == "Enemy")
+    //        {
+    //            hitenemy = hit.transform.gameObject;
+    //            hit.transform.gameObject.GetComponent<Enemy>();
+    //            hitenemy.GetComponent<Enemy>().HP -= attackDamage;
+    //            Debug.Log("Hit Enemy");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+    //        Debug.Log("Did not Hit");
+    //    }
+    //}
+    //private void DoMoreDamage()
+    //{
         
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-                Debug.Log("Hit");
-            MP -= MPDrain;
-            if (hit.transform.gameObject.tag == "Enemy")
-                {
-                    hitenemy = hit.transform.gameObject;
-                    hit.transform.gameObject.GetComponent<Enemy>();
-                    hitenemy.GetComponent<Enemy>().HP -= attackDamage * 2;
+    //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+    //        {
+    //            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+    //            Debug.Log("Hit");
+    //        MP -= MPDrain;
+    //        if (hit.transform.gameObject.tag == "Enemy")
+    //            {
+    //                hitenemy = hit.transform.gameObject;
+    //                hit.transform.gameObject.GetComponent<Enemy>();
+    //                hitenemy.GetComponent<Enemy>().HP -= attackDamage * 2;
                     
-                    Debug.Log("Hit Enemy");
-                }
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-                Debug.Log("Did not Hit");
-            }
+    //                Debug.Log("Hit Enemy");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+    //            Debug.Log("Did not Hit");
+    //        }
         
-    }
+    //}
 
     private void FinishAttack()
     {
@@ -153,21 +154,21 @@ public class playerscript : MonoBehaviour {
             if (isattacking == false)
                 Attack();
         }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            if (isattacking == false)
-            {
-                if (MP >= MPDrain)
-                {
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    if (isattacking == false)
+        //    {
+        //        if (MP >= MPDrain)
+        //        {
 
-                    SAttack();
-                }
-                else
-                {
-                    Attack();
-                }
-            }
-        }
+        //            SAttack();
+        //        }
+        //        else
+        //        {
+        //            Attack();
+        //        }
+        //    }
+        //}
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isWalking", true);
@@ -210,17 +211,17 @@ public class playerscript : MonoBehaviour {
         //hit things
         isattacking = true;
         anim.SetBool("bIsAttacking", true);
-        Invoke("DoDamage", .50f);
+        currentWeapon.Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
     }
-    private void SAttack()
-    {
-        //hit things
-        isattacking = true;
-        anim.SetBool("bIsAttacking", true);
-        Invoke("DoMoreDamage", .50f);
-        Invoke("FinishAttack", .80f);
-    }
+    //private void SAttack()
+    //{
+    //    //hit things
+    //    isattacking = true;
+    //    anim.SetBool("bIsAttacking", true);
+    //    //Invoke("DoMoreDamage", .50f);
+    //    Invoke("FinishAttack", .80f);
+    //}
 
     private void Turn()
     {
