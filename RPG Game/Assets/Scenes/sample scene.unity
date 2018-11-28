@@ -2978,6 +2978,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ManualParticleSystems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileDestroyParticleSystemsOnCollision.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 485016, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
       propertyPath: m_LocalPosition.x
       value: -22.161133
@@ -3010,6 +3018,74 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: StopTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: Duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ForceAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ForceRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileColliderDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: StartTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: IsProjectile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ManualParticleSystems.Array.data[0]
+      value: 
+      objectReference: {fileID: 1886564975}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileColliderObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileCollisionSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileExplosionParticleSystem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileExplosionRadius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileExplosionForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileColliderSpeed
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileCollisionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileDestroyParticleSystemsOnCollision.Array.data[0]
+      value: 
+      objectReference: {fileID: 1738911089}
+    - target: {fileID: 11450262, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
+      propertyPath: ProjectileDestroyParticleSystemsOnCollision.Array.data[1]
+      value: 
+      objectReference: {fileID: 2053620469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f18e1d8c46c51f429429815455062fc, type: 2}
   m_IsPrefabAsset: 0
@@ -6536,6 +6612,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!198 &1738911089 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19810394, guid: 8f18e1d8c46c51f429429815455062fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 752388061}
 --- !u!1 &1759921811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7208,6 +7289,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876646140}
   m_Mesh: {fileID: 4300026, guid: 91f24801868588647a7ce0a84198d24c, type: 3}
+--- !u!198 &1886564975 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19899590, guid: 8f18e1d8c46c51f429429815455062fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 752388061}
 --- !u!1 &1946490607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7665,6 +7751,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2033854156}
   m_Mesh: {fileID: 4300052, guid: 91f24801868588647a7ce0a84198d24c, type: 3}
+--- !u!198 &2053620469 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19886674, guid: 8f18e1d8c46c51f429429815455062fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 752388061}
 --- !u!1 &2089912291
 GameObject:
   m_ObjectHideFlags: 0

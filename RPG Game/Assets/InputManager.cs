@@ -19,7 +19,15 @@ public class InputManager : MonoBehaviour
     public static UnityEvent S;
     public static UnityEvent A;
     public static UnityEvent D;
-
+    public delegate void MoveAction();
+    public static event MoveAction MoveForward;
+    public static event MoveAction MoveBack;
+    public static event MoveAction Turn;
+    public delegate void AttackAction();
+    public static event AttackAction Attack;
+    public static event AttackAction SpecialAttack;
+    public delegate void OtherAction();
+    public static event OtherAction SwitchWeapon;
     private static InputManager instance;
     //public InputManager Instance { get { return instance; } }
 
@@ -45,6 +53,10 @@ public class InputManager : MonoBehaviour
         aimingMotion = Input.GetAxis("Mouse ScrollWheel");
         verticalCameraMotion = Input.GetAxis("Mouse Y");
         horizontalCameraMotion = Input.GetAxis("Mouse X");
+        if (Input.GetKey(KeyCode.W))
+        {
+            MoveForward();
+        }
 
         if (forwardMotion>0 && W != null)//Input.GetKey(KeyCode.W)
         {

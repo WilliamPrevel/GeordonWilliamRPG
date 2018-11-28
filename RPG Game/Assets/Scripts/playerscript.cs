@@ -40,6 +40,7 @@ public class playerscript : MonoBehaviour {
     Quaternion rotator;
     RaycastHit hit;
    InputManager putter = InputManager.GetInstance();
+   
     //functions
     void Start()
     {
@@ -47,8 +48,13 @@ public class playerscript : MonoBehaviour {
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
         currentWeapon = GetComponentInChildren<Weapon>();
+        InputManager.MoveForward += Move;
     }
 
+    private void OnDisable()
+    {
+        InputManager.MoveForward -= Move;
+    }
     void Update()
     {
         EventManager();
@@ -81,7 +87,7 @@ public class playerscript : MonoBehaviour {
     private void FixedUpdate()
     {
         //physics
-        Move();
+        //Move();
     }
 
     //private void DoDamage()
