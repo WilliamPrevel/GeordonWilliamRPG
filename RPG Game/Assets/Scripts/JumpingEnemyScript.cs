@@ -72,6 +72,6 @@ public class JumpingEnemyScript : Enemy {
         void OnCollisionStay()
     {
         isGrounded = true;
-        currentWeapon.Invoke("Shoot", 0.5f);
+//        currentWeapon.Invoke("Shoot", 0.5f);
     }
 }
