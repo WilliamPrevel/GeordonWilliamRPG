@@ -39,7 +39,7 @@ public class playerscript : MonoBehaviour {
     private bool isRunning = false;
     Quaternion rotator;
     RaycastHit hit;
-   InputManager putter = InputManager.GetInstance();
+   //InputManager putter = InputManager.GetInstance();
    
     //functions
     void Start()
@@ -47,12 +47,15 @@ public class playerscript : MonoBehaviour {
         forwardMotion = 0;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
-        currentWeapon = GetComponentInChildren<Weapon>();
+        currentWeapon = GetComponentInChildren<Sword>();
         InputManager.MoveForward += Move;
+        InputManager.SpecialAttack += SAttack;
+        InputManager.SwitchWeapon += ChangeWeapon;
     }
 
     private void OnDisable()
     {
+        //do this for all
         InputManager.MoveForward -= Move;
     }
     void Update()
@@ -160,7 +163,7 @@ public class playerscript : MonoBehaviour {
             if (isattacking == false)
                 Attack();
         }
-        //if (Input.GetKey(KeyCode.Q))
+        //if (putter.specialattack)
         //{
         //    if (isattacking == false)
         //    {
@@ -173,8 +176,6 @@ public class playerscript : MonoBehaviour {
         //        {
         //            Attack();
         //        }
-        //    }
-        //}
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isWalking", true);
@@ -220,14 +221,14 @@ public class playerscript : MonoBehaviour {
         currentWeapon.Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
     }
-    //private void SAttack()
-    //{
-    //    //hit things
-    //    isattacking = true;
-    //    anim.SetBool("bIsAttacking", true);
-    //    //Invoke("DoMoreDamage", .50f);
-    //    Invoke("FinishAttack", .80f);
-    //}
+    private void SAttack()
+    {
+        //hit things
+        isattacking = true;
+        anim.SetBool("bIsAttacking", true);
+        currentWeapon.Invoke("Shoot", .50f);
+        Invoke("FinishAttack", .80f);
+    }
 
     private void Turn()
     {
@@ -257,5 +258,17 @@ public class playerscript : MonoBehaviour {
     private void Dead()
     {
 
+    }
+
+    private void ChangeWeapon()
+    {
+        if(currentWeapon.gameObject.tag == "Sword")
+        {
+            currentWeapon = GetComponentInChildren<RangedWeapon>();
+        } else
+        {
+
+            currentWeapon = GetComponentInChildren<Sword>();
+        }
     }
 }

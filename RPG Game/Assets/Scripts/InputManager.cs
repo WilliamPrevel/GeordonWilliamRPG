@@ -57,7 +57,14 @@ public class InputManager : MonoBehaviour
         {
             MoveForward();
         }
-
+        if (Input.GetKey(KeyCode.Q))
+        {
+            SpecialAttack();
+        }
+        if(Input.GetKeyUp(KeyCode.X))
+        {
+            SwitchWeapon();
+        }
         if (forwardMotion>0 && W != null)//Input.GetKey(KeyCode.W)
         {
             W.Invoke();// "getforwardmotion");

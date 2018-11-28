@@ -4147,6 +4147,107 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1042117807}
   m_Mesh: {fileID: 4300002, guid: 91f24801868588647a7ce0a84198d24c, type: 3}
+--- !u!1001 &1057719743
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1484819037}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.453
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.0035852147
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.017831057
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.58595204
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.8101416
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.27317837
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.27317813
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2731777
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_Name
+      value: STAFF
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.5300001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.4150001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 71.735
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bd0363ba5293594f8b78ee0bb9bac60, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1057719744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 189b8534dea79ba469eb1e38dab8167c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1057719743}
+--- !u!1 &1057719745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 189b8534dea79ba469eb1e38dab8167c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1057719743}
+--- !u!114 &1057719746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057719745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f987aaff9ea2b43b9b6a860db148b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLength: 10
+  AttackDamage: 5
+  isBreakable: 0
+  durability: 0
+  damageTaken: 0
+  newFireball: {fileID: 785001856}
 --- !u!1 &1060357741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5899,6 +6000,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 734192297}
+  - {fileID: 1057719744}
   m_Father: {fileID: 1416299714}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -10.978001, y: -1.4100001, z: -181.96599}
