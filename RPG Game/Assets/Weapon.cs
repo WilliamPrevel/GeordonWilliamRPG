@@ -41,7 +41,7 @@ public abstract class Weapon : MonoBehaviour {
 
     }
 
-    protected void Shoot()
+    virtual protected void Shoot()
     {
 
     }

@@ -12,13 +12,14 @@ public class JumpingEnemyScript : Enemy {
     public Vector3 jump;
     public float jumpForce = 2.0f;
     public bool isGrounded;
-
+    public Weapon currentWeapon;
     // Use this for initialization
     void Start()
     {
         roam = roamTime;
         mybody = GetComponentInChildren<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        currentWeapon = GetComponent<Weapon>();
         
     }
 
@@ -71,5 +72,6 @@ public class JumpingEnemyScript : Enemy {
         void OnCollisionStay()
     {
         isGrounded = true;
+        currentWeapon.Invoke("Shoot", 0.5f);
     }
 }

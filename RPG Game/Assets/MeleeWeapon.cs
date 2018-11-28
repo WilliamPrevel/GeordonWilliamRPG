@@ -9,7 +9,7 @@ public class MeleeWeapon : Weapon
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance * -1, Color.green);
             Debug.Log("Hit");
 
             if (hit.transform.gameObject.tag == "Enemy")
