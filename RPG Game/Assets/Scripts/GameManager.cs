@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour {
     {
         if (player)
         {
-
             player.SetupPlayer(HP);
             player.SetupPlayer(MP);
             player.SetupPlayer(EXP);
