@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     public int exp = 0;
     public int LV = 1;
     public int MAXLV = 1;
-    RaycastHit hit;
+    protected RaycastHit hit;
     protected bool droppedloot = false;
     protected GameObject hitplayer;
    protected GameManager manman;
