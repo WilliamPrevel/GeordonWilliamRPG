@@ -264,11 +264,14 @@ public class playerscript : MonoBehaviour {
     {
         if(currentWeapon.gameObject.tag == "Sword")
         {
+            currentWeapon.transform.localScale = new Vector3(0, 0, 0);
             currentWeapon = GetComponentInChildren<RangedWeapon>();
+            currentWeapon.transform.localScale = new Vector3(1, 1, 1);
         } else
         {
-
+            currentWeapon.transform.localScale = new Vector3(0, 0, 0);
             currentWeapon = GetComponentInChildren<Sword>();
+            currentWeapon.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
