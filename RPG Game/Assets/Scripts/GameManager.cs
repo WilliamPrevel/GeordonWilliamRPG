@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
     public List <MonoBehaviour> eventSubscribedScripts = new List<MonoBehaviour>();
     public int gameEventID = 0;
+    public int HP;
+    public int Testor = 0;
     private static GameManager instanciate;
 
     public static GameManager Instanciate
