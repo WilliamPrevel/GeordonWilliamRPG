@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(gameObject);
-        Invoke("playerPassedEvent", 2f);
+        Invoke("playerPassedEvent", 1f);
         Invoke("playerPassedEvent", 4f);
 
     }

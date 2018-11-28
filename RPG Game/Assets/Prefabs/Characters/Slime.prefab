@@ -568,8 +568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e769a2592e74b41ab1468959cdb8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exphats: {fileID: 0}
+  hphats: {fileID: 0}
+  mphats: {fileID: 0}
+  superhats: {fileID: 0}
   anim: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1727477186529222, guid: 44371672be5b37e4c916c53b97df0a26, type: 2}
   EnemyType: Slime
   speed: 50
   runSpeed: 90
@@ -589,7 +593,7 @@ MonoBehaviour:
   exp: 5
   LV: 1
   MAXLV: 1
-  hitplayer: {fileID: 0}
+  isAttacking: 0
   roamdistance: 3000
   roamTime: 1000
   jump: {x: 5, y: 5, z: 5}
