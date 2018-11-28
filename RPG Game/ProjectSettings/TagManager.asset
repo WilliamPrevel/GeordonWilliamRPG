@@ -8,6 +8,8 @@ TagManager:
   - Bar
   - Fire
   - Weapon
+  - Sword
+  - Staff
   layers:
   - Default
   - TransparentFX

@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 734192301}
   m_Layer: 0
   m_Name: SWORD
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4218,6 +4218,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4bd0363ba5293594f8b78ee0bb9bac60, type: 2}
+    - target: {fileID: 100000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
+      propertyPath: m_TagString
+      value: Staff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189b8534dea79ba469eb1e38dab8167c, type: 2}
   m_IsPrefabAsset: 0
