@@ -14,6 +14,7 @@ public class TechEnemyScript : RoamingEnemyScript{
     private void OnEnable()
     {
          newFire.SetActive(false);
+        //player = manman.thePlayer;
     }
    
 
@@ -102,9 +103,11 @@ public class TechEnemyScript : RoamingEnemyScript{
     }
    protected void Shoot()
    {
-    GameObject newnew = Instantiate(newFire, gameObject.transform.position, Quaternion.identity);
+        GameObject newnew = Instantiate(newFire, this.gameObject.transform.position, this.gameObject.transform.rotation);// Quaternion.identity);
+        newnew.transform.parent = transform;
     newnew.SetActive(true);
-   }
+        newnew.transform.position += new Vector3(0, 2, 2);
+    }
 }
 
 

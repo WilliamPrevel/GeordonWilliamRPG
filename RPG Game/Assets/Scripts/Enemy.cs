@@ -35,13 +35,14 @@ public class Enemy : MonoBehaviour
     RaycastHit hit;
     protected bool droppedloot = false;
     protected GameObject hitplayer;
+   protected GameManager manman;
     public bool isAttacking;
     protected bool isDead = false;
     void Start()
     {
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
-        //player = GameManager.player;
+        player = manman.thePlayer;
     }
 
     void Update()
