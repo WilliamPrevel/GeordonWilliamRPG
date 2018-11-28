@@ -1,0 +1,88 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TechEnemyScript : RoamingEnemyScript{
+
+	enum AIstate {Strafing, Roaming, Fleeing, Charging, Firing, Dead};
+    AIstate currentState;
+    public int fleetimer = 100;
+   public int timerReset = 100;
+    void Update()
+    {
+        //set aistate 
+        if (currentState != AIstate.Fleeing && currentState != AIstate.Dead) {
+            if (Vector3.Distance(player.transform.position, this.transform.position) < sightDistance)
+            {
+                currentState = AIstate.Strafing;
+            } else
+            {
+                currentState = AIstate.Roaming;
+            }
+            if (HP <= 0)
+            {
+                currentState = AIstate.Dead;
+                isDead = true;
+                Invoke("Dead", 5);
+            }
+        }
+        if (fleetimer <= 0)
+        {
+            fleetimer = timerReset;
+            currentState = AIstate.Strafing;
+        }
+        //invoke behaviour
+        if (currentState == AIstate.Roaming)
+        {
+            if (roamTime <= 0)
+            {
+                roamTime = roam;
+                Roam();
+            }
+        }
+        if (currentState == AIstate.Strafing)
+        {
+            Strafe();
+        }
+        if (currentState == AIstate.Fleeing)
+        {
+            fleetimer--;
+           Retreat();
+        }
+    }
+
+    override protected void Roam()
+    {
+       
+        Vector2 getdestination = Random.insideUnitCircle * roamdistance;
+        destination = new Vector3(getdestination.x, 0, getdestination.y);
+        Quaternion restrictor = Quaternion.Euler(0, 1, 0);
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), turnSpeed) * restrictor;
+        destination = destination - (transform.position);
+        mybody.velocity = gameObject.transform.forward * speed;
+    }
+
+    private void Strafe()
+    {
+            Vector3 direction = player.transform.position - this.transform.position;
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
+            Quaternion.LookRotation(direction) * restrictor, turnSpeed);
+
+            if (direction.magnitude > 5)
+            {
+
+                this.transform.Translate(0, 0, 0.1f);
+
+            }
+            
+    }
+    private void Retreat()
+    {
+        mybody.velocity = gameObject.transform.forward * -speed;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        currentState = AIstate.Fleeing;
+    }
+}

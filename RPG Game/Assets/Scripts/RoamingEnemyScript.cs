@@ -5,10 +5,10 @@ using UnityEngine;
 public class RoamingEnemyScript : Enemy {
 
     private float random;
-    Vector3 destination = new Vector3(0, 0, 0);
+    protected Vector3 destination = new Vector3(0, 0, 0);
     public int roamdistance = 30;
     public int roamTime = 10;
-    private int roam = 10;
+    protected int roam = 10;
     
     // Use this for initialization
     void Start () {
@@ -29,7 +29,7 @@ public class RoamingEnemyScript : Enemy {
         }
     }
 
-    private void Roam()
+    override protected void Roam()
     {
         Vector2 getdestination = Random.insideUnitCircle * roamdistance;
         destination = new Vector3(getdestination.x, 0, getdestination.y);

@@ -166,4 +166,8 @@ public class Enemy : MonoBehaviour
     //set exphats player object to this scripts player object!
     //set exphat's exp value to this things exp value!
 }
+  protected virtual void Roam()
+    {
+
+    }
 }
