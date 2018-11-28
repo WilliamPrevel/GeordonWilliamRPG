@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+public struct PlayerInfo
+{
+    public int HP;
+    public int MP;
+    public int MPDrain;
+    public float Armor;
+    public int exp;
+    public int LV;
+}
 
 public class playerscript : MonoBehaviour
 {
+
+    public PlayerInfo PlayerStatInfo;
     //vars
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
@@ -79,7 +89,12 @@ public class playerscript : MonoBehaviour
         }
         if(HP > MAXHP)
         {
-            HP = MAXHP;
+            /*
+             * Player.HP -> Player.PlayerStatInfo.HP
+             * 
+             * HP -> PlayerStatInfo.HP
+             */
+            PlayerStatInfo.HP = MAXHP;
         }
         if (MP > MAXMP)
         {
@@ -264,9 +279,10 @@ public class playerscript : MonoBehaviour
     {
 
     }
-    public void SetupPlayer (int playerstruct)
+    public void SetupPlayer (PlayerInfo PlayerInformation)
     {
-//        HP = playerstruct.HP;
+        HP = PlayerInformation.HP;
+        MP = PlayerInformation.MP;
     }
     private void ChangeWeapon()
     {

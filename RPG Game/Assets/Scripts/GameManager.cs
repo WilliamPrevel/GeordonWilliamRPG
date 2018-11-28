@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct PlayerStats
-{
 
-}
 
 public class GameManager : MonoBehaviour {
 
@@ -16,13 +13,14 @@ public class GameManager : MonoBehaviour {
 
 
     public static GameManager instance = null;
-    public playerscript player;
+    public playerscript playerScript;
     public GameObject thePlayer;
     //make private
     public int HP = 100;
     public int MP = 100;
     public int EXP = 0;
 
+    PlayerInfo PlayerCurrentInfo;
 
     //    public static GameManager Instanciate
     //    {
@@ -63,18 +61,24 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerscript>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<playerscript>();
 
         InitGame();
     }
 
+    public void getPlayerStats()
+    {
+        PlayerCurrentInfo.HP = playerScript.PlayerStatInfo.HP;
+        PlayerCurrentInfo.MP = playerScript.PlayerStatInfo.MP;
+    }
+
     void InitGame()
     {
-        if (player)
+        if (playerScript)
         {
-            player.SetupPlayer(HP);
-            player.SetupPlayer(MP);
-            player.SetupPlayer(EXP);
+
+            playerScript.SetupPlayer(PlayerCurrentInfo);
+
         }
     }
 
