@@ -467,6 +467,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4556494192109470, guid: 33a3276af2f0869459d6e8d48083049b,
     type: 2}
   m_PrefabInternal: {fileID: 1155864171}
+--- !u!1001 &271818137
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 919612647}
+    m_Modifications:
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.191
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 412958, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f, type: 2}
+      propertyPath: m_TagString
+      value: Fire
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50daa816369323b42b56093bb108296f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &342854400
 Prefab:
   m_ObjectHideFlags: 0
@@ -996,9 +1054,27 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 215933105}
+    - target: {fileID: 4096387963246008, guid: 8dad565a5c2db23459903c048b992140, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886052232163804, guid: 8dad565a5c2db23459903c048b992140, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114477969474454680, guid: 8dad565a5c2db23459903c048b992140,
+        type: 2}
+      propertyPath: newFire
+      value: 
+      objectReference: {fileID: 1262504271}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dad565a5c2db23459903c048b992140, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &919612647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4774867145529440, guid: 8dad565a5c2db23459903c048b992140,
+    type: 2}
+  m_PrefabInternal: {fileID: 919612643}
 --- !u!1 &945237405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1429,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 62d936e67693ebe49992fa32ed6f1b42,
     type: 3}
   m_PrefabInternal: {fileID: 839911377}
+--- !u!1 &1262504271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 271818137}
 --- !u!1 &1292253143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100142, guid: c6da119ad7e115346882221011cf4d09,

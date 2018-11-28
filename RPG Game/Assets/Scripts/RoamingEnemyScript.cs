@@ -11,7 +11,7 @@ public class RoamingEnemyScript : Enemy {
     protected int roam = 10;
     
     // Use this for initialization
-    void Start () {
+    protected void Start () {
         roam = roamTime;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();

@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TechEnemyScript : RoamingEnemyScript{
-
-	enum AIstate {Strafing, Roaming, Fleeing, Charging, Firing, Dead};
+    public GameObject newFire;
+    enum AIstate {Strafing, Roaming, Fleeing, Charging, Firing, Dead};
     AIstate currentState;
     public int fleetimer = 100;
    public int timerReset = 100;
+    public int attackTimer = 100;
+    public int attackTimerReset = 100;
+
+    private void OnEnable()
+    {
+         newFire.SetActive(false);
+    }
+   
+
     void Update()
     {
         //set aistate 
@@ -43,6 +52,12 @@ public class TechEnemyScript : RoamingEnemyScript{
         if (currentState == AIstate.Strafing)
         {
             Strafe();
+            attackTimer--;
+            if (attackTimer <= 0)
+            {
+                attackTimer = attackTimerReset;
+                Shoot();
+            }
         }
         if (currentState == AIstate.Fleeing)
         {
@@ -85,4 +100,11 @@ public class TechEnemyScript : RoamingEnemyScript{
         if(collision.gameObject.tag == "Player")
         currentState = AIstate.Fleeing;
     }
+   protected void Shoot()
+   {
+    GameObject newnew = Instantiate(newFire, gameObject.transform.position, Quaternion.identity);
+    newnew.SetActive(true);
+   }
 }
+
+

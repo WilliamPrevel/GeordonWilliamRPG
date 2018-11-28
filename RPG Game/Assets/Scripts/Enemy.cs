@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     {
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
+        //player = GameManager.player;
     }
 
     void Update()
