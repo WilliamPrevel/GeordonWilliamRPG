@@ -2,38 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class GameManager : MonoBehaviour {
 
     public List <MonoBehaviour> eventSubscribedScripts = new List<MonoBehaviour>();
     public int gameEventID = 0;
-    public int HP;
     public int Testor = 0;
     private static GameManager instanciate;
 
-    public static GameManager Instanciate
+
+    public static GameManager instance = null;
+    public playerscript player;
+    //make private
+    public int HP = 100;
+    public int MP = 100;
+
+
+    //    public static GameManager Instanciate
+    //    {
+    //        get
+    //        {
+    //            if(instanciate == null)
+    //            {
+    //                instanciate = FindObjectOfType<GameManager>();
+    //#if UNITY_EDITOR
+    //                if (FindObjectsOfType<GameManager>().Length > 1)
+    //                {
+    //                    Debug.LogError("There is more than 1 game manager in the scene");
+    //                }
+    //#endif
+    //            }
+    //            return instanciate;
+    //        }
+    //    }
+    private void Start()
     {
-        get
-        {
-            if(instanciate == null)
-            {
-                instanciate = FindObjectOfType<GameManager>();
-#if UNITY_EDITOR
-                if (FindObjectsOfType<GameManager>().Length > 1)
-                {
-                    Debug.LogError("There is more than 1 game manager in the scene");
-                }
-#endif
-            }
-            return instanciate;
-        }
+
+        StartUpManager();
     }
 
-    // Use this for initialization
-    void Start () {
-        DontDestroyOnLoad(gameObject);
-        Invoke("playerPassedEvent", 1f);
-        Invoke("playerPassedEvent", 4f);
+    void Awake ()
+    {
+    }
 
+    public void StartUpManager()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+
+        DontDestroyOnLoad(gameObject);
+
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<playerscript>();
+
+        InitGame();
+    }
+
+    void InitGame()
+    {
+        if (player)
+        {
+            player.SetupPlayer(HP);
+        }
     }
 
     public void subscribeToGameEventUpdate(MonoBehaviour pScript)

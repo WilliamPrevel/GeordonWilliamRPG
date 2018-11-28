@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerscript : MonoBehaviour {
+
+
+public class playerscript : MonoBehaviour
+{
     //vars
     public float speed = 6.0f;
     public float runSpeed = 12.0f;
@@ -63,6 +66,8 @@ public class playerscript : MonoBehaviour {
         EventManager();
         Turn();
         statCheck();
+        //if(GameManager.instance)
+         //   GameManager.instance.HP = HP;
         
     }
 
@@ -259,7 +264,10 @@ public class playerscript : MonoBehaviour {
     {
 
     }
-
+    public void SetupPlayer (int playerstruct)
+    {
+        HP = playerstruct.HP;
+    }
     private void ChangeWeapon()
     {
         if(currentWeapon.gameObject.tag == "Sword")
