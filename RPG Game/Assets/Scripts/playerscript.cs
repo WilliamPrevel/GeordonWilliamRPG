@@ -264,9 +264,9 @@ public class playerscript : MonoBehaviour
     {
 
     }
-    public void SetupPlayer (int PlayerStats)
+    public void SetupPlayer (int playerstruct)
     {
-        HP = PlayerStats.HP;
+        HP = playerstruct.HP;
     }
     private void ChangeWeapon()
     {
