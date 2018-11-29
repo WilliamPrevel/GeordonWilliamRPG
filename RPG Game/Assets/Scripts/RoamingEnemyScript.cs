@@ -15,6 +15,7 @@ public class RoamingEnemyScript : Enemy {
         roam = roamTime;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
+        //player = manman.thePlayer;
     }
 	
 	// Update is called once per frame

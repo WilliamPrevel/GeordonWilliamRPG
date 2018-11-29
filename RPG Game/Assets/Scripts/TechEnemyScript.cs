@@ -14,6 +14,7 @@ public class TechEnemyScript : RoamingEnemyScript{
     private void OnEnable()
     {
          newFire.SetActive(false);
+        //player = manman.thePlayer;
     }
    
 
@@ -102,9 +103,28 @@ public class TechEnemyScript : RoamingEnemyScript{
     }
    protected void Shoot()
    {
-    GameObject newnew = Instantiate(newFire, gameObject.transform.position, Quaternion.identity);
+        GameObject newnew = Instantiate(newFire, this.gameObject.transform.position, this.gameObject.transform.rotation);// Quaternion.identity);
+        newnew.transform.parent = transform;
     newnew.SetActive(true);
-   }
+        newnew.transform.position += new Vector3(0, 2, 2);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            if (hit.transform.gameObject.tag == "Player")
+            {
+                hitplayer = hit.transform.gameObject;
+                hit.transform.gameObject.GetComponent<playerscript>();
+                hitplayer.GetComponent<playerscript>().HP -= attackDamage;
+                Debug.Log("LASER HIT");
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            Debug.Log("LASER MISS");
+        }
+    }
+
 }
 
 
