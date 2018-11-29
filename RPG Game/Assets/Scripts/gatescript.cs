@@ -23,7 +23,7 @@ public class gatescript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        LV = player.GetComponentInParent<playerscript>().LV;
+        LV = player.GetComponentInParent<playerscript>().PlayerStatInfo.LV;
         if (LV >= playerLevelRequired)
         {
 

@@ -114,7 +114,7 @@ public class TechEnemyScript : RoamingEnemyScript{
             {
                 hitplayer = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<playerscript>();
-                hitplayer.GetComponent<playerscript>().HP -= attackDamage;
+                hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= attackDamage;
                 Debug.Log("LASER HIT");
             }
         }

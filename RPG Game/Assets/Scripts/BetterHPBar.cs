@@ -18,7 +18,7 @@ public class BetterHPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HP = player.GetComponentInParent<playerscript>().HP;
+        HP = player.GetComponentInParent<playerscript>().PlayerStatInfo.HP;
         MAXHP = player.GetComponentInParent<playerscript>().MAXHP;
         currenthp = HP / MAXHP;
         gameObject.transform.localScale = new Vector3(currenthp, 1, 1);

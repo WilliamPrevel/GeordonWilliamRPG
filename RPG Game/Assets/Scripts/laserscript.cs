@@ -22,7 +22,7 @@ public class laserscript : MonoBehaviour {
             {
               //hitplayer = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<playerscript>();
-                hitplayer.GetComponent<playerscript>().HP -= 1;
+                hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= 1;
                 // Debug.Log("Hit Player");
             }
         }

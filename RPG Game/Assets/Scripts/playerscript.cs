@@ -24,16 +24,16 @@ public class playerscript : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public float turnSpeed = 45;
-    public int HP = 100;
+    //public int HP = 100;
     public int MAXHP = 100;
-    public int MP = 100;
+    //public int MP = 100;
     public int MAXMP = 100;
-    public int attackDamage = 10;
+    //public int attackDamage = 10;
     public int MPDrain = 10;
     public float armor = 0;
     public bool covfefe;
-    public int exp = 0;
-    public int LV = 1;
+    //public int exp = 0;
+    //public int LV = 1;
     public int MAXLV = 100;
     public float weaponLength = 0.5f;
     private bool isattacking;
@@ -83,11 +83,11 @@ public class playerscript : MonoBehaviour
 
     private void statCheck()
     {
-        if(exp > LV * 100 && LV < MAXLV)
+        if(PlayerStatInfo.exp > PlayerStatInfo.LV * 100 && PlayerStatInfo.LV < MAXLV)
         {
             Levelup();
         }
-        if(HP > MAXHP)
+        if(PlayerStatInfo.HP > MAXHP)
         {
             /*
              * Player.HP -> Player.PlayerStatInfo.HP
@@ -96,12 +96,12 @@ public class playerscript : MonoBehaviour
              */
             PlayerStatInfo.HP = MAXHP;
         }
-        if (MP > MAXMP)
+        if (PlayerStatInfo.MP > MAXMP)
         {
             //MP = MAXMP;
             PlayerStatInfo.MP = MAXMP;
         }
-        if (HP <= 0)
+        if (PlayerStatInfo.HP <= 0)
         {
             anim.SetBool("isDead", true);
             Invoke("Dead", 5);
@@ -265,11 +265,11 @@ public class playerscript : MonoBehaviour
         jumpSpeed++;
         MAXHP+= 10;
         MAXMP+=10;
-        attackDamage++;
+        PlayerStatInfo.attackDamage++;
         covfefe = true;
-        exp = 0;
-        LV++;
-}
+        PlayerStatInfo.exp = 0;
+        PlayerStatInfo.LV++;
+    }
 
     private void SummonBlock()
     {
@@ -282,12 +282,15 @@ public class playerscript : MonoBehaviour
     }
     public void SetupPlayer (PlayerInfo PlayerInformation)
     {
-        HP = PlayerInformation.HP;
-        MP = PlayerInformation.MP;
-        exp = PlayerInformation.exp;
-        LV = PlayerInformation.LV;
-        attackDamage = PlayerInformation.attackDamage;
+        PlayerStatInfo = PlayerInformation;
+
+        PlayerStatInfo.HP = PlayerInformation.HP;
+        PlayerStatInfo.MP = PlayerInformation.MP;
+        PlayerStatInfo.exp = PlayerInformation.exp;
+        PlayerStatInfo.LV = PlayerInformation.LV;
+        PlayerStatInfo.attackDamage = PlayerInformation.attackDamage;
     }
+
     private void ChangeWeapon()
     {
         if(currentWeapon.gameObject.tag == "Sword")

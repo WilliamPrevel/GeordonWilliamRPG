@@ -15,7 +15,7 @@ public class LevelNumber : MonoBehaviour {
     void Start () {
         Player = GameObject.Find("Player");
         LevelText = gameObject.GetComponent<Text>();
-        level = Player.GetComponentInParent<playerscript>().LV;
+        level = Player.GetComponentInParent<playerscript>().PlayerStatInfo.LV;
         LevelText.text = "" + level;
 
     }

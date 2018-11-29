@@ -50,10 +50,10 @@ public class ItemPickUp : MonoBehaviour {
         gameObject.SetActive(false);
         //giveboost
         if(isEXP)
-             player.GetComponent<playerscript>().exp += expvalue;
+             player.GetComponent<playerscript>().PlayerStatInfo.exp += expvalue;
         if(isHP)
-              player.GetComponent<playerscript>().HP += 10;
+              player.GetComponent<playerscript>().PlayerStatInfo.HP += 10;
         if (isMana)
-              player.GetComponent<playerscript>().MP += 10;
+              player.GetComponent<playerscript>().PlayerStatInfo.MP += 10;
     }
 }

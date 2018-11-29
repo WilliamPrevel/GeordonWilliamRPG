@@ -24,13 +24,13 @@ public class BetterMPBar : MonoBehaviour {
     {
         if (isEXPbar)
         {
-        EXP = player.GetComponentInParent<playerscript>().exp;
-        MAXEXP = player.GetComponentInParent<playerscript>().LV*100;
+        EXP = player.GetComponentInParent<playerscript>().PlayerStatInfo.exp;
+        MAXEXP = player.GetComponentInParent<playerscript>().PlayerStatInfo.LV * 100;
         currentexp = EXP / MAXEXP;
         gameObject.transform.localScale = new Vector3(currentexp, 1, 1);
         } else
         {
-        MP = player.GetComponentInParent<playerscript>().MP;
+        MP = player.GetComponentInParent<playerscript>().PlayerStatInfo.MP;
         MAXMP = player.GetComponentInParent<playerscript>().MAXMP;
         currentmp = MP / MAXMP;
         gameObject.transform.localScale = new Vector3(currentmp, 1, 1);

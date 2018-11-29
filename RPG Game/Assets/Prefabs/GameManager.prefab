@@ -55,8 +55,21 @@ MonoBehaviour:
   eventSubscribedScripts: []
   gameEventID: 0
   Testor: 0
-  player: {fileID: 0}
+  playerScript: {fileID: 0}
+  thePlayer: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   HP: 100
+  MP: 100
+  exp: 0
+  LV: 1
+  attackDamage: 10
+  PlayerCurrentInfo:
+    HP: 100
+    MP: 50
+    MPDrain: 10
+    Armor: 20
+    exp: 0
+    LV: 1
+    attackDamage: 20
 --- !u!114 &114834778511945254
 MonoBehaviour:
   m_ObjectHideFlags: 1
