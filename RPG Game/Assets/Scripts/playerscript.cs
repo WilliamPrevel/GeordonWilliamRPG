@@ -10,6 +10,7 @@ public struct PlayerInfo
     public float Armor;
     public int exp;
     public int LV;
+    public int attackDamage;
 }
 
 public class playerscript : MonoBehaviour
@@ -98,7 +99,8 @@ public class playerscript : MonoBehaviour
         }
         if (MP > MAXMP)
         {
-            MP = MAXMP;
+            //MP = MAXMP;
+            PlayerStatInfo.MP = MAXMP;
         }
         if (HP <= 0)
         {
@@ -283,6 +285,9 @@ public class playerscript : MonoBehaviour
     {
         HP = PlayerInformation.HP;
         MP = PlayerInformation.MP;
+        exp = PlayerInformation.exp;
+        LV = PlayerInformation.LV;
+        attackDamage = PlayerInformation.attackDamage;
     }
     private void ChangeWeapon()
     {

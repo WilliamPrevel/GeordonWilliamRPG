@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour {
     //make private
     public int HP = 100;
     public int MP = 100;
-    public int EXP = 0;
+    public int exp = 0;
+    public int LV = 1;
+    public int attackDamage = 10;
+
 
     PlayerInfo PlayerCurrentInfo;
 
@@ -70,6 +73,9 @@ public class GameManager : MonoBehaviour {
     {
         PlayerCurrentInfo.HP = playerScript.PlayerStatInfo.HP;
         PlayerCurrentInfo.MP = playerScript.PlayerStatInfo.MP;
+        PlayerCurrentInfo.exp = playerScript.PlayerStatInfo.exp;
+        PlayerCurrentInfo.LV = playerScript.PlayerStatInfo.LV;
+        PlayerCurrentInfo.attackDamage = playerScript.PlayerStatInfo.attackDamage;
     }
 
     void InitGame()
