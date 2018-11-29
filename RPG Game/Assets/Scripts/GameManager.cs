@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public int attackDamage = 10;
 
 
-    PlayerInfo PlayerCurrentInfo;
+    public PlayerInfo PlayerCurrentInfo;
 
     //    public static GameManager Instanciate
     //    {

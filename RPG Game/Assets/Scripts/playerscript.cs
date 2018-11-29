@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public struct PlayerInfo
 {
     public int HP;
@@ -77,8 +78,6 @@ public class playerscript : MonoBehaviour
         EventManager();
         Turn();
         statCheck();
-        //if(GameManager.instance)
-         //   GameManager.instance.HP = HP;
         
     }
 
