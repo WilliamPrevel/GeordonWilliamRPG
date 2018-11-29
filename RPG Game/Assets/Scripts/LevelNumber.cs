@@ -13,6 +13,7 @@ public class LevelNumber : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Player = GameObject.Find("Player");
         LevelText = gameObject.GetComponent<Text>();
         level = Player.GetComponentInParent<playerscript>().LV;
         LevelText.text = "" + level;

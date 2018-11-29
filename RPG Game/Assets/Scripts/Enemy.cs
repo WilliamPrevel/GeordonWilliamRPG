@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform mphats;
     public Transform superhats;
     public Animator anim;
-    public GameObject player;
+    public GameObject player = GameObject.FindWithTag("Player");
     protected Rigidbody mybody;
     protected Quaternion rotator;
     protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);
