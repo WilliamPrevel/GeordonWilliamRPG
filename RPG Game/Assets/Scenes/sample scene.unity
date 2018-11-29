@@ -1741,6 +1741,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114072718447957850, guid: 33a3276af2f0869459d6e8d48083049b,
+        type: 2}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 1484819038}
+    - target: {fileID: 1278417429440972, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   m_IsPrefabAsset: 0
@@ -2823,6 +2832,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4331905458774300, guid: ee6e8713cb1fc5b4caf4f0a1bcdfb871,
     type: 2}
   m_PrefabInternal: {fileID: 342854400}
+--- !u!114 &1484819038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114257169458438134, guid: 33a3276af2f0869459d6e8d48083049b,
+    type: 2}
+  m_PrefabInternal: {fileID: 895529938}
+  m_Script: {fileID: 11500000, guid: 7a1d0bbca0d241a45ace036800ecbb42, type: 3}
 --- !u!1001 &1520529430
 Prefab:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public abstract class Weapon : MonoBehaviour {
     public bool isBreakable = false;
     public int durability;
     public int damageTaken;
-
+    public bool isActive = true;
     protected RaycastHit hit;
     protected GameObject hitObject;
 
@@ -30,6 +30,19 @@ public abstract class Weapon : MonoBehaviour {
     }
 
     abstract protected void DoDamage();
+
+    public void setActive()
+    {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            isActive = false;
+        } else
+        {
+            gameObject.SetActive(true);
+            isActive = true;
+        }
+    }
 
     protected void Shatter()
     {
