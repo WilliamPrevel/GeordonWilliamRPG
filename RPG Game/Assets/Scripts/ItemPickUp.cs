@@ -10,9 +10,10 @@ public class ItemPickUp : MonoBehaviour {
     public bool isHP = false;
     public bool isMana = false;
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Awake () {
+        player = GameObject.FindWithTag("Player");
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

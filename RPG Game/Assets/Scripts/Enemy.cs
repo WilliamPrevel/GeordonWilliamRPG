@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform mphats;
     public Transform superhats;
     public Animator anim;
-    public GameObject player = GameObject.FindWithTag("Player");
+    public GameObject player;
     protected Rigidbody mybody;
     protected Quaternion rotator;
     protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     protected bool isDead = false;
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
         player = manman.thePlayer;
