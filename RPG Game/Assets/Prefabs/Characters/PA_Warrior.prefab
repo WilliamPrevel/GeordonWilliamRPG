@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef42c0a664a4ce4dbc9fc08b57ca051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mycam: {fileID: 20496159590569740, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+  mycam: {fileID: 20072730271700442, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
 --- !u!114 &114679879288021466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activate: 1
-  mycam: {fileID: 20496159590569740, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+  mycam: {fileID: 20072730271700442, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
 --- !u!114 &114990982008821566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   mphats: {fileID: 4818032176870568, guid: a0ab534a77f30ec4ea4c6ed68a2e644d, type: 2}
   superhats: {fileID: 4780366324324292, guid: 984b55501d2fd38488cad51bebc597f6, type: 2}
   anim: {fileID: 95145045997111080}
-  player: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+  player: {fileID: 1415214310404674, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   EnemyType: Mech
   speed: 6
   runSpeed: 12

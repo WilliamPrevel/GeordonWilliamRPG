@@ -216,12 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e769a2592e74b41ab1468959cdb8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exphats: {fileID: 0}
-  hphats: {fileID: 0}
-  mphats: {fileID: 0}
-  superhats: {fileID: 0}
+  exphats: {fileID: 4067144946837242, guid: e3134dad4b8c6824daf5cba14d112053, type: 2}
+  hphats: {fileID: 4881508810454108, guid: eaa506594c527024fa361c374f92b53f, type: 2}
+  mphats: {fileID: 4818032176870568, guid: a0ab534a77f30ec4ea4c6ed68a2e644d, type: 2}
+  superhats: {fileID: 4780366324324292, guid: 984b55501d2fd38488cad51bebc597f6, type: 2}
   anim: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1415214310404674, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   EnemyType: Slime
   speed: 50
   runSpeed: 90

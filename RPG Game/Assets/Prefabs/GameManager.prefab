@@ -58,7 +58,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   thePlayer: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   HP: 100
-  MP: 100
+  MP: 50
   exp: 0
   LV: 1
   attackDamage: 10
