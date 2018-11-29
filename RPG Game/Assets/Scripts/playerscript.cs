@@ -33,7 +33,7 @@ public class playerscript : MonoBehaviour
     public float armor = 0;
     public bool covfefe;
     //public int exp = 0;
-    //public int LV = 1;
+    public int LV;
     public int MAXLV = 100;
     public float weaponLength = 0.5f;
     private bool isattacking;
@@ -66,6 +66,7 @@ public class playerscript : MonoBehaviour
         InputManager.MoveForward += Move;
         InputManager.SpecialAttack += SAttack;
         InputManager.SwitchWeapon += ChangeWeapon;
+        LV = PlayerStatInfo.LV;
     }
 
     private void OnDisable()

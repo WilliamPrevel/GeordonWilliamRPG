@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
 
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<playerscript>();
+        playerScript = thePlayer.GetComponent<playerscript>();
 
         InitGame();
     }
