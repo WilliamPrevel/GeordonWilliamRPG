@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
         if (instance == null) { instance = this; }
         else { Destroy(this); }
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
     void Update()

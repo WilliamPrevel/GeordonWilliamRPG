@@ -101,17 +101,17 @@ namespace DigitalRuby.PyroParticles
             // start any particle system that is not in the list of manual start particle systems
             StartParticleSystems();
 
-            // If we implement the ICollisionHandler interface, see if any of the children are forwarding
-            // collision events. If they are, hook into them.
-            ICollisionHandler handler = (this as ICollisionHandler);
-            if (handler != null)
-            {
-                FireCollisionForwardScript collisionForwarder = GetComponentInChildren<FireCollisionForwardScript>();
-                if (collisionForwarder != null)
-                {
-                    collisionForwarder.CollisionHandler = handler;
-                }
-            }
+            //// If we implement the ICollisionHandler interface, see if any of the children are forwarding
+            //// collision events. If they are, hook into them.
+            //ICollisionHandler handler = (this as ICollisionHandler);
+            //if (handler != null)
+            //{
+            //    FireCollisionForwardScript collisionForwarder = GetComponentInChildren<FireCollisionForwardScript>();
+            //    if (collisionForwarder != null)
+            //    {
+            //        collisionForwarder.CollisionHandler = handler;
+            //    }
+            //}
         }
 
         protected virtual void Update()
