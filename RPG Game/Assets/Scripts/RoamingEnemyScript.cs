@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RoamingEnemyScript : Enemy {
 
-    private float random;
     protected Vector3 destination = new Vector3(0, 0, 0);
     public int roamdistance = 30;
     public int roamTime = 10;
     protected int roam = 10;
     
     // Use this for initialization
-    protected void Start () {
+    override public void Start () {
+        base.Start();
         roam = roamTime;
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
@@ -21,7 +21,6 @@ public class RoamingEnemyScript : Enemy {
 	// Update is called once per frame
     private void FixedUpdate()
     {
-        random = Random.Range(-10f, 10.0f);
         roamTime--;
         if (roamTime <= 0)
         {

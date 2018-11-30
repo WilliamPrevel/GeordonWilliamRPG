@@ -21,8 +21,8 @@ public class laserscript : MonoBehaviour {
             if (hit.transform.gameObject.tag == "Player")
             {
               //hitplayer = hit.transform.gameObject;
-                hit.transform.gameObject.GetComponent<playerscript>();
-                hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= 1;
+                hit.transform.gameObject.GetComponent<PlayerScript>();
+                hitplayer.GetComponent<PlayerScript>().myStats.Health -= 1;
                 // Debug.Log("Hit Player");
             }
         }

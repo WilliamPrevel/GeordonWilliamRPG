@@ -18,7 +18,7 @@ public class TechEnemyScript : RoamingEnemyScript{
     }
    
 
-    void Update()
+    override protected void Update()
     {
         //set aistate 
         if (currentState != AIstate.Fleeing && currentState != AIstate.Dead) {
@@ -113,8 +113,8 @@ public class TechEnemyScript : RoamingEnemyScript{
             if (hit.transform.gameObject.tag == "Player")
             {
                 hitplayer = hit.transform.gameObject;
-                hit.transform.gameObject.GetComponent<playerscript>();
-                hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= attackDamage;
+                hit.transform.gameObject.GetComponent<PlayerScript>();
+                hitplayer.GetComponent<PlayerScript>().myStats.Health -= attackDamage;
                 Debug.Log("LASER HIT");
             }
         }

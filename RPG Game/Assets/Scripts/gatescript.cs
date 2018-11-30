@@ -9,30 +9,17 @@ public class gatescript : MonoBehaviour
     private int LV;
     private GameObject player;
     
-    // Use this for initialization
     void Start()
     {
         player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter(Collider other)
     {
-
-        LV = player.GetComponentInParent<playerscript>().PlayerStatInfo.LV;
-        if (LV >= playerLevelRequired)
+        if (other.gameObject.tag == "Player" && player.GetComponentInParent<PlayerScript>().myStats.Level >= playerLevelRequired)
         {
-
-            if (other.gameObject.tag == "Player")
-            {
                 GameManager.instance.getPlayerStats();
                 SceneManager.LoadScene(sceneto, LoadSceneMode.Single);
-
-            }
         }
     }
 }

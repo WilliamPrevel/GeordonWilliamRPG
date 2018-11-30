@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpingEnemyScript : Enemy {
-    //work in progress
-    private float random;
     Vector3 destination = new Vector3(0, 0, 0);
     public int roamdistance = 30;
     public int roamTime = 10;
@@ -14,7 +12,7 @@ public class JumpingEnemyScript : Enemy {
     public bool isGrounded;
     public Weapon currentWeapon;
     // Use this for initialization
-    void Start()
+   override public void Start()
     {
         roam = roamTime;
         mybody = GetComponentInChildren<Rigidbody>();
@@ -26,7 +24,6 @@ public class JumpingEnemyScript : Enemy {
     // Update is called once per frame
     private void FixedUpdate()
     {
-        random = Random.Range(-10f, 10.0f);
         roamTime--;
         if (roamTime <= 0)
         {
@@ -40,7 +37,7 @@ public class JumpingEnemyScript : Enemy {
         isGrounded = false;
     }
     }
-    void Update()
+   override protected void Update()
     {
         if (EnemyType == "SpiderLady")
         {
@@ -56,7 +53,7 @@ public class JumpingEnemyScript : Enemy {
         }
 
     }
-    private void Roam()
+    override protected void Roam()
     {
         Vector2 getdestination = Random.insideUnitCircle * roamdistance;
         destination = new Vector3(getdestination.x, 0, getdestination.y);
@@ -72,6 +69,7 @@ public class JumpingEnemyScript : Enemy {
         void OnCollisionStay()
     {
         isGrounded = true;
+        //rotate so jet is downwards!!! TODO
         currentWeapon.Invoke("Shoot", 0.5f);
     }
 }

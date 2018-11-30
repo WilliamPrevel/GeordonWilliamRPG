@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4392430521205062}
   - component: {fileID: 114834778511945254}
-  - component: {fileID: 114212169907203798}
+  - component: {fileID: 114962833555406370}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,35 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114212169907203798
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083290929272118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd471475780845b4ca289937a090820f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventSubscribedScripts: []
-  gameEventID: 0
-  Testor: 0
-  playerScript: {fileID: 0}
-  thePlayer: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
-  HP: 100
-  MP: 50
-  exp: 0
-  LV: 1
-  attackDamage: 10
-  PlayerCurrentInfo:
-    HP: 100
-    MP: 50
-    MPDrain: 10
-    Armor: 20
-    exp: 0
-    LV: 1
-    attackDamage: 20
 --- !u!114 &114834778511945254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,3 +52,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbac08d669b54c44b08bca657f9e0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114962833555406370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083290929272118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13b15f89f6e59346b8652d0b3be800a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 0}
+  PlayerCurrentInfo:
+    Health: 50
+    MaxHealth: 100
+    Mana: 50
+    MaxMana: 100
+    Level: 1
+    MaxLevel: 50
+    Experience: 0
+    AttackDamage: 5
+    ArmorLevel: 5

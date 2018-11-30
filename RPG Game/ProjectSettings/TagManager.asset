@@ -10,6 +10,7 @@ TagManager:
   - Weapon
   - Sword
   - Staff
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : CharacterScript
 {
     public Transform exphats;
     public Transform hphats;
@@ -35,18 +35,17 @@ public class Enemy : MonoBehaviour
     protected RaycastHit hit;
     protected bool droppedloot = false;
     protected GameObject hitplayer;
-   protected GameManager manman;
-    public bool isAttacking;
     protected bool isDead = false;
-    void Start()
+    override public void Start()
     {
-        player = GameObject.FindWithTag("Player");
+
+        //player = GameObject.FindWithTag("Player");
         rotator = transform.rotation;
         mybody = GetComponentInChildren<Rigidbody>();
-        player = manman.thePlayer;
+        player = GameObject.Find("Player");
     }
 
-    void Update()
+    override protected void Update()
     {
 
         if (Vector3.Distance(player.transform.position, this.transform.position) < sightDistance)
@@ -100,42 +99,42 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void DoDamage()
-    {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            if (hit.transform.gameObject.tag == "Player")
-            {
-                hitplayer = hit.transform.gameObject;
-                hit.transform.gameObject.GetComponent<playerscript>();
-                hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= attackDamage;
-               // Debug.Log("Hit Player");
-            }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            //Debug.Log("Did not Hit Player");
-        }
-    }
+    //private void DoDamage()
+    //{
+    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+    //    {
+    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+    //        if (hit.transform.gameObject.tag == "Player")
+    //        {
+    //            hitplayer = hit.transform.gameObject;
+    //            hit.transform.gameObject.GetComponent<playerscript>();
+    //            hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= attackDamage;
+    //           // Debug.Log("Hit Player");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+    //        //Debug.Log("Did not Hit Player");
+    //    }
+    //}
 
-    private void FinishAttack()
-    {
-        anim.SetBool("isAttacking", false);
-        isAttacking = false;
-    }
+    //private void FinishAttack()
+    //{
+    //    anim.SetBool("isAttacking", false);
+    //    isAttacking = false;
+    //}
 
-    private void Attack()
-    {
-        //hit things
-        if (isDead == false)
-        {
-            isAttacking = true;
-            Invoke("DoDamage", .50f);
-            Invoke("FinishAttack", .80f);
-        }
-    }
+    //private void Attack()
+    //{
+    //    //hit things
+    //    if (isDead == false)
+    //    {
+    //        isAttacking = true;
+    //        Invoke("DoDamage", .50f);
+    //        Invoke("FinishAttack", .80f);
+    //    }
+    //}
     private void DropLoot()
     {
         int expdrops = Random.Range(1, 10);
@@ -164,10 +163,6 @@ public class Enemy : MonoBehaviour
             superhats.GetComponent<ItemPickUp>().player = player;
         }
         droppedloot = true;
-    //summon exp
-    //we will worry about changing weapons and other items in polish
-    //set exphats player object to this scripts player object!
-    //set exphat's exp value to this things exp value!
 }
   protected virtual void Roam()
     {

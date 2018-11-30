@@ -2,299 +2,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct PlayerInfo
-{
-    public int HP;
-    public int MP;
-    public int MPDrain;
-    public float Armor;
-    public int exp;
-    public int LV;
-    public int attackDamage;
-}
-
-public class playerscript : MonoBehaviour
-{
-
-    public PlayerInfo PlayerStatInfo;
-    //vars
-    public float speed = 6.0f;
-    public float runSpeed = 12.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    public float turnSpeed = 45;
-    //public int HP = 100;
-    public int MAXHP = 100;
-    //public int MP = 100;
-    public int MAXMP = 100;
-    //public int attackDamage = 10;
-    public int MPDrain = 10;
-    public float armor = 0;
-    public bool covfefe;
-    //public int exp = 0;
-    public int LV;
-    public int MAXLV = 100;
-    public float weaponLength = 0.5f;
-    private bool isattacking;
-    //bits
-    public Animator anim;
-    public Camera mycamera;
-    private GameObject hitenemy;
-    private Rigidbody mybody;
-    private CharacterController controller;
-    public Weapon currentWeapon;
-    //controls
-    private Vector3 moveDirection = Vector3.zero;
-    private float forwardMotion;
-    private float lrMotion;
-    private float verticalCameraMotion;
-    private float horizontalCameraMotion;
-    private float aimingMotion;
-    private bool isRunning = false;
-    Quaternion rotator;
-    RaycastHit hit;
-   //InputManager putter = InputManager.GetInstance();
-   
-    //functions
-    void Start()
-    {
-        forwardMotion = 0;
-        rotator = transform.rotation;
-        mybody = GetComponentInChildren<Rigidbody>();
-        currentWeapon = GetComponentInChildren<Sword>();
+public class PlayerScript : CharacterScript {
+    GameManager theBoss;
+    //go forward
+    float VerticalAxis;
+    //turn player
+    float HorizontalAxis;
+   protected Camera myCamera;
+    protected bool isRunning;
+    override public void Start () {
+        //go forward
+        base.Start();
         InputManager.MoveForward += Move;
-        InputManager.SpecialAttack += SAttack;
-        InputManager.SwitchWeapon += ChangeWeapon;
-        LV = PlayerStatInfo.LV;
+        InputManager.Turn += Turn;
+        InputManager.Idle += Idle;
+        InputManager.Attack += Attack;
+        //InputManager.SwitchWeapon += ChangeWeapon;
+        myCamera = gameObject.GetComponentInChildren<Camera>();
+        //this is a player.
+        myStats.isPlayer = true;
     }
 
     private void OnDisable()
     {
-        //do this for all
         InputManager.MoveForward -= Move;
-    }
-    void Update()
-    {
-        EventManager();
-        Turn();
-        statCheck();
-        
+        InputManager.Turn -= Turn;
     }
 
-    private void statCheck()
-    {
-        if(PlayerStatInfo.exp > PlayerStatInfo.LV * 100 && PlayerStatInfo.LV < MAXLV)
-        {
-            Levelup();
-        }
-        if(PlayerStatInfo.HP > MAXHP)
-        {
-            /*
-             * Player.HP -> Player.PlayerStatInfo.HP
-             * 
-             * HP -> PlayerStatInfo.HP
-             */
-            PlayerStatInfo.HP = MAXHP;
-        }
-        if (PlayerStatInfo.MP > MAXMP)
-        {
-            //MP = MAXMP;
-            PlayerStatInfo.MP = MAXMP;
-        }
-        if (PlayerStatInfo.HP <= 0)
-        {
-            anim.SetBool("isDead", true);
-            Invoke("Dead", 5);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        //physics
-        //Move();
-    }
-
-    //private void DoDamage()
-    //{
-    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-    //        Debug.Log("Hit");
-    //        if(hit.transform.gameObject.tag == "Enemy")
-    //        {
-    //            hitenemy = hit.transform.gameObject;
-    //            hit.transform.gameObject.GetComponent<Enemy>();
-    //            hitenemy.GetComponent<Enemy>().HP -= attackDamage;
-    //            Debug.Log("Hit Enemy");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-    //        Debug.Log("Did not Hit");
-    //    }
-    //}
-    //private void DoMoreDamage()
-    //{
-        
-    //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-    //        {
-    //            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-    //            Debug.Log("Hit");
-    //        MP -= MPDrain;
-    //        if (hit.transform.gameObject.tag == "Enemy")
-    //            {
-    //                hitenemy = hit.transform.gameObject;
-    //                hit.transform.gameObject.GetComponent<Enemy>();
-    //                hitenemy.GetComponent<Enemy>().HP -= attackDamage * 2;
-                    
-    //                Debug.Log("Hit Enemy");
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-    //            Debug.Log("Did not Hit");
-    //        }
-        
-    //}
-
-    private void FinishAttack()
-    {
-        anim.SetBool("bIsAttacking", false);
-        isattacking = false;
-    }
-
-    private void EventManager()
-    {
-        forwardMotion = Input.GetAxis("Vertical");
-        lrMotion = Input.GetAxis("Horizontal");
-        aimingMotion = Input.GetAxis("Mouse ScrollWheel");
-        verticalCameraMotion = Input.GetAxis("Mouse Y");
-        horizontalCameraMotion = Input.GetAxis("Mouse X");
-
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyUp(KeyCode.S))
-        {
-            //turn around
-            rotator *= Quaternion.AngleAxis(180, Vector3.up);
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            if (isattacking == false)
-                Attack();
-        }
-        //if (putter.specialattack)
-        //{
-        //    if (isattacking == false)
-        //    {
-        //        if (MP >= MPDrain)
-        //        {
-
-        //            SAttack();
-        //        }
-        //        else
-        //        {
-        //            Attack();
-        //        }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("isWalking", true);
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
-
-        if (Input.GetKey(KeyCode.Space))
+   override protected void Update () {
+        base.Update();
+		 VerticalAxis = Input.GetAxis("Vertical");
+        //turn player
+        HorizontalAxis = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
-            anim.SetBool("isRunning", true);
         }
         else
         {
             isRunning = false;
-            anim.SetBool("isRunning", false);
         }
     }
-    private void Move()
+
+    public void SetupPlayer(SavedStats LoadedStats)
     {
-        //move and stuf
-        if (isattacking == false)
+        myStats.Health = LoadedStats.Health;
+        myStats.Mana = LoadedStats.Mana;
+        myStats.Experience = LoadedStats.Experience;
+        myStats.Level = LoadedStats.Level;
+        myStats.MaxHealth = LoadedStats.MaxHealth;
+        myStats.MaxMana = LoadedStats.MaxMana;
+    }
+    override protected void Move()
+    {
+        //do a raycast to see if there is a wall immediately in front of player!
+        //move forward.
+        // gameObject.transform.Translate(Vector3.forward * VerticalAxis * myStats.WalkSpeed);
+        //for physics
+        if (isAttacking == false)
         {
-            mybody.velocity = gameObject.transform.forward * Mathf.Abs(forwardMotion) * speed;
-                if (isRunning)
-                {
-                    //move faster, change animation.
-                    mybody.velocity = gameObject.transform.forward * forwardMotion * runSpeed;
-                }
+            if (isRunning)
+            {
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed);
+                myAnimator.SetBool("isRunning", true);
+            }
+            else
+            {
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed);
+                myAnimator.SetBool("isWalking", true);
+            }
         }
     }
-    private void Jump()
+
+    protected override void Idle()
     {
-        //boing boing m'f'cker
-    }
-    private void Attack()
-    {
-        //hit things
-        isattacking = true;
-        anim.SetBool("bIsAttacking", true);
-        currentWeapon.Invoke("DoDamage", .50f);
-        Invoke("FinishAttack", .80f);
-    }
-    private void SAttack()
-    {
-        //hit things
-        isattacking = true;
-        anim.SetBool("bIsAttacking", true);
-        currentWeapon.Invoke("Shoot", .50f);
-        Invoke("FinishAttack", .80f);
+        //base.Idle();
+        myAnimator.SetBool("isWalking", false);
+        myAnimator.SetBool("isRunning", false);
     }
 
-    private void Turn()
+    override protected void Turn()
     {
-        //rotate character
-            rotator *= Quaternion.AngleAxis(lrMotion * turnSpeed * Time.deltaTime, Vector3.up);
-            transform.rotation = rotator;
-    }
-
-    private void Levelup()
-    {
-        speed++;
-        runSpeed++;
-        jumpSpeed++;
-        MAXHP+= 10;
-        MAXMP+=10;
-        PlayerStatInfo.attackDamage++;
-        covfefe = true;
-        PlayerStatInfo.exp = 0;
-        PlayerStatInfo.LV++;
-    }
-
-    private void SummonBlock()
-    {
-        //I was thinking we could have some physicsy fun by throwing things in the air akin to cryonis in botw.
-    }
-
-    private void Dead()
-    {
-
-    }
-    public void SetupPlayer (PlayerInfo PlayerInformation)
-    {
-        PlayerStatInfo = PlayerInformation;
-
-        PlayerStatInfo.HP = PlayerInformation.HP;
-        PlayerStatInfo.MP = PlayerInformation.MP;
-        PlayerStatInfo.exp = PlayerInformation.exp;
-        PlayerStatInfo.LV = PlayerInformation.LV;
-        PlayerStatInfo.attackDamage = PlayerInformation.attackDamage;
+        gameObject.transform.Rotate(0, HorizontalAxis * myStats.TurnSpeed * Time.deltaTime, 0);
     }
 
     private void ChangeWeapon()
     {
         Debug.Log("CHANGE");
-            currentWeapon.setActive();
+        //weapon array
+      //  currentWeapon.setActive();
+    }
+
+    private void Levelup()
+    {
+        myStats.MaxHealth += 10;//*(1/myStats.Level);
+        myStats.MaxMana += 10;
+        myStats.AttackDamage += 2;
+        myStats.Experience = 0;
+        myStats.Level++;
     }
 }

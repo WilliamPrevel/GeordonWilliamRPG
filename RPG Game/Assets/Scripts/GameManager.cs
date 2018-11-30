@@ -2,55 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
+public class SavedStats
+{
+    public int Health;
+    public int MaxHealth;
+    public int Mana;
+    public int MaxMana;
+    public int Level;
+    public int MaxLevel;
+    public int Experience;
+    public int AttackDamage;
+    public int ArmorLevel;
+}
 
 public class GameManager : MonoBehaviour {
 
-    public List <MonoBehaviour> eventSubscribedScripts = new List<MonoBehaviour>();
-    public int gameEventID = 0;
-    public int Testor = 0;
     private static GameManager instanciate;
-
-
     public static GameManager instance = null;
-    public playerscript playerScript;
+    
     public GameObject thePlayer;
-    //make private
-    public int HP = 100;
-    public int MP = 100;
-    public int exp = 0;
-    public int LV = 1;
-    public int attackDamage = 10;
+    public SavedStats PlayerCurrentInfo = new SavedStats();
 
-
-    public PlayerInfo PlayerCurrentInfo;
-
-    //    public static GameManager Instanciate
-    //    {
-    //        get
-    //        {
-    //            if(instanciate == null)
-    //            {
-    //                instanciate = FindObjectOfType<GameManager>();
-    //#if UNITY_EDITOR
-    //                if (FindObjectsOfType<GameManager>().Length > 1)
-    //                {
-    //                    Debug.LogError("There is more than 1 game manager in the scene");
-    //                }
-    //#endif
-    //            }
-    //            return instanciate;
-    //        }
-    //    }
     private void Start()
     {
 
         thePlayer = GameObject.FindWithTag("Player");
         StartUpManager();
-    }
 
-    void Awake ()
-    {
     }
 
     public void StartUpManager()
@@ -60,57 +39,54 @@ public class GameManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
 
-
         DontDestroyOnLoad(gameObject);
-
-
-        playerScript = thePlayer.GetComponent<playerscript>();
 
         InitGame();
     }
 
     public void getPlayerStats()
     {
-        PlayerCurrentInfo.HP = playerScript.PlayerStatInfo.HP;
-        PlayerCurrentInfo.MP = playerScript.PlayerStatInfo.MP;
-        PlayerCurrentInfo.exp = playerScript.PlayerStatInfo.exp;
-        PlayerCurrentInfo.LV = playerScript.PlayerStatInfo.LV;
-        PlayerCurrentInfo.attackDamage = playerScript.PlayerStatInfo.attackDamage;
+        PlayerCurrentInfo.Health = thePlayer.GetComponent<PlayerScript>().myStats.Health;
+        PlayerCurrentInfo.Mana = thePlayer.GetComponent<PlayerScript>().myStats.Mana;
+        PlayerCurrentInfo.Experience = thePlayer.GetComponent<PlayerScript>().myStats.Experience;
+        PlayerCurrentInfo.Level = thePlayer.GetComponent<PlayerScript>().myStats.Level;
+        PlayerCurrentInfo.MaxHealth = thePlayer.GetComponent<PlayerScript>().myStats.MaxHealth;
+        PlayerCurrentInfo.MaxMana = thePlayer.GetComponent<PlayerScript>().myStats.MaxMana;
     }
 
     void InitGame()
     {
-        if (playerScript)
+        if (thePlayer != null)
         {
 
-            playerScript.SetupPlayer(PlayerCurrentInfo);
+            thePlayer.GetComponent<PlayerScript>().SetupPlayer(PlayerCurrentInfo);
 
         }
     }
 
-    public void subscribeToGameEventUpdate(MonoBehaviour pScript)
-    {
-        eventSubscribedScripts.Add(pScript);
-    }
-    public void deSubscribeToGameEventUpdate(MonoBehaviour pScript)
-    {
-        while (eventSubscribedScripts.Contains(pScript))
-        {
-            eventSubscribedScripts.Remove(pScript);
-        }
-    }
+    //public void subscribeToGameEventUpdate(MonoBehaviour pScript)
+    //{
+    //    eventSubscribedScripts.Add(pScript);
+    //}
+    //public void deSubscribeToGameEventUpdate(MonoBehaviour pScript)
+    //{
+    //    while (eventSubscribedScripts.Contains(pScript))
+    //    {
+    //        eventSubscribedScripts.Remove(pScript);
+    //    }
+    //}
 
-    public void playerPassedEvent()
-    {
-        gameEventID++;
-        foreach(MonoBehaviour _script in eventSubscribedScripts)
-        {
-            _script.Invoke("gameEventUpdated",0);
-        }
-    }
+ //   public void playerPassedEvent()
+ //   {
+ //       gameEventID++;
+ //       foreach(MonoBehaviour _script in eventSubscribedScripts)
+ //       {
+ //           _script.Invoke("gameEventUpdated",0);
+ //       }
+ //   }
 
-    // Update is called once per frame
-    void Update () {
+ //   // Update is called once per frame
+       void Update () {
 		
-	}
+	    }
 }

@@ -4,55 +4,42 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
-{ 
-//public Singleton class InputManager : MonoBehaviour {
-    // public delegate void WDown();
-    // public static event WDown isDown;
-    private Vector3 moveDirection = Vector3.zero;
-    private static float forwardMotion;
+{
+
+   // private Vector3 moveDirection = Vector3.zero;
+   // private static float forwardMotion;
     private static float lrMotion;
     private static float verticalCameraMotion;
     private static float horizontalCameraMotion;
     private static float aimingMotion;
-    private static bool isRunning = false;
-    public static UnityEvent W;
-    public static UnityEvent S;
-    public static UnityEvent A;
-    public static UnityEvent D;
+
     public delegate void MoveAction();
     public static event MoveAction MoveForward;
-    public static event MoveAction MoveBack;
+   // public static event MoveAction MoveBack;
     public static event MoveAction Turn;
+   // public static event MoveAction Run;
+    public static event MoveAction Idle;
+
     public delegate void AttackAction();
     public static event AttackAction Attack;
     public static event AttackAction SpecialAttack;
+
     public delegate void OtherAction();
     public static event OtherAction SwitchWeapon;
-    private static InputManager instance;
-    //public InputManager Instance { get { return instance; } }
+
+    public static InputManager instance;
 
     void Start()
     {
-        if (W == null)
-            W = new UnityEvent();
-       W.AddListener(Ping);
-        if (S == null)
-            S = new UnityEvent();
-        S.AddListener(Ping);
-
+        //singleton
         if (instance == null) { instance = this; }
         else { Destroy(this); }
-
-       // DontDestroyOnLoad(gameObject);
+        //no kill
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
-        forwardMotion = Input.GetAxis("Vertical");
-        lrMotion = Input.GetAxis("Horizontal");
-        aimingMotion = Input.GetAxis("Mouse ScrollWheel");
-        verticalCameraMotion = Input.GetAxis("Mouse Y");
-        horizontalCameraMotion = Input.GetAxis("Mouse X");
         if (Input.GetKey(KeyCode.W))
         {
             MoveForward();
@@ -61,34 +48,26 @@ public class InputManager : MonoBehaviour
         {
             SpecialAttack();
         }
-        if(Input.GetKeyUp(KeyCode.X))
+        if (Input.GetKeyUp(KeyCode.X))
         {
             SwitchWeapon();
         }
-        if (forwardMotion>0 && W != null)//Input.GetKey(KeyCode.W)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            W.Invoke();// "getforwardmotion");
-        } else if(forwardMotion<0 && S != null)
-        {
-            S.Invoke();
+            Turn();
         }
-        if (lrMotion > 0 && A != null)//Input.GetKey(KeyCode.W)
+        if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S) == false)
         {
-            A.Invoke();
+            Idle();
         }
-        else if (lrMotion < 0 && D != null)
+        if (Input.GetKey(KeyCode.Space))
         {
-            D.Invoke();
+            Attack();
         }
     }
-    public float getforwardmotion()
-    {
-        return forwardMotion;
-    }
+    //public float getforwardmotion()
+    //{
+    //    return forwardMotion;
+    //}
     public static InputManager GetInstance() { return instance; }
-
-    void Ping()
-    {
-      //  Debug.Log("Ping");
-    }
 }

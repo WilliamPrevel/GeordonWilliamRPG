@@ -1,0 +1,116 @@
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+
+
+//public class GameManager2 : MonoBehaviour {
+
+//    public List <MonoBehaviour> eventSubscribedScripts = new List<MonoBehaviour>();
+//    public int gameEventID = 0;
+//    public int Testor = 0;
+//    private static GameManager instanciate;
+
+
+//    public static GameManager instance = null;
+//    public playerscript playerScript;
+//    public GameObject thePlayer;
+//    //make private
+//    public int HP = 100;
+//    public int MP = 100;
+//    public int exp = 0;
+//    public int LV = 1;
+//    public int attackDamage = 10;
+
+
+//    public PlayerInfo PlayerCurrentInfo;
+
+//    //    public static GameManager Instanciate
+//    //    {
+//    //        get
+//    //        {
+//    //            if(instanciate == null)
+//    //            {
+//    //                instanciate = FindObjectOfType<GameManager>();
+//    //#if UNITY_EDITOR
+//    //                if (FindObjectsOfType<GameManager>().Length > 1)
+//    //                {
+//    //                    Debug.LogError("There is more than 1 game manager in the scene");
+//    //                }
+//    //#endif
+//    //            }
+//    //            return instanciate;
+//    //        }
+//    //    }
+//    private void Start()
+//    {
+
+//        thePlayer = GameObject.FindWithTag("Player");
+//        StartUpManager();
+//    }
+
+//    void Awake ()
+//    {
+//    }
+
+//    public void StartUpManager()
+//    {
+//        if (instance == null)
+//            instance = this;
+//        else if (instance != this)
+//            Destroy(gameObject);
+
+
+//        DontDestroyOnLoad(gameObject);
+
+
+//        playerScript = thePlayer.GetComponent<playerscript>();
+
+//        InitGame();
+//    }
+
+//    public void getPlayerStats()
+//    {
+//        PlayerCurrentInfo.HP = playerScript.PlayerStatInfo.HP;
+//        PlayerCurrentInfo.MP = playerScript.PlayerStatInfo.MP;
+//        PlayerCurrentInfo.exp = playerScript.PlayerStatInfo.exp;
+//        PlayerCurrentInfo.LV = playerScript.PlayerStatInfo.LV;
+//        PlayerCurrentInfo.attackDamage = playerScript.PlayerStatInfo.attackDamage;
+//    }
+
+//    void InitGame()
+//    {
+//        if (playerScript)
+//        {
+
+//            playerScript.SetupPlayer(PlayerCurrentInfo);
+
+//        }
+//    }
+
+//    public void subscribeToGameEventUpdate(MonoBehaviour pScript)
+//    {
+//        eventSubscribedScripts.Add(pScript);
+//    }
+//    public void deSubscribeToGameEventUpdate(MonoBehaviour pScript)
+//    {
+//        while (eventSubscribedScripts.Contains(pScript))
+//        {
+//            eventSubscribedScripts.Remove(pScript);
+//        }
+//    }
+
+//    public void playerPassedEvent()
+//    {
+//        gameEventID++;
+//        foreach(MonoBehaviour _script in eventSubscribedScripts)
+//        {
+//            _script.Invoke("gameEventUpdated",0);
+//        }
+//    }
+
+//    // Update is called once per frame
+//    void Update () {
+		
+//	}
+//}

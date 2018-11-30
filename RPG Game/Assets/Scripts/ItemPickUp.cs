@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour {
     public GameObject player;
-    public int expvalue;
+    public int expvalue = 10;
+    public int manavalue = 10;
+    public int healthvalue = 10;
     private bool approachPlayer = false;
     public bool isEXP = true;
     public bool isHP = false;
@@ -50,10 +52,10 @@ public class ItemPickUp : MonoBehaviour {
         gameObject.SetActive(false);
         //giveboost
         if(isEXP)
-             player.GetComponent<playerscript>().PlayerStatInfo.exp += expvalue;
+            player.GetComponent<PlayerScript>().myStats.Experience += expvalue;
         if(isHP)
-              player.GetComponent<playerscript>().PlayerStatInfo.HP += 10;
+            player.GetComponent<PlayerScript>().myStats.Health += healthvalue;
         if (isMana)
-              player.GetComponent<playerscript>().PlayerStatInfo.MP += 10;
+              player.GetComponent<PlayerScript>().myStats.Mana += manavalue;
     }
 }
