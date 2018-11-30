@@ -8,6 +8,7 @@ public class ItemPickUp : MonoBehaviour {
     public int expvalue = 10;
     public int manavalue = 10;
     public int healthvalue = 10;
+    public bool isHeld = false;
     private bool approachPlayer = false;
 public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
     public ItemType myType = ItemType.ExpBoost;
@@ -28,7 +29,7 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
 
     protected void OnTriggerEnter(Collider player)
     {
-        if(player.gameObject.tag == "Player")
+        if(player.gameObject.tag == "Player" & !isHeld)
         {
             gotoPlayer();
             Invoke("DeSpawn", 0.2f);
@@ -36,7 +37,7 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
     }
     protected void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "player")
+        if(collision.gameObject.tag == "player" &! isHeld)
         {
             DeSpawn();
         }
