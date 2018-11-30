@@ -140,7 +140,7 @@ public class CharacterScript : MonoBehaviour {
         //else set gamestate to dead.
     }
 
-    private void Levelup()
+    protected void Levelup()
     {
         myStats.MaxHealth += 10;
         myStats.MaxMana += 10;
