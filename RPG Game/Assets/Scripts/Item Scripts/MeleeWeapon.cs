@@ -7,7 +7,7 @@ public class MeleeWeapon : Weapon
 
    override protected void DoDamage()
     {
-        if (Physics.SphereCast(gameObject.GetComponentInParent<Rigidbody>().transform.position, 10, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        if (Physics.SphereCast(gameObject.GetComponentInParent<Rigidbody>().transform.position, 10, transform.TransformDirection(Vector3.forward), out hit, myStats.weaponLength))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance * -1, Color.green);
             Debug.Log("Hit");
@@ -16,7 +16,7 @@ public class MeleeWeapon : Weapon
             {
                 hitObject = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<Enemy>();
-                hitObject.GetComponent<Enemy>().myStats.Health -= AttackDamage;
+                hitObject.GetComponent<Enemy>().myStats.Health -= myStats.AttackDamage;
                 Debug.Log("Hit Enemy");
             }
         }

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour {
-
-    public float weaponLength;
+[System.Serializable]
+public class ItemStats
+{
+     public float weaponLength;
     public int AttackDamage;
-
     public bool isBreakable = false;
     public int durability;
     public int damageTaken;
     public bool isActive = true;
+}
+
+public abstract class Weapon : ItemPickUp {
+
+   public ItemStats myStats = new ItemStats();
     protected RaycastHit hit;
     protected GameObject hitObject;
 
@@ -20,7 +25,7 @@ public abstract class Weapon : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	protected void Update () {
+	override protected void Update () {
 		
 	}
 
@@ -33,17 +38,17 @@ public abstract class Weapon : MonoBehaviour {
 
     public void setActive()
     {
-        if (!isActive)
+        if (!myStats.isActive)
         {
             gameObject.SetActive(false);
-            isActive = false;
+            myStats.isActive = false;
         } else
         {
             gameObject.SetActive(true);
-            isActive = true;
+            myStats.isActive = true;
         }
     }
-
+    
     protected void Shatter()
     {
 

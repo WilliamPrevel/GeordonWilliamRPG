@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterStats
 {
     public bool isPlayer;
-    public bool isDead;
+    public bool isDead = false;
 
     public int Health;
     public int MaxHealth;
@@ -32,7 +32,7 @@ public class CharacterScript : MonoBehaviour {
     public CharacterStats myStats = new CharacterStats();
     protected RaycastHit hit;
     protected GameObject hitenemy;
-
+    public GameObject currentWeapon;
     // Use this for initialization
     virtual public void Start () {
         myBody = gameObject.GetComponentInChildren<Rigidbody>();
@@ -45,7 +45,7 @@ public class CharacterScript : MonoBehaviour {
         statCheck();
 	}
 
-    private void statCheck()
+    protected void statCheck()
     {
 
         if (myStats.Experience > (myStats.Level * 100) && myStats.Level < myStats.MaxLevel)
@@ -80,7 +80,7 @@ public class CharacterScript : MonoBehaviour {
     {
         isAttacking = true;
         if(myAnimator != null)
-        myAnimator.SetBool("bIsAttacking", true);
+        myAnimator.SetBool("isAttacking", true);
         Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
     }
@@ -89,7 +89,7 @@ public class CharacterScript : MonoBehaviour {
     {
         isAttacking = true;
         if (myAnimator != null)
-            myAnimator.SetBool("bIsAttacking", true);
+            myAnimator.SetBool("isAttacking", true);
         //currentWeapon.Invoke("Shoot", .50f);
         Invoke("FinishAttack", .80f);
     }
@@ -112,8 +112,10 @@ public class CharacterScript : MonoBehaviour {
             {
                 hitenemy = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<CharacterScript>();
-                hitenemy.GetComponent<CharacterScript>().myStats.Health -= myStats.AttackDamage;
-
+                if (currentWeapon != null)
+                    hitenemy.GetComponent<CharacterScript>().myStats.Health -= myStats.AttackDamage + currentWeapon.GetComponent<Weapon>().myStats.AttackDamage;
+                else
+                    hitenemy.GetComponent<CharacterScript>().myStats.Health -= myStats.AttackDamage;
                 Debug.Log("Hit Target");
             }
         }
@@ -127,7 +129,7 @@ public class CharacterScript : MonoBehaviour {
     private void FinishAttack()
     {
         if (myAnimator != null)
-            myAnimator.SetBool("bIsAttacking", false);
+            myAnimator.SetBool("isAttacking", false);
         isAttacking = false;
     }
 

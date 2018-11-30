@@ -19,9 +19,7 @@ public class Enemy : CharacterScript
     override public void Start()
     {
         base.Start();
-        //player = GameObject.FindWithTag("Player");
         rotator = transform.rotation;
-        //myBody = GetComponentInChildren<Rigidbody>();
         player = GameObject.Find("Player");
 
     }

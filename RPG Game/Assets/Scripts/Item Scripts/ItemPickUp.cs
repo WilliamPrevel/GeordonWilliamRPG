@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour {
+
     public GameObject player;
     public int expvalue = 10;
     public int manavalue = 10;
@@ -10,14 +11,14 @@ public class ItemPickUp : MonoBehaviour {
     private bool approachPlayer = false;
 public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
     public ItemType myType = ItemType.ExpBoost;
-	// Use this for initialization
-	void Awake () {
-        player = GameObject.FindWithTag("Player");
 
+    // Use this for initialization
+    protected void Awake () {
+        player = GameObject.FindWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+   virtual protected void Update () {
  Vector3 direction = player.transform.position - this.transform.position;
         if (approachPlayer) { 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 90);
@@ -25,7 +26,7 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
         }
     }
 
-    private void OnTriggerEnter(Collider player)
+    protected void OnTriggerEnter(Collider player)
     {
         if(player.gameObject.tag == "Player")
         {
@@ -33,19 +34,19 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
             Invoke("DeSpawn", 0.2f);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "player")
         {
             DeSpawn();
         }
     }
-    private void gotoPlayer()
+    protected void gotoPlayer()
     {
         approachPlayer = true;
     }
 
-    private void DeSpawn()
+    protected void DeSpawn()
     {
         switch (myType)
         {
