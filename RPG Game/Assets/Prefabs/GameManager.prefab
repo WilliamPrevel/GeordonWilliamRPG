@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b15f89f6e59346b8652d0b3be800a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
+  thePlayer: {fileID: 1415214310404674, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   PlayerCurrentInfo:
     Health: 50
     MaxHealth: 100

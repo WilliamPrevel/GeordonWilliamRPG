@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 4440143072421868}
   - component: {fileID: 54648698101470520}
   - component: {fileID: 136349426704787954}
-  - component: {fileID: 114072718447957850}
+  - component: {fileID: 114737083344564488}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5899,45 +5899,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114072718447957850
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415214310404674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f975f1f523fa19247b4bc7a67c49a5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerStatInfo:
-    HP: 0
-    MP: 0
-    MPDrain: 0
-    Armor: 0
-    exp: 0
-    LV: 0
-    attackDamage: 0
-  speed: 6
-  runSpeed: 18
-  jumpSpeed: 8
-  gravity: 20
-  turnSpeed: 90
-  HP: 100
-  MAXHP: 100
-  MP: 10
-  MAXMP: 10
-  attackDamage: 10
-  MPDrain: 10
-  armor: 0
-  covfefe: 0
-  exp: 0
-  LV: 1
-  MAXLV: 100
-  weaponLength: 5
-  anim: {fileID: 95647585065744608}
-  mycamera: {fileID: 20072730271700442}
-  currentWeapon: {fileID: 0}
 --- !u!114 &114075573589776002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5954,6 +5915,7 @@ MonoBehaviour:
   isBreakable: 0
   durability: 0
   damageTaken: 0
+  isActive: 1
   newFireball: {fileID: 1166767453467390}
 --- !u!114 &114257169458438134
 MonoBehaviour:
@@ -5971,6 +5933,7 @@ MonoBehaviour:
   isBreakable: 0
   durability: 0
   damageTaken: 0
+  isActive: 1
 --- !u!114 &114509305826671736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5990,6 +5953,35 @@ MonoBehaviour:
   ForceRadius: 0
   IsProjectile: 1
   ManualParticleSystems: []
+--- !u!114 &114737083344564488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415214310404674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afbdcf1efd7c5c48ad68a3be7d830de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myStats:
+    isPlayer: 0
+    isDead: 0
+    Health: 100
+    MaxHealth: 100
+    Mana: 50
+    MaxMana: 50
+    Level: 1
+    MaxLevel: 100
+    Experience: 0
+    AttackDamage: 20
+    AttackReach: 5
+    SpecialAttackReach: 10
+    ArmorLevel: 0
+    WalkSpeed: 0
+    RunSpeed: 0
+    TurnSpeed: 0
+    AttackDelay: 0
 --- !u!114 &114857575949864796
 MonoBehaviour:
   m_ObjectHideFlags: 1
