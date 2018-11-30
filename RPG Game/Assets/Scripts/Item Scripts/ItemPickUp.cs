@@ -8,9 +8,8 @@ public class ItemPickUp : MonoBehaviour {
     public int manavalue = 10;
     public int healthvalue = 10;
     private bool approachPlayer = false;
-    public bool isEXP = true;
-    public bool isHP = false;
-    public bool isMana = false;
+public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
+    public ItemType myType = ItemType.ExpBoost;
 	// Use this for initialization
 	void Awake () {
         player = GameObject.FindWithTag("Player");
@@ -48,14 +47,28 @@ public class ItemPickUp : MonoBehaviour {
 
     private void DeSpawn()
     {
-        //return to object pool
+        switch (myType)
+        {
+            case ItemType.ExpBoost:
+                player.GetComponent<PlayerScript>().myStats.Experience += expvalue;
+                break;
+            case ItemType.HealthBoost:
+                player.GetComponent<PlayerScript>().myStats.Health += healthvalue;
+                break;
+            case ItemType.ManaBoost:
+                player.GetComponent<PlayerScript>().myStats.Mana += manavalue;
+                break;
+            case ItemType.SuperBoost:
+                player.GetComponent<PlayerScript>().myStats.Experience += expvalue;
+                player.GetComponent<PlayerScript>().myStats.Health += healthvalue;
+                player.GetComponent<PlayerScript>().myStats.Mana += manavalue;
+                break;
+            case ItemType.Weapon:
+                //add weapon to weapon array
+                break;
+        }
+        //return to object pool!! TODO
         gameObject.SetActive(false);
         //giveboost
-        if(isEXP)
-            player.GetComponent<PlayerScript>().myStats.Experience += expvalue;
-        if(isHP)
-            player.GetComponent<PlayerScript>().myStats.Health += healthvalue;
-        if (isMana)
-              player.GetComponent<PlayerScript>().myStats.Mana += manavalue;
     }
 }

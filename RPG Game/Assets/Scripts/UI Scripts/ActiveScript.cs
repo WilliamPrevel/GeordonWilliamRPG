@@ -17,8 +17,8 @@ public class ActiveScript : MonoBehaviour {
         else
             gameObject.SetActive(false);
     //show/hide bar
-    HPcheck = gameObject.GetComponentInParent<Enemy>().HP;
-    MAXHPcheck = gameObject.GetComponentInParent<Enemy>().MAXHP;
+    HPcheck = gameObject.GetComponentInParent<Enemy>().myStats.Health;
+    MAXHPcheck = gameObject.GetComponentInParent<Enemy>().myStats.MaxHealth;
     if (HPcheck >= MAXHPcheck)
     {
         gameObject.transform.localScale = new Vector3(0, 0, 0);

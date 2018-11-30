@@ -8,41 +8,22 @@ public class Enemy : CharacterScript
     public Transform hphats;
     public Transform mphats;
     public Transform superhats;
-    public Animator anim;
     public GameObject player;
-    protected Rigidbody mybody;
     protected Quaternion rotator;
     protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);
     public string EnemyType;
-    public float speed = 6.0f;
-    public float runSpeed = 12.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    public float turnSpeed = 1.1f;
     public float sightDistance = 10;
-    public float weaponLength = 10;
-    public int attackDelay = 10;
-    public int HP = 50;
-    public int MAXHP = 50;
-    public int MP = 0;
-    public int MAXMP = 0;
-    public int attackDamage = 10;
-    public float armor = 0;
-    public bool covfefe;
-    public int exp = 0;
-    public int LV = 1;
-    public int MAXLV = 1;
-    protected RaycastHit hit;
     protected bool droppedloot = false;
-    protected GameObject hitplayer;
-    protected bool isDead = false;
+    //protected GameObject hitplayer;
+
     override public void Start()
     {
-
+        base.Start();
         //player = GameObject.FindWithTag("Player");
         rotator = transform.rotation;
-        mybody = GetComponentInChildren<Rigidbody>();
+        //myBody = GetComponentInChildren<Rigidbody>();
         player = GameObject.Find("Player");
+
     }
 
     override protected void Update()
@@ -53,7 +34,7 @@ public class Enemy : CharacterScript
         {
             if (EnemyType == "SpiderLady")
             {
-                anim.SetBool("isAttacking", true);
+                myAnimator.SetBool("isAttacking", true);
             }
             Vector3 direction = player.transform.position - this.transform.position;
             //1 attack at a time
@@ -65,7 +46,7 @@ public class Enemy : CharacterScript
 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
 
-            Quaternion.LookRotation(direction) * restrictor, turnSpeed);
+            Quaternion.LookRotation(direction) * restrictor, myStats.TurnSpeed);
 
             if (direction.magnitude > 5)
             {
@@ -77,64 +58,27 @@ public class Enemy : CharacterScript
         }
         else if (EnemyType == "SpiderLady")
         {
-            anim.SetBool("isAttacking", false);
+            myAnimator.SetBool("isAttacking", false);
         }
-        if (HP <= 0)
+        if (myStats.Health <= 0)
         {
-            isDead = true;
+            myStats.isDead = true;
             if (EnemyType == "SpiderLady")
             {
-                anim.SetBool("isDead", true);
+                myAnimator.SetBool("isDead", true);
             }
             Invoke("Dead", 5);
         }
 
     }
-    private void Dead() {
+    override public void Dead() {
         if (droppedloot == false)
         {
             DropLoot();
         }
-        //WILL UPDATE THIS TO RETURN TO OBJECT POOL
-        gameObject.SetActive(false);
+        base.Dead();
     }
 
-    //private void DoDamage()
-    //{
-    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-    //        if (hit.transform.gameObject.tag == "Player")
-    //        {
-    //            hitplayer = hit.transform.gameObject;
-    //            hit.transform.gameObject.GetComponent<playerscript>();
-    //            hitplayer.GetComponent<playerscript>().PlayerStatInfo.HP -= attackDamage;
-    //           // Debug.Log("Hit Player");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-    //        //Debug.Log("Did not Hit Player");
-    //    }
-    //}
-
-    //private void FinishAttack()
-    //{
-    //    anim.SetBool("isAttacking", false);
-    //    isAttacking = false;
-    //}
-
-    //private void Attack()
-    //{
-    //    //hit things
-    //    if (isDead == false)
-    //    {
-    //        isAttacking = true;
-    //        Invoke("DoDamage", .50f);
-    //        Invoke("FinishAttack", .80f);
-    //    }
-    //}
     private void DropLoot()
     {
         int expdrops = Random.Range(1, 10);

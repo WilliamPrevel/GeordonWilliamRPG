@@ -1458,7 +1458,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1183163633719762}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.290695, y: 10, z: -59.468765}
+  m_LocalPosition: {x: -79.64392, y: 10, z: 51.47278}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 4079655400542270}
@@ -3713,13 +3713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef75f3570f0d8564cbbe00a78e8341e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+  player: {fileID: 0}
   expvalue: 5
   manavalue: 10
   healthvalue: 10
-  isEXP: 0
-  isHP: 1
-  isMana: 0
+  myType: 0
 --- !u!135 &135346105003301402
 SphereCollider:
   m_ObjectHideFlags: 1

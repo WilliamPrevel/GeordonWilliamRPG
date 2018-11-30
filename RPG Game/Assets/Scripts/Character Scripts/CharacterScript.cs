@@ -6,6 +6,8 @@ using UnityEngine;
 public class CharacterStats
 {
     public bool isPlayer;
+    public bool isDead;
+
     public int Health;
     public int MaxHealth;
     public int Mana;
@@ -20,6 +22,7 @@ public class CharacterStats
     public int WalkSpeed;
     public int RunSpeed;
     public int TurnSpeed;
+    public int AttackDelay;
 }
 
 public class CharacterScript : MonoBehaviour {
@@ -27,13 +30,14 @@ public class CharacterScript : MonoBehaviour {
     protected Animator myAnimator;
     protected bool isAttacking = false;
     public CharacterStats myStats = new CharacterStats();
-    RaycastHit hit;
-    private GameObject hitenemy;
+    protected RaycastHit hit;
+    protected GameObject hitenemy;
 
     // Use this for initialization
     virtual public void Start () {
         myBody = gameObject.GetComponent<Rigidbody>();
         myAnimator = gameObject.GetComponentInChildren<Animator>();
+        myStats.isDead = false;
     }
 	
 	// Update is called once per frame
@@ -124,7 +128,7 @@ public class CharacterScript : MonoBehaviour {
         isAttacking = false;
     }
 
-    void Dead()
+    virtual public void Dead()
     {
         if(myStats.isPlayer == false)
         gameObject.SetActive(false);

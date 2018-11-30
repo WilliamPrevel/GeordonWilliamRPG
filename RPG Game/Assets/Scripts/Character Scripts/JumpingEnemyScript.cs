@@ -14,8 +14,9 @@ public class JumpingEnemyScript : Enemy {
     // Use this for initialization
    override public void Start()
     {
+        base.Start();
         roam = roamTime;
-        mybody = GetComponentInChildren<Rigidbody>();
+        //mybody = GetComponentInChildren<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
         currentWeapon = GetComponent<Weapon>();
         
@@ -31,40 +32,25 @@ public class JumpingEnemyScript : Enemy {
             Roam();
         }
         if (isGrounded)
-    {
+        {
 
-        mybody.AddForce(jump * jumpForce, ForceMode.Impulse);
+        myBody.AddForce(jump * jumpForce, ForceMode.Impulse);
         isGrounded = false;
-    }
-    }
-   override protected void Update()
-    {
-        if (EnemyType == "SpiderLady")
-        {
-            anim.SetBool("isAttacking", false);
         }
-        if (HP <= 0)
-        {
-            if (EnemyType == "SpiderLady")
-            {
-                anim.SetBool("isDead", true);
-            }
-            Invoke("Dead", 5);
-        }
+    }
 
-    }
     override protected void Roam()
     {
         Vector2 getdestination = Random.insideUnitCircle * roamdistance;
         destination = new Vector3(getdestination.x, 0, getdestination.y);
         if (EnemyType == "SpiderLady")
         {
-            anim.SetBool("isJumping", true);
+            myAnimator.SetBool("isJumping", true);
         }
         Quaternion restrictor = Quaternion.Euler(0, 1, 0);
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), turnSpeed) * restrictor;
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), myStats.TurnSpeed) * restrictor;
         destination = destination - (transform.position);
-        mybody.velocity = gameObject.transform.forward * speed;
+        myBody.velocity = gameObject.transform.forward * myStats.WalkSpeed;
     }
         void OnCollisionStay()
     {

@@ -29,10 +29,10 @@ public class TechEnemyScript : RoamingEnemyScript{
             {
                 currentState = AIstate.Roaming;
             }
-            if (HP <= 0)
+            if (myStats.Health <= 0)
             {
                 currentState = AIstate.Dead;
-                isDead = true;
+                myStats.isDead = true;
                 Invoke("Dead", 5);
             }
         }
@@ -73,16 +73,16 @@ public class TechEnemyScript : RoamingEnemyScript{
         Vector2 getdestination = Random.insideUnitCircle * roamdistance;
         destination = new Vector3(getdestination.x, 0, getdestination.y);
         Quaternion restrictor = Quaternion.Euler(0, 1, 0);
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), turnSpeed) * restrictor;
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), myStats.TurnSpeed) * restrictor;
         destination = destination - (transform.position);
-        mybody.velocity = gameObject.transform.forward * speed;
+        myBody.velocity = gameObject.transform.forward * myStats.WalkSpeed;
     }
 
     private void Strafe()
     {
             Vector3 direction = player.transform.position - this.transform.position;
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
-            Quaternion.LookRotation(direction) * restrictor, turnSpeed);
+            Quaternion.LookRotation(direction) * restrictor, myStats.TurnSpeed);
 
             if (direction.magnitude > 5)
             {
@@ -94,7 +94,7 @@ public class TechEnemyScript : RoamingEnemyScript{
     }
     private void Retreat()
     {
-        mybody.velocity = gameObject.transform.forward * -speed;
+        myBody.velocity = gameObject.transform.forward * -myStats.RunSpeed;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -107,14 +107,14 @@ public class TechEnemyScript : RoamingEnemyScript{
         newnew.transform.parent = transform;
     newnew.SetActive(true);
         newnew.transform.position += new Vector3(0, 2, 2);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, weaponLength))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.SpecialAttackReach))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             if (hit.transform.gameObject.tag == "Player")
             {
-                hitplayer = hit.transform.gameObject;
+                hitenemy = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<PlayerScript>();
-                hitplayer.GetComponent<PlayerScript>().myStats.Health -= attackDamage;
+                hitenemy.GetComponent<PlayerScript>().myStats.Health -= myStats.AttackDamage;
                 Debug.Log("LASER HIT");
             }
         }

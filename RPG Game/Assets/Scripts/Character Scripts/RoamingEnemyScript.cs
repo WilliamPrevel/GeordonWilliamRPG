@@ -14,7 +14,7 @@ public class RoamingEnemyScript : Enemy {
         base.Start();
         roam = roamTime;
         rotator = transform.rotation;
-        mybody = GetComponentInChildren<Rigidbody>();
+        myBody = GetComponentInChildren<Rigidbody>();
         //player = manman.thePlayer;
     }
 	
@@ -35,11 +35,11 @@ public class RoamingEnemyScript : Enemy {
         destination = new Vector3(getdestination.x, 0, getdestination.y);
             if (EnemyType == "SpiderLady")
             {
-                anim.SetBool("isWalking", true);
+            myAnimator.SetBool("isWalking", true);
             }
         Quaternion restrictor = Quaternion.Euler(0,1,0);
-        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), turnSpeed) * restrictor;
+        gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.LookRotation(destination), myStats.TurnSpeed) * restrictor;
         destination = destination - (transform.position);
-        mybody.velocity = gameObject.transform.forward * speed;
+        myBody.velocity = gameObject.transform.forward * myStats.WalkSpeed;
     }
 }

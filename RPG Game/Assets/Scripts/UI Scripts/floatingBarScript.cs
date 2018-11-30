@@ -19,8 +19,8 @@ public class floatingBarScript : MonoBehaviour {
         var n = mycam.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(n);
 
-        HP = gameObject.GetComponentInParent<Enemy>().HP;
-        MAXHP = gameObject.GetComponentInParent<Enemy>().MAXHP;
+        HP = gameObject.GetComponentInParent<Enemy>().myStats.Health;
+        MAXHP = gameObject.GetComponentInParent<Enemy>().myStats.MaxHealth;
         currenthp = HP / MAXHP;
         if (HP >= MAXHP || HP <=0)
         {
