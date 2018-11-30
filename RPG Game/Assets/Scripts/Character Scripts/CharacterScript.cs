@@ -35,7 +35,7 @@ public class CharacterScript : MonoBehaviour {
 
     // Use this for initialization
     virtual public void Start () {
-        myBody = gameObject.GetComponent<Rigidbody>();
+        myBody = gameObject.GetComponentInChildren<Rigidbody>();
         myAnimator = gameObject.GetComponentInChildren<Animator>();
         myStats.isDead = false;
     }
@@ -79,6 +79,7 @@ public class CharacterScript : MonoBehaviour {
     protected void Attack()
     {
         isAttacking = true;
+        if(myAnimator != null)
         myAnimator.SetBool("bIsAttacking", true);
         Invoke("DoDamage", .50f);
         Invoke("FinishAttack", .80f);
@@ -87,7 +88,8 @@ public class CharacterScript : MonoBehaviour {
     private void SpecialAttack()
     {
         isAttacking = true;
-        myAnimator.SetBool("bIsAttacking", true);
+        if (myAnimator != null)
+            myAnimator.SetBool("bIsAttacking", true);
         //currentWeapon.Invoke("Shoot", .50f);
         Invoke("FinishAttack", .80f);
     }
@@ -124,7 +126,8 @@ public class CharacterScript : MonoBehaviour {
     
     private void FinishAttack()
     {
-        myAnimator.SetBool("bIsAttacking", false);
+        if (myAnimator != null)
+            myAnimator.SetBool("bIsAttacking", false);
         isAttacking = false;
     }
 
