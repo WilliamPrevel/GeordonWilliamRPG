@@ -3379,6 +3379,11 @@ Prefab:
       propertyPath: HP
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114451634825902986, guid: 44371672be5b37e4c916c53b97df0a26,
+        type: 2}
+      propertyPath: MAXLV
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44371672be5b37e4c916c53b97df0a26, type: 2}
   m_IsPrefabAsset: 0
