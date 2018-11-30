@@ -50,7 +50,7 @@ public class CharacterScript : MonoBehaviour {
 
         if (myStats.Experience > (myStats.Level * 100) && myStats.Level < myStats.MaxLevel)
         {
-            //Levelup();
+            Levelup();
         }
 
         if (myStats.Mana > myStats.MaxMana)
@@ -138,5 +138,14 @@ public class CharacterScript : MonoBehaviour {
         if(myStats.isPlayer == false)
         gameObject.SetActive(false);
         //else set gamestate to dead.
-    } 
+    }
+
+    private void Levelup()
+    {
+        myStats.MaxHealth += 10;
+        myStats.MaxMana += 10;
+        myStats.AttackDamage += 2;
+        myStats.Experience = 0;
+        myStats.Level++;
+    }
 }

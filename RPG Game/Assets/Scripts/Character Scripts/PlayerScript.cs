@@ -31,7 +31,8 @@ public class PlayerScript : CharacterScript {
 
    override protected void Update () {
         base.Update();
-		 VerticalAxis = Input.GetAxis("Vertical");
+        statCheck();
+        VerticalAxis = Input.GetAxis("Vertical");
         //turn player
         HorizontalAxis = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.LeftShift))
@@ -91,14 +92,5 @@ public class PlayerScript : CharacterScript {
         Debug.Log("CHANGE");
         //weapon array
       //  currentWeapon.setActive();
-    }
-
-    private void Levelup()
-    {
-        myStats.MaxHealth += 10;//*(1/myStats.Level);
-        myStats.MaxMana += 10;
-        myStats.AttackDamage += 2;
-        myStats.Experience = 0;
-        myStats.Level++;
     }
 }
