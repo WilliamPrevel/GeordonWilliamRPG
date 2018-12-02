@@ -9,7 +9,7 @@ public class floatingBarScript : MonoBehaviour {
     public Camera mycam;
 	// Use this for initialization
 	void Start () {
-		
+        mycam = Camera.main;
 	}
 	
 	// Update is called once per frame

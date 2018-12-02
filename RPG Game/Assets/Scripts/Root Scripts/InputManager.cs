@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if(true)
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
                 if(GameManager.CurrentState == GameManager.GameState.Playing)
             MoveForward();

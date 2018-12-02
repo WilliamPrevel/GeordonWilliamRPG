@@ -7,7 +7,13 @@ public class ActiveScript : MonoBehaviour {
     float HPcheck;
     float MAXHPcheck;
     public Camera mycam;
-	void Update () {
+
+    private void Start()
+    {
+        mycam = Camera.main;
+    }
+
+    void Update () {
         //look at camera code:
     var n = mycam.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(n);

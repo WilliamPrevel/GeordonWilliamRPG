@@ -4681,21 +4681,22 @@ MonoBehaviour:
   myStats:
     isPlayer: 0
     isDead: 0
-    Health: 50
-    MaxHealth: 50
-    Mana: 50
-    MaxMana: 50
-    Level: 1
+    Health: 150
+    MaxHealth: 150
+    Mana: 80
+    MaxMana: 80
+    Level: 2
     MaxLevel: 10
-    Experience: 50
-    AttackDamage: 5
+    Experience: 80
+    AttackDamage: 10
     AttackReach: 10
     SpecialAttackReach: 20
-    ArmorLevel: 5
-    WalkSpeed: 2
-    RunSpeed: 8
-    TurnSpeed: 45
+    ArmorLevel: 10
+    WalkSpeed: 3
+    RunSpeed: 12
+    TurnSpeed: 48
     AttackDelay: 1
+    inventorySize: 1
   currentWeapon: {fileID: 0}
   exphats: {fileID: 0}
   hphats: {fileID: 4881508810454108, guid: eaa506594c527024fa361c374f92b53f, type: 2}
