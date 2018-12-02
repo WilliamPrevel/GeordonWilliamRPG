@@ -10,3 +10,5 @@ public class robotscript : RoamingEnemyScript {
         transform.LookAt(player.transform);
     }
 }
+//slow it down and make it always approach the player. autokill on hit.
+//https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html
