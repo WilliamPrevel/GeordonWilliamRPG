@@ -28,7 +28,6 @@ public class InputManager : MonoBehaviour
     public static event OtherAction SwitchWeapon;
 
     public static InputManager instance;
-
     void Start()
     {
         //singleton
@@ -40,21 +39,26 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        if(true)
         if (Input.GetKey(KeyCode.W))
         {
+                if(GameManager.CurrentState == GameManager.GameState.Playing)
             MoveForward();
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            SpecialAttack();
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                SpecialAttack();
         }
         if (Input.GetKeyUp(KeyCode.X))
         {
-            SwitchWeapon();
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                SwitchWeapon();
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
-            Turn();
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                Turn();
         }
         if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S) == false)
         {
@@ -62,12 +66,11 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            Attack();
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                Attack();
+            if (GameManager.CurrentState == GameManager.GameState.Dialogue)
+                GameManager.CurrentState = GameManager.GameState.Playing;
         }
     }
-    //public float getforwardmotion()
-    //{
-    //    return forwardMotion;
-    //}
     public static InputManager GetInstance() { return instance; }
 }

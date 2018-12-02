@@ -21,6 +21,8 @@ public class PlayerScript : CharacterScript {
         myCamera = gameObject.GetComponentInChildren<Camera>();
         //this is a player.
         myStats.isPlayer = true;
+        //start playing when a player is spawned
+        GameManager.CurrentState = GameManager.GameState.Playing;
     }
 
     private void OnDisable()

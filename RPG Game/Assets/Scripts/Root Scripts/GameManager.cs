@@ -20,10 +20,11 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager instanciate;
     public static GameManager instance = null;
-    
+    public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, TBD};
+    public static GameState CurrentState;
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();
-
+    public static string CurrentMessage;
     private void Start()
     {
 
