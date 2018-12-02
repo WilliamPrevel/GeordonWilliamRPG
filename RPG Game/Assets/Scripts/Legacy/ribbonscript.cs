@@ -11,7 +11,7 @@ public class ribbonscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.rotation *= Quaternion.Euler(1, turnrate, 1);
+        gameObject.transform.rotation *= Quaternion.Euler(1, turnrate * Time.deltaTime, 1);
 	}
 }
 

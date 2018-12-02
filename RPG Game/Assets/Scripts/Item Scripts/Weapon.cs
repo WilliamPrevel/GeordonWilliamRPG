@@ -5,12 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class ItemStats
 {
-     public float weaponLength;
-    public int AttackDamage;
+    //user seen
+    public string weaponName = "SPORK";
+    public string weaponDescription = "Sorta pointy, sorty spoony";
+    public int AttackDamage = 5;
+    public int durability = 90;
+    //back end
+    public float weaponLength = 2;
     public bool isBreakable = false;
-    public int durability;
-    public int damageTaken;
+    public int damageTaken = 0;
     public bool isActive = true;
+    
 }
 
 public abstract class Weapon : ItemPickUp {

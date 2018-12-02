@@ -17,7 +17,7 @@ public class SavedStats
 }
 
 public class GameManager : MonoBehaviour {
-
+    public static List<ItemStats> Inventory = new List<ItemStats>();
     private static GameManager instanciate;
     public static GameManager instance = null;
     public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, TBD};

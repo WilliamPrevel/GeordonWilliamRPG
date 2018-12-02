@@ -67,7 +67,10 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
                 break;
             case ItemType.Weapon:
                 //add weapon to weapon array
+                GameManager.Inventory.Add(GetComponent<Weapon>().myStats);
                 player.GetComponent<PlayerScript>().currentWeapon = gameObject;
+                GameManager.CurrentMessage = "You found a " + this.GetComponent<Weapon>().myStats.weaponName + "\n\n " + this.GetComponent<Weapon>().myStats.weaponDescription;
+                GameManager.CurrentState = GameManager.GameState.Dialogue;
                 break;
         }
         //return to object pool!! TODO

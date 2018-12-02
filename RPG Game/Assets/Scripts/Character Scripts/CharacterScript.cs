@@ -23,6 +23,7 @@ public class CharacterStats
     public int RunSpeed;
     public int TurnSpeed;
     public int AttackDelay;
+    public int inventorySize = 1;
 }
 
 public class CharacterScript : MonoBehaviour {
