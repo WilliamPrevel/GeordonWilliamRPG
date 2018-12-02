@@ -11,6 +11,8 @@ TagManager:
   - Sword
   - Staff
   - GameManager
+  - Dialogue Box
+  - Dialogue Text
   layers:
   - Default
   - TransparentFX
