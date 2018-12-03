@@ -71,6 +71,11 @@ public class InputManager : MonoBehaviour
             if (GameManager.CurrentState == GameManager.GameState.Dialogue)
                 GameManager.CurrentState = GameManager.GameState.Playing;
         }
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                SwitchWeapon();
+        }
     }
     public static InputManager GetInstance() { return instance; }
 }

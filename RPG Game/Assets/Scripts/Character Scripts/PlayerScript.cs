@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : CharacterScript {
     GameManager theBoss;
+    public int currentWeaponNumber;
+    public int currentWeaponSlot = 0;
     //go forward
     float VerticalAxis;
     //turn player
@@ -17,6 +19,7 @@ public class PlayerScript : CharacterScript {
         InputManager.Turn += Turn;
         InputManager.Idle += Idle;
         InputManager.Attack += Attack;
+        InputManager.SwitchWeapon += ChangeWeapon;
         //InputManager.SwitchWeapon += ChangeWeapon;
         myCamera = gameObject.GetComponentInChildren<Camera>();
         //this is a player.
@@ -29,10 +32,14 @@ public class PlayerScript : CharacterScript {
     {
         InputManager.MoveForward -= Move;
         InputManager.Turn -= Turn;
+        InputManager.Idle -= Idle;
+        InputManager.Attack -= Attack;
+        InputManager.SwitchWeapon -= ChangeWeapon;
     }
 
    override protected void Update () {
         base.Update();
+        currentWeaponNumber = GameManager.Inventory.Count;
         statCheck();
         VerticalAxis = Input.GetAxis("Vertical");
         //turn player
@@ -91,8 +98,23 @@ public class PlayerScript : CharacterScript {
 
     private void ChangeWeapon()
     {
-        Debug.Log("CHANGE");
-        //weapon array
-      //  currentWeapon.setActive();
+        Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
+        if (currentWeaponNumber > 0)
+        {
+            if (currentWeaponSlot < currentWeaponNumber-1)
+            {
+                currentWeaponSlot++;
+            }
+            else
+            {
+                currentWeaponSlot = 0;
+            }
+            currentWeapon.GetComponent<Weapon>().myStats = GameManager.Inventory[currentWeaponSlot];
+            Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
+        } else
+        {
+            Debug.Log("You are Unarmed!");
+        }
     }
+   
 }
