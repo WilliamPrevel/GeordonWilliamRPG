@@ -829,6 +829,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0968d43da57cba34da71b177e3384ff9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &369727876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1684414169349598, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1993518955}
+--- !u!114 &369727882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369727876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1d0bbca0d241a45ace036800ecbb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  expvalue: 10
+  manavalue: 10
+  healthvalue: 10
+  isHeld: 0
+  myType: 0
+  myStats:
+    weaponName: SPORK
+    weaponDescription: Sorta pointy, sorty spoony
+    AttackDamage: 3
+    durability: 10000000
+    weaponLength: 3
+    isBreakable: 0
+    damageTaken: 0
+    isActive: 1
 --- !u!1001 &398734347
 Prefab:
   m_ObjectHideFlags: 0

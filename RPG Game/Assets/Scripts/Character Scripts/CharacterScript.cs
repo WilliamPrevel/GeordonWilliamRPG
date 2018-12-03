@@ -141,6 +141,7 @@ public class CharacterScript : MonoBehaviour {
     {
         if(myStats.isPlayer == false)
         gameObject.SetActive(false);
+        else
         GameManager.CurrentState = GameManager.GameState.GameOver;
         //else set gamestate to dead.
     }
