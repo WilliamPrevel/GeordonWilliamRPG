@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();
     public static string CurrentMessage = "NULL";
+
     private void Start()
     {
 

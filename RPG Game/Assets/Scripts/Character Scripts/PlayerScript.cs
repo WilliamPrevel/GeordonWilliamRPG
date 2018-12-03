@@ -102,6 +102,7 @@ public class PlayerScript : CharacterScript {
         Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
         if (currentWeaponNumber > 0)
         {
+            currentWeapon.SetActive(false);
             if (currentWeaponSlot < currentWeaponNumber-1)
             {
                 currentWeaponSlot++;
@@ -111,6 +112,8 @@ public class PlayerScript : CharacterScript {
                 currentWeaponSlot = 0;
             }
             currentWeapon.GetComponent<Weapon>().myStats = GameManager.Inventory[currentWeaponSlot];
+            currentWeapon.GetComponent<Weapon>().isHeld = true;
+            currentWeapon.SetActive(true);
             Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
         } else
         {
