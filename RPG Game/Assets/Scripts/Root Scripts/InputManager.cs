@@ -15,9 +15,8 @@ public class InputManager : MonoBehaviour
 
     public delegate void MoveAction();
     public static event MoveAction MoveForward;
-    // public static event MoveAction MoveBack;
+    public static event MoveAction MoveBack;
     public static event MoveAction Turn;
-    // public static event MoveAction Run;
     public static event MoveAction Idle;
 
     public delegate void AttackAction();
@@ -41,11 +40,16 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (true)
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.W))
             {
                 if (GameManager.CurrentState == GameManager.GameState.Playing)
                     MoveForward();
             }
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+                MoveBack();
+        }
         if (Input.GetKey(KeyCode.Q))
         {
             if (GameManager.CurrentState == GameManager.GameState.Playing)

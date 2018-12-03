@@ -16,6 +16,7 @@ public class PlayerScript : CharacterScript {
         //go forward
         base.Start();
         InputManager.MoveForward += Move;
+        InputManager.MoveBack += MoveBackwards;
         InputManager.Turn += Turn;
         InputManager.Idle += Idle;
         InputManager.Attack += Attack;
@@ -32,6 +33,7 @@ public class PlayerScript : CharacterScript {
     private void OnDisable()
     {
         InputManager.MoveForward -= Move;
+        InputManager.MoveBack -= MoveBackwards;
         InputManager.Turn -= Turn;
         InputManager.Idle -= Idle;
         InputManager.Attack -= Attack;
@@ -80,7 +82,22 @@ public class PlayerScript : CharacterScript {
             }
         }
     }
-
+    void MoveBackwards()
+    {
+        if (isAttacking == false)
+        {
+            if (isRunning)
+            {
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed/2);
+                myAnimator.SetBool("isRunning", true);
+            }
+            else
+            {
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed/2);
+                myAnimator.SetBool("isWalking", true);
+            }
+        }
+    }
     protected override void Idle()
     {
         //base.Idle();

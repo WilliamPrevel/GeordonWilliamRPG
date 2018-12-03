@@ -344,6 +344,7 @@ MonoBehaviour:
   player: {fileID: 0}
   EnemyType: Assissin
   sightDistance: 30
+  isQuestEnemy: 0
   roamdistance: 50
   roamTime: 10
 --- !u!1001 &194493738
@@ -1725,6 +1726,7 @@ MonoBehaviour:
   player: {fileID: 0}
   EnemyType: 
   sightDistance: 10
+  isQuestEnemy: 0
 --- !u!4 &945237407
 Transform:
   m_ObjectHideFlags: 0
@@ -2144,6 +2146,7 @@ MonoBehaviour:
   player: {fileID: 215933105}
   EnemyType: 
   sightDistance: 10
+  isQuestEnemy: 0
   roamdistance: 30
   roamTime: 100
 --- !u!4 &1481027144 stripped
@@ -2929,6 +2932,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 136686907047167958, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2fbfe00b98691f54baa0989b25e8d6e1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
   m_IsPrefabAsset: 0
