@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour {
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();
     public static string CurrentMessage = "NULL";
+    public bool QuestActive = false;
+    public int QuestPoints = 0;
+
 
     private void Start()
     {
