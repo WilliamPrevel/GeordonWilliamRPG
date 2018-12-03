@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     public static List<ItemStats> Inventory = new List<ItemStats>();
     private static GameManager instanciate;
     public static GameManager instance = null;
-    public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, GameOver, InQuest, TBD};
+    public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, GameOver, TBD};
     public static GameState CurrentState;
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();

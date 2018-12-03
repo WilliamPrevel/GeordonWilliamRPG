@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour {
 
-    public int QuestAmmount;
-    private int CurrentAmmount;
+    public ScrollScript QuestInfo;
+    public int QuestKillAmmount;
+    public int CurrentAmmount;
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
        if(GameManager.currentQuest != GameManager.QuestType.None)
         {
-            
+            GameManager.CurrentState = GameManager.GameState.Playing;
         }
         else
         {
-
+           if(CurrentAmmount >= QuestKillAmmount)
+            {
+                GameManager.currentQuest = GameManager.QuestType.None;
+            }
         }
        
     }
