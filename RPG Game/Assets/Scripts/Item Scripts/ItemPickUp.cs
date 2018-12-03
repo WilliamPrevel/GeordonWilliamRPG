@@ -21,6 +21,7 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
     // Update is called once per frame
    virtual protected void Update () {
  Vector3 direction = player.transform.position - this.transform.position;
+
         if (approachPlayer) { 
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 90);
             this.transform.Translate(0, 0, 0.2f);
