@@ -79,11 +79,14 @@ public class CharacterScript : MonoBehaviour {
 
     protected void Attack()
     {
-        isAttacking = true;
-        if(myAnimator != null)
-        myAnimator.SetBool("isAttacking", true);
-        Invoke("DoDamage", .50f);
-        Invoke("FinishAttack", .80f);
+        if (isAttacking == false)
+        {
+            isAttacking = true;
+            if (myAnimator != null)
+                myAnimator.SetBool("isAttacking", true);
+            Invoke("DoDamage", .50f);
+            Invoke("FinishAttack", .80f);
+        }
     }
 
     private void SpecialAttack()
@@ -105,7 +108,7 @@ public class CharacterScript : MonoBehaviour {
         {
             Target = "Player";
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.AttackReach))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.AttackReach/2))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             Debug.Log("Hit");
@@ -138,6 +141,7 @@ public class CharacterScript : MonoBehaviour {
     {
         if(myStats.isPlayer == false)
         gameObject.SetActive(false);
+        GameManager.CurrentState = GameManager.GameState.GameOver;
         //else set gamestate to dead.
     }
 
