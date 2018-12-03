@@ -66,10 +66,6 @@ public class PlayerScript : CharacterScript {
     }
     override protected void Move()
     {
-        //do a raycast to see if there is a wall immediately in front of player!
-        //move forward.
-        // gameObject.transform.Translate(Vector3.forward * VerticalAxis * myStats.WalkSpeed);
-        //for physics
         if (isAttacking == false)
         {
             if (isRunning)
@@ -99,10 +95,11 @@ public class PlayerScript : CharacterScript {
 
     private void ChangeWeapon()
     {
-        Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
+        
         if (currentWeaponNumber > 0)
         {
-            currentWeapon.SetActive(false);
+            Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
+           // currentWeapon.SetActive(false);
             if (currentWeaponSlot < currentWeaponNumber-1)
             {
                 currentWeaponSlot++;
@@ -113,7 +110,7 @@ public class PlayerScript : CharacterScript {
             }
             currentWeapon.GetComponent<Weapon>().myStats = GameManager.Inventory[currentWeaponSlot];
             currentWeapon.GetComponent<Weapon>().isHeld = true;
-            currentWeapon.SetActive(true);
+           // currentWeapon.SetActive(true);
             Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
         } else
         {
