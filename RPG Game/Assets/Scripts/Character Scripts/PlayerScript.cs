@@ -20,6 +20,7 @@ public class PlayerScript : CharacterScript {
         InputManager.Idle += Idle;
         InputManager.Attack += Attack;
         InputManager.SwitchWeapon += ChangeWeapon;
+        //currentWeapon = GameObject.Find("Weapon");
         //InputManager.SwitchWeapon += ChangeWeapon;
         myCamera = gameObject.GetComponentInChildren<Camera>();
         //this is a player.

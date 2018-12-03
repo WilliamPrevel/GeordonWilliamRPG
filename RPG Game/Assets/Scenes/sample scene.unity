@@ -1961,6 +1961,14 @@ Prefab:
       propertyPath: m_Name
       value: DEFAULT SWORD
       objectReference: {fileID: 0}
+    - target: {fileID: 1845725249339448, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385533573118522, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
   m_IsPrefabAsset: 0
