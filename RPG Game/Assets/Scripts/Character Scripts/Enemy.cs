@@ -15,6 +15,8 @@ public class Enemy : CharacterScript
     public float sightDistance = 10;
     protected bool droppedloot = false;
     public bool isQuestEnemy = false;
+    public int QuestInfo;
+    
     
     //protected GameObject hitplayer;
 
@@ -23,6 +25,7 @@ public class Enemy : CharacterScript
         base.Start();
         rotator = transform.rotation;
         player = GameObject.Find("Player");
+        
 
     }
 

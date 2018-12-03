@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour {
 
+    public int QuestAmmount;
+    private int CurrentAmmount;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,7 +15,7 @@ public class QuestManager : MonoBehaviour {
 	void Update () {
        if(GameManager.currentQuest != GameManager.QuestType.None)
         {
-
+            
         }
         else
         {
