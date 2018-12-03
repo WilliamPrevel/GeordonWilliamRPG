@@ -1,30 +1,30 @@
-﻿using System.Collections.Generic;
+﻿//using System.Collections.Generic;
 
-namespace QuestSystem
-{
+//namespace QuestSystem
+//{
     
-    public class Quest
-    {
-        public Quest()
-        {
+//    public class Quest
+//    {
+//        public Quest()
+//        {
 
-        }
-        private List<IQuestObj> objectives;
+//        }
+//        private List<IQuestObj> objectives;
 
 
-        private bool IsComplete()
-        {
-            for (int i = 0; i < objectives.Count; i++)
-            {
-                if (objectives[i].IsComplete != false)
-                {
-                    return false;
-                }
-            }
+//        private bool IsComplete()
+//        {
+//            for (int i = 0; i < objectives.Count; i++)
+//            {
+//                if (objectives[i].IsComplete != false)
+//                {
+//                    return false;
+//                }
+//            }
 
-            return true;
-        }
-    }
+//            return true;
+//        }
+//    }
     
-}
+//}
 

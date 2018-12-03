@@ -25,7 +25,7 @@ public class Enemy : CharacterScript
         base.Start();
         rotator = transform.rotation;
         player = GameObject.Find("Player");
-        QuestKillAmmount = GetComponent<QuestManager>().CurrentAmmount;
+       // QuestKillAmmount = GetComponent<QuestManager>().CurrentAmmount;
 
     }
 
