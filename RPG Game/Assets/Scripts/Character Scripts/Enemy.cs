@@ -15,6 +15,8 @@ public class Enemy : CharacterScript
     public float sightDistance = 10;
     protected bool droppedloot = false;
     public bool isQuestEnemy = false;
+    public int QuestKillAmmount;
+    
     
     //protected GameObject hitplayer;
 
@@ -23,6 +25,7 @@ public class Enemy : CharacterScript
         base.Start();
         rotator = transform.rotation;
         player = GameObject.Find("Player");
+        QuestKillAmmount = GetComponent<QuestManager>().CurrentAmmount;
 
     }
 
@@ -78,7 +81,7 @@ public class Enemy : CharacterScript
         }
         if (isQuestEnemy == true)
         {
-
+            QuestKillAmmount++;
         }
         base.Dead();
     }

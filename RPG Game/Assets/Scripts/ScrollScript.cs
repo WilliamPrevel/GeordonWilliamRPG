@@ -27,6 +27,7 @@ public class ScrollScript : MonoBehaviour
             GameManager.CurrentMessage = myMessage;
             GameManager.CurrentState = GameManager.GameState.Dialogue;
             Debug.Log("SAYSTUFF");
+
             if (HasQuest == true)
             {
                 if (IsQuestKill == true)
