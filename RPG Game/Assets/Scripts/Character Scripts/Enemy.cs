@@ -14,6 +14,8 @@ public class Enemy : CharacterScript
     public string EnemyType;
     public float sightDistance = 10;
     protected bool droppedloot = false;
+    public bool isQuestEnemy = false;
+    
     //protected GameObject hitplayer;
 
     override public void Start()
@@ -73,6 +75,10 @@ public class Enemy : CharacterScript
         if (droppedloot == false)
         {
             DropLoot();
+        }
+        if (isQuestEnemy == true)
+        {
+
         }
         base.Dead();
     }

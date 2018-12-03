@@ -25,14 +25,17 @@ public class GameManager : MonoBehaviour {
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();
     public static string CurrentMessage = "NULL";
+    //questStuff
+    public enum QuestType {Kill, Find, Avoid, None};
+    public static QuestType currentQuest;
     public bool QuestActive = false;
     public int QuestPoints = 0;
-
 
     private void Start()
     {
 
         thePlayer = GameObject.FindWithTag("Player");
+        InputManager.ConfirmQuest += StartQuest;
         StartUpManager();
 
     }
@@ -63,35 +66,13 @@ public class GameManager : MonoBehaviour {
     {
         if (thePlayer != null)
         {
-
             thePlayer.GetComponent<PlayerScript>().SetupPlayer(PlayerCurrentInfo);
-
         }
     }
 
-    //public void subscribeToGameEventUpdate(MonoBehaviour pScript)
-    //{
-    //    eventSubscribedScripts.Add(pScript);
-    //}
-    //public void deSubscribeToGameEventUpdate(MonoBehaviour pScript)
-    //{
-    //    while (eventSubscribedScripts.Contains(pScript))
-    //    {
-    //        eventSubscribedScripts.Remove(pScript);
-    //    }
-    //}
-
- //   public void playerPassedEvent()
- //   {
- //       gameEventID++;
- //       foreach(MonoBehaviour _script in eventSubscribedScripts)
- //       {
- //           _script.Invoke("gameEventUpdated",0);
- //       }
- //   }
-
- //   // Update is called once per frame
-       void Update () {
-		
-	    }
+   public void StartQuest()
+    {
+        QuestActive = true;
+        QuestPoints = 0;
+    }
 }
