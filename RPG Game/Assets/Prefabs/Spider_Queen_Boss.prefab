@@ -1911,7 +1911,7 @@ GameObject:
   - component: {fileID: 136438380838043956}
   - component: {fileID: 114101085573167118}
   m_Layer: 0
-  m_Name: Spider_Queen_LVBoss
+  m_Name: Spider_Queen_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
