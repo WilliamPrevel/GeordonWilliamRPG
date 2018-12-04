@@ -12,6 +12,7 @@ public class PlayerScript : CharacterScript {
     float HorizontalAxis;
    protected Camera myCamera;
     protected bool isRunning;
+    public int hasZPM = 0;
     override public void Start () {
         //go forward
         base.Start();

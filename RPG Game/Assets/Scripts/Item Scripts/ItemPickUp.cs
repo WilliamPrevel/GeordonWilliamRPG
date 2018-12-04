@@ -9,8 +9,9 @@ public class ItemPickUp : MonoBehaviour {
     public int manavalue = 10;
     public int healthvalue = 10;
     public bool isHeld = false;
+    public bool isGateKey = false;
     private bool approachPlayer = false;
-public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
+    public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, ZPM, Weapon}
     public ItemType myType = ItemType.ExpBoost;
 
     // Use this for initialization
@@ -65,6 +66,9 @@ public enum ItemType {ExpBoost, HealthBoost, ManaBoost, SuperBoost, Weapon}
                 player.GetComponent<PlayerScript>().myStats.Experience += expvalue;
                 player.GetComponent<PlayerScript>().myStats.Health += healthvalue;
                 player.GetComponent<PlayerScript>().myStats.Mana += manavalue;
+                break;
+            case ItemType.ZPM:
+                player.GetComponent<PlayerScript>().hasZPM = 1;
                 break;
             case ItemType.Weapon:
                 //add weapon to weapon array

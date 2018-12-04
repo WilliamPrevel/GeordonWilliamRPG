@@ -8,6 +8,7 @@ public class Enemy : CharacterScript
     public Transform hphats;
     public Transform mphats;
     public Transform superhats;
+    public Transform vpm;
     public GameObject player;
     protected Quaternion rotator;
     protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);
@@ -92,7 +93,7 @@ public class Enemy : CharacterScript
         int hpdrops = Random.Range(2, 3);
         int mpdrops = Random.Range(2, 3);
         int superdrops = Random.Range(0, 1);
-
+        int VPM = Random.Range(1, 1);
         for (int i = 0; i < expdrops; i++)
         {
             Instantiate(exphats, this.gameObject.transform.position, Quaternion.identity);
@@ -112,6 +113,11 @@ public class Enemy : CharacterScript
         {
             Instantiate(superhats, this.gameObject.transform.position, Quaternion.identity);
             superhats.GetComponent<ItemPickUp>().player = player;
+        }
+        for (int i = 0; i < VPM; i++)
+        {
+            Instantiate(vpm, this.gameObject.transform.position, Quaternion.identity);
+            vpm.GetComponent<ItemPickUp>().player = player;
         }
         droppedloot = true;
 }
