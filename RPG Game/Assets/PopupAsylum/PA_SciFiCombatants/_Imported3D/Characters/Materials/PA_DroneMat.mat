@@ -38,6 +38,6 @@ Material:
     - _EmissionLM: 0
     - _Shininess: 0.14271793
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _Color: {r: 1, g: 0.8395166, b: 0, a: 1}
+    - _ReflectColor: {r: 1, g: 0.93474925, b: 0.6745283, a: 0.5}
     - _SpecColor: {r: 0.6544118, g: 0.64959997, b: 0.64959997, a: 1}
