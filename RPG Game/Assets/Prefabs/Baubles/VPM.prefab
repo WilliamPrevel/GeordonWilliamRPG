@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 135878950759778208}
   - component: {fileID: 114000357221109414}
   m_Layer: 0
-  m_Name: SUPERhat
+  m_Name: VPM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,7 +1407,7 @@ Transform:
   m_GameObject: {fileID: 1533726202588386}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 338.2258, y: 0, z: 159.28262}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4430241731643176}
   - {fileID: 4830785645813630}
@@ -3715,9 +3715,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
   expvalue: 5
-  isEXP: 1
-  isHP: 1
-  isMana: 1
+  manavalue: 10
+  healthvalue: 10
+  isHeld: 0
+  isGateKey: 1
+  myType: 4
 --- !u!135 &135878950759778208
 SphereCollider:
   m_ObjectHideFlags: 1
