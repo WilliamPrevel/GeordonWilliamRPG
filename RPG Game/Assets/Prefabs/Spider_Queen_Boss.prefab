@@ -1911,7 +1911,7 @@ GameObject:
   - component: {fileID: 136438380838043956}
   - component: {fileID: 114101085573167118}
   m_Layer: 0
-  m_Name: Spider_Queen_LV2
+  m_Name: Spider_Queen_LVBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3099,7 +3099,7 @@ Transform:
   m_GameObject: {fileID: 1785554048740920}
   m_LocalRotation: {x: -0, y: -0.96931183, z: -0, w: 0.2458344}
   m_LocalPosition: {x: 59.10661, y: 0, z: -101.16762}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4925918584456568}
   - {fileID: 4994910440445968}
@@ -4783,32 +4783,35 @@ MonoBehaviour:
   myStats:
     isPlayer: 0
     isDead: 0
-    Health: 150
-    MaxHealth: 150
-    Mana: 80
+    Health: 300
+    MaxHealth: 300
+    Mana: 160
     MaxMana: 80
     Level: 2
     MaxLevel: 10
     Experience: 80
-    AttackDamage: 10
+    AttackDamage: 20
     AttackReach: 10
     SpecialAttackReach: 20
-    ArmorLevel: 10
-    WalkSpeed: 3
-    RunSpeed: 12
-    TurnSpeed: 48
-    AttackDelay: 1
+    ArmorLevel: 20
+    WalkSpeed: 4
+    RunSpeed: 15
+    TurnSpeed: 100
+    AttackDelay: 3
     inventorySize: 1
   currentWeapon: {fileID: 0}
   exphats: {fileID: 4067144946837242, guid: e3134dad4b8c6824daf5cba14d112053, type: 2}
   hphats: {fileID: 4881508810454108, guid: eaa506594c527024fa361c374f92b53f, type: 2}
   mphats: {fileID: 4818032176870568, guid: a0ab534a77f30ec4ea4c6ed68a2e644d, type: 2}
   superhats: {fileID: 4780366324324292, guid: 984b55501d2fd38488cad51bebc597f6, type: 2}
-  player: {fileID: 0}
+  vpm: {fileID: 4780366324324292, guid: cf9e200cd56062e42bf496d008b89c4a, type: 2}
+  player: {fileID: 1713684282597210, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
   EnemyType: SpiderLady
   sightDistance: 10
-  roamdistance: 200
-  roamTime: 100
+  isQuestEnemy: 0
+  QuestKillAmmount: 0
+  roamdistance: 400
+  roamTime: 150
 --- !u!114 &114341956811568916
 MonoBehaviour:
   m_ObjectHideFlags: 1
