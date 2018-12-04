@@ -274,6 +274,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMessage: I am Error
+  HasQuest: 0
+  IsQuestKill: 0
+  IsQuestFind: 0
+  IsQuestAvoid: 0
 --- !u!114 &114997373412907334
 MonoBehaviour:
   m_ObjectHideFlags: 1

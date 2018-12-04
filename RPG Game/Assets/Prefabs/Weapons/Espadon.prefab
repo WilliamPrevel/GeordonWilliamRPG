@@ -118,7 +118,8 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 0
-  myType: 4
+  isGateKey: 0
+  myType: 5
   myStats:
     weaponName: Espadon
     weaponDescription: Big, sharp, heavy, wonderful
