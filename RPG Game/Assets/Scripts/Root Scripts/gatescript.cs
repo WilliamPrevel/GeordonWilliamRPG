@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class gatescript : MonoBehaviour
 {
     public string sceneto = "sample scene";
-    public int playerLevelRequired;
+    public int VPM = 1;
     private int LV;
     private GameObject player;
     
@@ -16,7 +16,7 @@ public class gatescript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && player.GetComponentInParent<PlayerScript>().myStats.Level >= playerLevelRequired)
+        if (other.gameObject.tag == "Player" && player.GetComponentInParent<PlayerScript>().hasZPM >= VPM)
         {
                 GameManager.instance.getPlayerStats();
                 SceneManager.LoadScene(sceneto, LoadSceneMode.Single);
