@@ -116,8 +116,11 @@ public class Enemy : CharacterScript
         }
         for (int i = 0; i < VPM; i++)
         {
-            Instantiate(vpm, this.gameObject.transform.position, Quaternion.identity);
-            vpm.GetComponent<ItemPickUp>().player = player;
+            if (vpm != null)
+            {
+                Instantiate(vpm, this.gameObject.transform.position, Quaternion.identity);
+                vpm.GetComponent<ItemPickUp>().player = player;
+            }
         }
         droppedloot = true;
 }

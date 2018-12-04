@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : CharacterScript {
     GameManager theBoss;
+    public GameObject arrow;
     public int currentWeaponNumber;
     public int currentWeaponSlot = 0;
     //go forward
@@ -21,6 +22,7 @@ public class PlayerScript : CharacterScript {
         InputManager.Turn += Turn;
         InputManager.Idle += Idle;
         InputManager.Attack += Attack;
+        InputManager.SpecialAttack += SpecialAttack;
         InputManager.SwitchWeapon += ChangeWeapon;
         myCamera = gameObject.GetComponentInChildren<Camera>();
         //this is a player.
@@ -109,6 +111,14 @@ public class PlayerScript : CharacterScript {
         gameObject.transform.Rotate(0, HorizontalAxis * myStats.TurnSpeed * Time.deltaTime, 0);
     }
 
+    public void SpecialAttack()
+    {
+        if (myStats.Mana >= 5)
+        {
+            myStats.Mana -= 5;
+            Instantiate(arrow, gameObject.transform.position, gameObject.transform.rotation);
+        }
+    }
     private void ChangeWeapon()
     {
         

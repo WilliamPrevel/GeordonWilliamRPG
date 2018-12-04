@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 MoveBack();
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 SpecialAttack();

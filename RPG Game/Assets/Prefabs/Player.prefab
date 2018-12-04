@@ -6547,6 +6547,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Sword
@@ -6588,8 +6589,10 @@ MonoBehaviour:
     AttackDelay: 1
     inventorySize: 20
   currentWeapon: {fileID: 0}
+  arrow: {fileID: 1659481277489696, guid: af22513a0ae3ff145943dea642fd5414, type: 2}
   currentWeaponNumber: 0
   currentWeaponSlot: 0
+  hasZPM: 0
 --- !u!114 &114128220927153544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6606,6 +6609,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Butterfly Sword
@@ -6632,6 +6636,7 @@ MonoBehaviour:
   manavalue: 10
   healthvalue: 10
   isHeld: 0
+  isGateKey: 0
   myType: 0
   myStats:
     weaponName: SPORK
@@ -6699,6 +6704,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Dull Sword
@@ -6800,6 +6806,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Dagger
@@ -6826,6 +6833,7 @@ MonoBehaviour:
   manavalue: 10
   healthvalue: 10
   isHeld: 0
+  isGateKey: 0
   myType: 0
   myStats:
     weaponName: SPORK
@@ -6852,6 +6860,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Sharp Sword
@@ -6892,6 +6901,7 @@ MonoBehaviour:
   manavalue: 0
   healthvalue: 0
   isHeld: 1
+  isGateKey: 0
   myType: 4
   myStats:
     weaponName: Espadon
