@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : CharacterScript {
+public class PlayerScript : CharacterScript
+{
     GameManager theBoss;
     public GameObject arrow;
     public int currentWeaponNumber;
@@ -11,10 +12,11 @@ public class PlayerScript : CharacterScript {
     float VerticalAxis;
     //turn player
     float HorizontalAxis;
-   protected Camera myCamera;
+    protected Camera myCamera;
     protected bool isRunning;
     public int hasZPM = 0;
-    override public void Start () {
+    override public void Start()
+    {
         //go forward
         base.Start();
         InputManager.MoveForward += Move;
@@ -41,7 +43,8 @@ public class PlayerScript : CharacterScript {
         InputManager.SwitchWeapon -= ChangeWeapon;
     }
 
-   override protected void Update () {
+    override protected void Update()
+    {
         base.Update();
         currentWeaponNumber = GameManager.Inventory.Count;
         statCheck();
@@ -89,12 +92,12 @@ public class PlayerScript : CharacterScript {
         {
             if (isRunning)
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed/2);
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed / 2);
                 myAnimator.SetBool("isRunning", true);
             }
             else
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed/2);
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed / 2);
                 myAnimator.SetBool("isWalking", true);
             }
         }
@@ -121,12 +124,12 @@ public class PlayerScript : CharacterScript {
     }
     private void ChangeWeapon()
     {
-        
+
         if (currentWeaponNumber > 0)
         {
             Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
-           // currentWeapon.SetActive(false);
-            if (currentWeaponSlot < currentWeaponNumber-1)
+            // currentWeapon.SetActive(false);
+            if (currentWeaponSlot < currentWeaponNumber - 1)
             {
                 currentWeaponSlot++;
             }
@@ -136,12 +139,13 @@ public class PlayerScript : CharacterScript {
             }
             currentWeapon.GetComponent<Weapon>().myStats = GameManager.Inventory[currentWeaponSlot];
             currentWeapon.GetComponent<Weapon>().isHeld = true;
-           // currentWeapon.SetActive(true);
+            // currentWeapon.SetActive(true);
             Debug.Log(GameManager.Inventory[currentWeaponSlot].weaponName);
-        } else
+        }
+        else
         {
             Debug.Log("You are Unarmed!");
         }
     }
-   
+
 }

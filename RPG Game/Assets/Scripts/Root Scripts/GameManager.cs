@@ -16,17 +16,19 @@ public class SavedStats
     public int ArmorLevel;
 }
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public static List<ItemStats> Inventory = new List<ItemStats>();
+    public static List<ItemStats2> Inventory2 = new List<ItemStats2>();
     private static GameManager instanciate;
     public static GameManager instance = null;
-    public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, GameOver, TBD};
+    public enum GameState { MainMenu, Playing, Pause, Dialogue, CutScene, Inventory, GameOver, TBD };
     public static GameState CurrentState;
     public GameObject thePlayer;
     public SavedStats PlayerCurrentInfo = new SavedStats();
     public static string CurrentMessage = "NULL";
     //questStuff
-    public enum QuestType {Kill, Find, Avoid, None};
+    public enum QuestType { Kill, Find, Avoid, None };
     public static QuestType currentQuest;
     public bool QuestActive = false;
     public int QuestPoints = 0;
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-   public void StartQuest()
+    public void StartQuest()
     {
         QuestActive = true;
         QuestPoints = 0;

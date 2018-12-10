@@ -26,7 +26,8 @@ public class CharacterStats
     public int inventorySize = 1;
 }
 
-public class CharacterScript : MonoBehaviour {
+public class CharacterScript : MonoBehaviour
+{
     protected Rigidbody myBody;
     protected Animator myAnimator;
     protected bool isAttacking = false;
@@ -34,17 +35,20 @@ public class CharacterScript : MonoBehaviour {
     protected RaycastHit hit;
     protected GameObject hitenemy;
     public GameObject currentWeapon;
+    public GameObject currentArmour;
     // Use this for initialization
-    virtual public void Start () {
+    virtual public void Start()
+    {
         myBody = gameObject.GetComponentInChildren<Rigidbody>();
         myAnimator = gameObject.GetComponentInChildren<Animator>();
         myStats.isDead = false;
     }
-	
-	// Update is called once per frame
-	virtual protected void Update () {
+
+    // Update is called once per frame
+    virtual protected void Update()
+    {
         statCheck();
-	}
+    }
 
     protected void statCheck()
     {
@@ -70,7 +74,7 @@ public class CharacterScript : MonoBehaviour {
 
     virtual protected void Idle() { }
 
-    virtual protected void Turn(){ }
+    virtual protected void Turn() { }
 
     private void Jump()
     {
@@ -101,14 +105,15 @@ public class CharacterScript : MonoBehaviour {
     private void DoDamage()
     {
         string Target;
-        if(myStats.isPlayer == true)
+        if (myStats.isPlayer == true)
         {
             Target = "Enemy";
-        } else
+        }
+        else
         {
             Target = "Player";
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.AttackReach/2))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.AttackReach / 2))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             Debug.Log("Hit");
@@ -129,7 +134,7 @@ public class CharacterScript : MonoBehaviour {
             Debug.Log("Did not Hit");
         }
     }
-    
+
     private void FinishAttack()
     {
         if (myAnimator != null)
@@ -139,10 +144,10 @@ public class CharacterScript : MonoBehaviour {
 
     virtual public void Dead()
     {
-        if(myStats.isPlayer == false)
-        gameObject.SetActive(false);
+        if (myStats.isPlayer == false)
+            gameObject.SetActive(false);
         else
-        GameManager.CurrentState = GameManager.GameState.GameOver;
+            GameManager.CurrentState = GameManager.GameState.GameOver;
         //else set gamestate to dead.
     }
 
