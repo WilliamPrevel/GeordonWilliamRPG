@@ -8,6 +8,8 @@ public class PlayerScript : CharacterScript
     public GameObject arrow;
     public int currentWeaponNumber;
     public int currentWeaponSlot = 0;
+    public int currentArmorNumber;
+    public int currentArmorSlot = 0;
     //go forward
     float VerticalAxis;
     //turn player
@@ -47,6 +49,7 @@ public class PlayerScript : CharacterScript
     {
         base.Update();
         currentWeaponNumber = GameManager.Inventory.Count;
+        currentArmorNumber = GameManager.Inventory2.Count;
         statCheck();
         VerticalAxis = Input.GetAxis("Vertical");
         //turn player

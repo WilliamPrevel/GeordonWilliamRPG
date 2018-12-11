@@ -13,7 +13,7 @@ public class HeldItemScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        //for weapons
         if (isDefault)
         {
             if (GameManager.Inventory.Count == 0)
@@ -40,7 +40,23 @@ public class HeldItemScript : MonoBehaviour {
                 {
                     this.transform.localScale = new Vector3(0,0,0);
                 }
-            
         }
+        //use this script for armor
+            if (GameManager.Inventory2.Count > 0)
+            {
+                if (thePlayer.GetComponent<PlayerScript>().currentArmour.GetComponent<Armour>().myStats.armourName == MyName)
+                {
+                    this.transform.localScale = new Vector3(0.273f, 0.273f, 0.273f);
+                }
+                else
+                {
+                    this.transform.localScale = new Vector3(0, 0, 0);
+                }
+            }
+            else
+            {
+                this.transform.localScale = new Vector3(0, 0, 0);
+            }
+        
 	}
 }

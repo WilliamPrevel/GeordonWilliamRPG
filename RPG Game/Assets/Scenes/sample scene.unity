@@ -240,7 +240,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.221
+      value: -117.525
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -248,7 +248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -78.92
+      value: -77.46
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1460,6 +1460,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ac0f7807b256d4b866c2b3ec1a6de7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &587841452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4949144742513448, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1993518955}
 --- !u!1001 &641988267
 Prefab:
   m_ObjectHideFlags: 0
@@ -2103,6 +2108,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4804353451973788, guid: c811a4e2c66806041a4e26a17776453d,
     type: 2}
   m_PrefabInternal: {fileID: 877531843}
+--- !u!1 &899390579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899390580}
+  m_Layer: 0
+  m_Name: ArmorSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &899390580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899390579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1132507075}
+  m_Father: {fileID: 587841452}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &919612647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4587362044598212, guid: c48af1fcf73ef8048b09935521c6a6a2,
@@ -2552,6 +2586,134 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1132507074
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 899390580}
+    m_Modifications:
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.141
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.4148047
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49802387
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.48736194
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5851391
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.079566896
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0711588
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20000029
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -137.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_Name
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+  m_IsPrefabAsset: 0
+--- !u!4 &1132507075 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d,
+    type: 3}
+  m_PrefabInternal: {fileID: 1132507074}
+--- !u!1 &1132507076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: fa0a723e3534aca47bcf60641f2f3a8d,
+    type: 3}
+  m_PrefabInternal: {fileID: 1132507074}
+--- !u!114 &1132507077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132507076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ef86ca0f3b2024b91132b1b749cd77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  expvalue: 10
+  manavalue: 10
+  healthvalue: 10
+  isHeld: 1
+  isGateKey: 0
+  myType: 6
+  myStats:
+    armourName: Basic Shield
+    armourDescription: Sorta pointy, sorty spoony, sorta Shieldy
+    Defence: 5
+    durability: 90
+    isBreakable: 1
+    damageTaken: 0
+    isActive: 1
+--- !u!114 &1132507078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132507076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1b62d266a8a41479f120518fb1ca42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnrate: 10
+--- !u!114 &1132507079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132507076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebce881530927f645bb0b4be31ed6ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyName: Basic Shield
+  thePlayer: {fileID: 0}
+  isDefault: 0
 --- !u!1001 &1134354263
 Prefab:
   m_ObjectHideFlags: 0
@@ -2758,6 +2920,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4226129929873642, guid: 0968d43da57cba34da71b177e3384ff9,
     type: 2}
   m_PrefabInternal: {fileID: 342854400}
+--- !u!1 &1494775239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1494775240}
+  - component: {fileID: 1494775241}
+  m_Layer: 0
+  m_Name: Area Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1494775240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494775239}
+  m_LocalRotation: {x: 0.6421267, y: 0.26566136, z: -0.29586414, w: 0.65540975}
+  m_LocalPosition: {x: -0.03, y: 0.22, z: 0.01}
+  m_LocalScale: {x: 0.62590027, y: 2.5226026, z: 0.3629503}
+  m_Children: []
+  m_Father: {fileID: 2009826905}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: -0.33800003, y: -92.674, z: 0.354}
+--- !u!108 &1494775241
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494775239}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 3
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1.25
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.1
+    m_NearPlane: 0.1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &1511960069
 Prefab:
   m_ObjectHideFlags: 0
@@ -3717,9 +3945,61 @@ Prefab:
       propertyPath: myType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4652234253779122, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2009826903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: fa0a723e3534aca47bcf60641f2f3a8d,
+    type: 3}
+  m_PrefabInternal: {fileID: 102089419}
+--- !u!114 &2009826904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009826903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ef86ca0f3b2024b91132b1b749cd77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  expvalue: 10
+  manavalue: 10
+  healthvalue: 10
+  isHeld: 0
+  isGateKey: 0
+  myType: 6
+  myStats:
+    armourName: Basic Shield
+    armourDescription: Sorta pointy, sorty spoony, sorta Shieldy
+    Defence: 5
+    durability: 90
+    isBreakable: 1
+    damageTaken: 0
+    isActive: 1
+--- !u!4 &2009826905 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: fa0a723e3534aca47bcf60641f2f3a8d,
+    type: 3}
+  m_PrefabInternal: {fileID: 102089419}
+--- !u!114 &2009826906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009826903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1b62d266a8a41479f120518fb1ca42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnrate: 10
 --- !u!1 &2089912291
 GameObject:
   m_ObjectHideFlags: 0

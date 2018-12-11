@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ItemStats2
+public class ArmorStats
 {
     //user seen
     public string armourName = "SPORK";
@@ -19,7 +19,7 @@ public class ItemStats2
 
 public abstract class Armour : ItemPickUp {
 
-    public ItemStats2 myStats = new ItemStats2();
+    public ArmorStats myStats = new ArmorStats();
     protected RaycastHit hit;
     protected GameObject hitObject;
 
@@ -32,8 +32,6 @@ public abstract class Armour : ItemPickUp {
 	override protected void Update () {
 		
 	}
-
-    abstract protected void Defense();
 
     public void setActive()
     {
