@@ -66,7 +66,7 @@ public class CharacterScript : MonoBehaviour
         if (myStats.Health <= 0)
         {
             myAnimator.SetBool("isDead", true);
-            Invoke("Dead", 5);
+            Invoke("Dead", 2);
         }
     }
 
