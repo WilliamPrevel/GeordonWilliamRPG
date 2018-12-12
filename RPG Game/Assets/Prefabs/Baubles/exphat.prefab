@@ -3713,11 +3713,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef75f3570f0d8564cbbe00a78e8341e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1637458702756456, guid: 33a3276af2f0869459d6e8d48083049b, type: 2}
+  player: {fileID: 1713684282597210, guid: 166f6a2cb4c427e4b956bcf8d2aaea7b, type: 2}
   expvalue: 5
-  isEXP: 1
-  isHP: 0
-  isMana: 0
+  manavalue: 10
+  healthvalue: 10
+  isHeld: 0
+  isGateKey: 0
+  myType: 0
 --- !u!135 &135219950230354634
 SphereCollider:
   m_ObjectHideFlags: 1
