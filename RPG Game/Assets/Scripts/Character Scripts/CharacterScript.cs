@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //lets you edit in unity
 [System.Serializable]
 public class CharacterStats
@@ -148,6 +149,7 @@ public class CharacterScript : MonoBehaviour
             gameObject.SetActive(false);
         else
             GameManager.CurrentState = GameManager.GameState.GameOver;
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         //else set gamestate to dead.
     }
 
