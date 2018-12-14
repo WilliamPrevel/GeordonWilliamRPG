@@ -13,6 +13,7 @@ TagManager:
   - GameManager
   - Dialogue Box
   - Dialogue Text
+  - CardName
   layers:
   - Default
   - TransparentFX
