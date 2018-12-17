@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class roomscript : MonoBehaviour {
    public static int spawncap = 100;
+    int randomnumber;
     GameObject newRoom;
+   public GameObject[] PotentialRooms;
     public GameObject room1;
     public bool ISfINE = true;
     // Use this for initialization
@@ -36,7 +38,9 @@ public class roomscript : MonoBehaviour {
             if (t.name == "Point1")//norm
             {
                 spawncap--;
-                newRoom = Instantiate(room1, t.transform.position, t.transform.rotation);
+                randomnumber = Random.Range(0, PotentialRooms.Length);
+                //newRoom = Instantiate(room1, t.transform.position, t.transform.rotation);
+                newRoom = Instantiate(PotentialRooms[randomnumber], t.transform.position, t.transform.rotation);
             }
             else if (t.name == "Point2")//90
             {
