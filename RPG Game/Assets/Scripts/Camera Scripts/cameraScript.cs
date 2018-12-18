@@ -15,11 +15,11 @@ public float VSpeed = -4.0F;
 
     void LateUpdate()
     {
-        float h = HSpeed * Input.GetAxis("Mouse Y");
-        float v = VSpeed * Input.GetAxis("Mouse X");
+        float h = HSpeed * Input.GetAxis("Mouse X");
+        float v = VSpeed * Input.GetAxis("Mouse Y");
        
-      transform.position = player.transform.position + offset;
-        transform.Translate(v, h, 0);
+     // transform.position = player.transform.position + offset;
+        transform.Rotate(v, h, 0);
 
     }
 }
