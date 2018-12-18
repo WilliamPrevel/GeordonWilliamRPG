@@ -109,6 +109,8 @@ public class CharacterScript : MonoBehaviour
         if (myStats.isPlayer == true)
         {
             Target = "Enemy";
+            if(currentWeapon!=null)
+            currentWeapon.GetComponent<Weapon>().TakeDamage();
         }
         else
         {

@@ -56,12 +56,16 @@ public abstract class Weapon : ItemPickUp {
     
     protected void Shatter()
     {
-
+        gameObject.SetActive(false);
     }
 
-    protected void TakeDamage()
+    public void TakeDamage()
     {
-
+        this.myStats.durability--;
+        if(myStats.durability <= 0)
+        {
+            Shatter();
+        }
     }
 
     virtual protected void Shoot()
