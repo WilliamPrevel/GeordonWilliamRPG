@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
     public delegate void OtherAction();
     public static event OtherAction SwitchWeapon;
     public static event OtherAction ConfirmQuest;
-
+    public static event OtherAction TogglePause;
     public static InputManager instance;
     void Start()
     {
@@ -83,6 +83,20 @@ public class InputManager : MonoBehaviour
         {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 SwitchWeapon();
+        }
+        if (Input.GetKeyUp(KeyCode.P) || Input.GetKeyUp(KeyCode.Escape))
+        {
+
+            if (GameManager.CurrentState == GameManager.GameState.Playing)
+            {
+                GameManager.CurrentState = GameManager.GameState.Pause;
+            }
+
+            if (GameManager.CurrentState == GameManager.GameState.Pause)
+            {
+                GameManager.CurrentState = GameManager.GameState.Playing;
+                // TogglePause();
+            }
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
