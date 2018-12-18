@@ -18,7 +18,7 @@ public float VSpeed = -4.0F;
         float h = HSpeed * Input.GetAxis("Mouse Y");
         float v = VSpeed * Input.GetAxis("Mouse X");
        
-      //  transform.position = player.transform.position + offset;
+      transform.position = player.transform.position + offset;
         transform.Translate(v, h, 0);
 
     }
