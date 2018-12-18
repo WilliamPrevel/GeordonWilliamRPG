@@ -3,8 +3,8 @@ using System.Collections;
 
 public class cameraScript : MonoBehaviour
 {
-public float HSpeed = 40;
-public float VSpeed = 40;
+public float HSpeed = 4.0F;
+public float VSpeed = -4.0F;
     public GameObject player;
     private Vector3 offset;
 
@@ -19,7 +19,7 @@ public float VSpeed = 40;
         float v = VSpeed * Input.GetAxis("Mouse X");
        
       //  transform.position = player.transform.position + offset;
-        transform.Rotate(v, h, 0);
+        transform.Translate(v, h, 0);
 
     }
 }
