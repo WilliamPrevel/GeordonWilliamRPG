@@ -148,10 +148,14 @@ public class CharacterScript : MonoBehaviour
     virtual public void Dead()
     {
         if (myStats.isPlayer == false)
+        {
             gameObject.SetActive(false);
+        }
         else
+        {
             GameManager.CurrentState = GameManager.GameState.GameOver;
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        }
         //else set gamestate to dead.
     }
 

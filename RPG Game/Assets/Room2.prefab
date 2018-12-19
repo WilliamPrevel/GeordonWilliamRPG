@@ -3011,7 +3011,7 @@ Transform:
   m_GameObject: {fileID: 1796687948686210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -33.2, y: 0, z: 4.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4563301117450682}
   - {fileID: 4448624298038348}
@@ -5779,6 +5779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PotentialRooms:
+  - {fileID: 1603597586901168, guid: 055195aa233b99447b69fb83811d4e95, type: 2}
   - {fileID: 1796687948686210}
   room1: {fileID: 1796687948686210}
   ISfINE: 1
