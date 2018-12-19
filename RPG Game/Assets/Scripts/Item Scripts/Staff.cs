@@ -29,7 +29,11 @@ public class Staff : MeleeWeapon {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             Debug.Log("Did not Hit");
         }
-        if (player.GetComponent<PlayerScript>().myStats.Mana >= 10)
+        SpawnSwan();
+    }
+    public void SpawnSwan()
+    {
+ if (player.GetComponent<PlayerScript>().myStats.Mana >= 10)
         {
             Instantiate(papercraft, gameObject.transform.position, gameObject.transform.rotation);
             player.GetComponent<PlayerScript>().myStats.Mana -= 10;
