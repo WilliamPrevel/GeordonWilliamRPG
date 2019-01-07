@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+
+
 public class SavedStats
 {
     public int Health;
@@ -18,6 +20,9 @@ public class SavedStats
 
 public class GameManager : MonoBehaviour
 {
+    //cache
+    private SoundManager soundManager;
+
     public static List<ItemStats> Inventory = new List<ItemStats>();
     public static List<ArmorStats> Inventory2 = new List<ArmorStats>();
     private static GameManager instanciate;
@@ -39,7 +44,11 @@ public class GameManager : MonoBehaviour
         thePlayer = GameObject.FindWithTag("Player");
         InputManager.ConfirmQuest += StartQuest;
         StartUpManager();
-
+        soundManager = SoundManager.instance;
+        if(soundManager == null)
+        {
+            Debug.LogError ("No AudioManager found in the scene");
+        }
     }
 
     public void StartUpManager()
