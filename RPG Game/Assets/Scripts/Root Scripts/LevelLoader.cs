@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelLoader : MonoBehaviour
 {
     public GameObject gameManager;
+    public GameObject soundManager;
     //public GameObject eventManager;
 
     private void Start()
@@ -13,7 +14,10 @@ public class LevelLoader : MonoBehaviour
             Instantiate(gameManager);
         else
             GameManager.instance.StartUpManager();
-
+        if (SoundManager.instance == null)
+            Instantiate(soundManager);
+        else
+            SoundManager.instance.StartUpManager();
         //if (InputManager.instance == null)
         //    Instantiate(eventManager);
 

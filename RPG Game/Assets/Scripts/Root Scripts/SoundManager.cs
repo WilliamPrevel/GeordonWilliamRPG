@@ -55,9 +55,21 @@ public class SoundManager : MonoBehaviour {
         for (int i = 0; i < sounds.Length; i++)
         {
             GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
-           
+            
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
+
+            StartUpManager();
         }
+    }
+
+    public void StartUpManager()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySound (string _name)
