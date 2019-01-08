@@ -31,6 +31,7 @@ public class TechEnemyScript : RoamingEnemyScript{
             }
             if (myStats.Health <= 0)
             {
+                myAnimator.SetBool("isDead", true);
                 currentState = AIstate.Dead;
                 myStats.isDead = true;
                 Invoke("Dead", 5);
@@ -44,6 +45,7 @@ public class TechEnemyScript : RoamingEnemyScript{
         //invoke behaviour
         if (currentState == AIstate.Roaming)
         {
+            myAnimator.SetBool("isWalking", true);
             if (roamTime <= 0)
             {
                 roamTime = roam;
@@ -52,6 +54,7 @@ public class TechEnemyScript : RoamingEnemyScript{
         }
         if (currentState == AIstate.Strafing)
         {
+            myAnimator.SetBool("isStrafing", true);
             Strafe();
             attackTimer--;
             if (attackTimer <= 0)
@@ -62,6 +65,7 @@ public class TechEnemyScript : RoamingEnemyScript{
         }
         if (currentState == AIstate.Fleeing)
         {
+            myAnimator.SetBool("isWalking", true);
             fleetimer--;
            Retreat();
         }
