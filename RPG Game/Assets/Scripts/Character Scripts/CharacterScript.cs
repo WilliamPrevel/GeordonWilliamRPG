@@ -130,7 +130,7 @@ public class CharacterScript : MonoBehaviour
             Debug.Log("Hit");
             if (hit.transform.gameObject.tag == Target)
             {
-                soundManager.PlaySound("Slash");
+                SoundManager.instance.PlaySound("Slash");
                 hitenemy = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<CharacterScript>();
                 if (currentWeapon != null)
