@@ -2036,6 +2036,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114456590331101538, guid: 1cf44561924d1bc4489ee4689551633b,
+        type: 2}
+      propertyPath: roamTime
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114456590331101538, guid: 1cf44561924d1bc4489ee4689551633b,
+        type: 2}
+      propertyPath: roamdistance
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf44561924d1bc4489ee4689551633b, type: 2}
   m_IsPrefabAsset: 0

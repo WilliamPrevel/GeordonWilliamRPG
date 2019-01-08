@@ -45,12 +45,16 @@ public class TechEnemyScript : RoamingEnemyScript{
         //invoke behaviour
         if (currentState == AIstate.Roaming)
         {
-            myAnimator.SetBool("isWalking", true);
             if (roamTime <= 0)
             {
                 roamTime = roam;
                 Roam();
+            myAnimator.SetBool("isWalking", true);
             }
+        }
+        else
+        {
+            myAnimator.SetBool("isWalking", false);
         }
         if (currentState == AIstate.Strafing)
         {
@@ -62,6 +66,9 @@ public class TechEnemyScript : RoamingEnemyScript{
                 attackTimer = attackTimerReset;
                 Shoot();
             }
+        } else
+        {
+            myAnimator.SetBool("isStrafing", false);
         }
         if (currentState == AIstate.Fleeing)
         {
@@ -90,8 +97,8 @@ public class TechEnemyScript : RoamingEnemyScript{
 
             if (direction.magnitude > 5)
             {
-
-                this.transform.Translate(0, 0, 0.1f);
+            myAnimator.SetBool("isWalking", true);
+            this.transform.Translate(0, 0, 0.1f);
 
             }
             
