@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4392430521205062}
   - component: {fileID: 114962833555406370}
   - component: {fileID: 114887485478549056}
+  - component: {fileID: 114000172584137280}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,6 +42,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000172584137280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083290929272118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e110bb1c8d719ef43afb7db9e55389e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Slash
+    clip: {fileID: 8300000, guid: 57d108163fb4dd74dab9c1233f1b629b, type: 3}
+    volume: 1
+    pitch: 0.5
+    randomVolume: 0.47
+    randomPitch: 0
+  - name: Fire
+    clip: {fileID: 8300000, guid: 9e8ce623bafed8e43bedc188b3fc046f, type: 3}
+    volume: 1
+    pitch: 1.5
+    randomVolume: 0
+    randomPitch: 0
 --- !u!114 &114887485478549056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5daceecb6c9b2fd40a3756048ec71b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theBoss: {fileID: 114962833555406370}
 --- !u!114 &114962833555406370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,3 +99,5 @@ MonoBehaviour:
     Experience: 0
     AttackDamage: 5
     ArmorLevel: 5
+  QuestActive: 0
+  QuestPoints: 0

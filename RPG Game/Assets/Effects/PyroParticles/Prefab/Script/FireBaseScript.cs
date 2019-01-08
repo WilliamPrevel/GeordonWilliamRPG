@@ -19,6 +19,9 @@ namespace DigitalRuby.PyroParticles
 
     public class FireBaseScript : MonoBehaviour
     {
+
+        private SoundManager soundManager;
+
         [Tooltip("Optional audio source to play once when the script starts.")]
         public AudioSource AudioSource;
 
@@ -86,9 +89,9 @@ namespace DigitalRuby.PyroParticles
 
         protected virtual void Start()
         {
-            if (AudioSource != null)
+            if (soundManager != null)
             {
-                AudioSource.Play();
+                soundManager.PlaySound("Fire");
             }
 
             // precalculate so we can multiply instead of divide every frame

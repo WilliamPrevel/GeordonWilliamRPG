@@ -29,6 +29,7 @@ public class CharacterStats
 
 public class CharacterScript : MonoBehaviour
 {
+    private SoundManager soundManager;
     protected Rigidbody myBody;
     protected Animator myAnimator;
     protected bool isAttacking = false;
@@ -129,6 +130,7 @@ public class CharacterScript : MonoBehaviour
             Debug.Log("Hit");
             if (hit.transform.gameObject.tag == Target)
             {
+                soundManager.PlaySound("Slash");
                 hitenemy = hit.transform.gameObject;
                 hit.transform.gameObject.GetComponent<CharacterScript>();
                 if (currentWeapon != null)
