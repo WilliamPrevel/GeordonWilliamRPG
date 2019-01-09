@@ -64,3 +64,15 @@ MonoBehaviour:
     pitch: 1.5
     randomVolume: 0
     randomPitch: 0
+  - name: Bauble Pickup
+    clip: {fileID: 8300000, guid: d781d5d308c71934a897eb17b0ae3bba, type: 3}
+    volume: 1
+    pitch: 1.5
+    randomVolume: 0
+    randomPitch: 0
+  - name: Magic
+    clip: {fileID: 8300000, guid: 9f9c7c5228e97f24ab96cc6be17d48fc, type: 3}
+    volume: 1
+    pitch: 1.5
+    randomVolume: 0
+    randomPitch: 0
