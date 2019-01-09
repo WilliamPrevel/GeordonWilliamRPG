@@ -15,6 +15,7 @@ TagManager:
   - Dialogue Text
   - CardName
   - Room
+  - target
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class TechEnemyScript : RoamingEnemyScript{
    public int timerReset = 100;
     public int attackTimer = 100;
     public int attackTimerReset = 100;
-
+    public GameObject turret;
     private void OnEnable()
     {
          newFire.SetActive(false);
@@ -114,7 +114,8 @@ public class TechEnemyScript : RoamingEnemyScript{
     }
    protected void Shoot()
    {
-        GameObject newnew = Instantiate(newFire, this.gameObject.transform.position, this.gameObject.transform.rotation);// Quaternion.identity);
+
+        GameObject newnew = Instantiate(newFire, this.turret.gameObject.transform.position, this.gameObject.transform.rotation);
         newnew.transform.parent = transform;
     newnew.SetActive(true);
         newnew.transform.position += new Vector3(0, 2, 2);

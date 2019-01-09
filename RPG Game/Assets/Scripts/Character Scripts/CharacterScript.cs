@@ -67,7 +67,11 @@ public class CharacterScript : MonoBehaviour
 
         if (myStats.Health <= 0)
         {
-            myAnimator.SetBool("isDead", true);
+            if (myStats.isPlayer == true)
+            {
+                GameManager.CurrentState = GameManager.GameState.GameOver;
+            }
+                myAnimator.SetBool("isDead", true);
             Invoke("Dead", 2);
         }
     }
