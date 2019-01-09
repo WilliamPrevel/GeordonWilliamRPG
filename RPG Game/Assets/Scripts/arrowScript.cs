@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class arrowScript : MonoBehaviour
 {
+    private SoundManager soundManager;
     public float movespeed = 0.2f;
     public float killtime = 100;
     public int power = 10;
     // Use this for initialization
     void Start()
     {
-
+        SoundManager.instance.PlaySound("Magic");
     }
 
     // Update is called once per frame

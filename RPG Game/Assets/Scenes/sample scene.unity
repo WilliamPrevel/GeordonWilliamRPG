@@ -3208,6 +3208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1083290929272118, guid: 092bd809d70386d42b020a4093b7ea84,
     type: 2}
+  soundManager: {fileID: 1083290929272118, guid: c3976eb092204bb4d8bba207c5ec4ad3,
+    type: 2}
 --- !u!1 &1400639397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: f14b6f7503476eb4e9b2afc1cc05e719,

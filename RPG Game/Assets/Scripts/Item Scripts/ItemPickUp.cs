@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
-
+    private SoundManager soundManager;
     public GameObject player;
     public int expvalue = 10;
     public int manavalue = 10;
@@ -45,6 +45,7 @@ public class ItemPickUp : MonoBehaviour
     {
         if (collision.gameObject.tag == "player" & !isHeld)
         {
+            SoundManager.instance.PlaySound("Bauble Pickup");
             DeSpawn();
         }
     }
