@@ -79,12 +79,12 @@ public class PlayerScript : CharacterScript
         {
             if (isRunning)
             {
-                myBody.velocity = (gameObject.transform.forward * myStats.RunSpeed);
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed);
                 myAnimator.SetBool("isRunning", true);
             }
             else
             {
-                myBody.velocity = (gameObject.transform.forward * myStats.WalkSpeed);
+                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed);
                 Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (gameObject.transform.forward * myStats.WalkSpeed), Color.green, 2, false);
                 myAnimator.SetBool("isWalking", true);
             }
