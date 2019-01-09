@@ -11,9 +11,9 @@ public class PlayerScript : CharacterScript
     public int currentArmorNumber;
     public int currentArmorSlot = 0;
     //go forward
-    float VerticalAxis;
+    public float VerticalAxis;
     //turn player
-    float HorizontalAxis;
+    public float HorizontalAxis;
     protected Camera myCamera;
     protected bool isRunning;
     public int hasZPM = 0;
@@ -79,12 +79,13 @@ public class PlayerScript : CharacterScript
         {
             if (isRunning)
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed);
+                myBody.velocity = (gameObject.transform.forward * myStats.RunSpeed);
                 myAnimator.SetBool("isRunning", true);
             }
             else
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed);
+                myBody.velocity = (gameObject.transform.forward * myStats.WalkSpeed);
+                Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (gameObject.transform.forward * myStats.WalkSpeed), Color.green, 2, false);
                 myAnimator.SetBool("isWalking", true);
             }
         }
@@ -95,12 +96,12 @@ public class PlayerScript : CharacterScript
         {
             if (isRunning)
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.RunSpeed / 2);
+                myBody.velocity = (gameObject.transform.forward * myStats.RunSpeed / 2);
                 myAnimator.SetBool("isRunning", true);
             }
             else
             {
-                myBody.velocity = (gameObject.transform.forward * VerticalAxis * myStats.WalkSpeed / 2);
+                myBody.velocity = (gameObject.transform.forward * myStats.WalkSpeed / 2);
                 myAnimator.SetBool("isWalking", true);
             }
         }
@@ -115,6 +116,8 @@ public class PlayerScript : CharacterScript
     override protected void Turn()
     {
         gameObject.transform.Rotate(0, HorizontalAxis * myStats.TurnSpeed * Time.deltaTime, 0);
+        //Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (gameObject.transform.forward * myStats.WalkSpeed), Color.blue, 2, false);
+
     }
 
     public void SpecialAttack()
