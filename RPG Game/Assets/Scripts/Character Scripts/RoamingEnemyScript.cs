@@ -22,7 +22,7 @@ public class RoamingEnemyScript : Enemy {
     private void FixedUpdate()
     {
         roamTime--;
-        if (roamTime <= 0)
+        if (roamTime <= 0 && myStats.isDead == false)
         {
             roamTime = roam;
             Roam();

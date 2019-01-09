@@ -87,7 +87,7 @@ public class Enemy : CharacterScript
         base.Dead();
     }
 
-    private void DropLoot()
+    protected void DropLoot()
     {
         int expdrops = Random.Range(1, 10);
         int hpdrops = Random.Range(2, 3);

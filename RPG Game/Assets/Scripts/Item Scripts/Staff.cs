@@ -35,7 +35,8 @@ public class Staff : MeleeWeapon {
     {
  if (player.GetComponent<PlayerScript>().myStats.Mana >= 10)
         {
-            Instantiate(papercraft, gameObject.transform.position, gameObject.transform.rotation);
+            SoundManager.instance.PlaySound("Magic");
+            Instantiate(papercraft, player.transform.position, player.transform.rotation);
             player.GetComponent<PlayerScript>().myStats.Mana -= 10;
         }
     }

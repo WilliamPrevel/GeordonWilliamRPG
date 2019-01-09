@@ -67,6 +67,7 @@ public class CharacterScript : MonoBehaviour
 
         if (myStats.Health <= 0)
         {
+            myStats.isDead = true;
             if (myStats.isPlayer == true)
             {
                 GameManager.CurrentState = GameManager.GameState.GameOver;
