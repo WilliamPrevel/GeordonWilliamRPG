@@ -6,6 +6,7 @@ public class teleporter : MonoBehaviour
 {
     public GameObject Player;
     public int childnum = 1;
+    public GameObject targetTele;
     // Use this for initialization
     void Start()
     {
