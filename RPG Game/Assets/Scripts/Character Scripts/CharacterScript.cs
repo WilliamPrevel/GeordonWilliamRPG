@@ -178,7 +178,7 @@ public class CharacterScript : MonoBehaviour
         myStats.MaxHealth += 10;
         myStats.MaxMana += 10;
         myStats.AttackDamage += 2;
+        myStats.Level += 1;
         myStats.Experience = 0;
-        myStats.Level++;
     }
 }
