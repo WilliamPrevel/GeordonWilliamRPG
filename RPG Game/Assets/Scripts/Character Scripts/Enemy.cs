@@ -5,10 +5,15 @@ using UnityEngine;
 public class Enemy : CharacterScript
 {
     public Transform exphats;
+    public int exphatmax;
     public Transform hphats;
+    public int hphatmax;
     public Transform mphats;
+    public int mphatmax;
     public Transform superhats;
+    public int superhatmax;
     public Transform vpm;
+    public int vpmmax;
     public GameObject player;
     protected Quaternion rotator;
     protected Quaternion restrictor = Quaternion.Euler(0, 1, 0);

@@ -10,6 +10,7 @@ public class PlayerScript : CharacterScript
     public int currentWeaponSlot = 0;
     public int currentArmorNumber;
     public int currentArmorSlot = 0;
+    int regentimer = 0;
     //go forward
     public float VerticalAxis;
     //turn player
@@ -61,6 +62,15 @@ public class PlayerScript : CharacterScript
         else
         {
             isRunning = false;
+        }
+        if (myStats.Health < myStats.MaxHealth)
+        {
+            regentimer++;
+            if(regentimer > 200)
+            {
+                myStats.Health++;
+                regentimer = 0;
+            }
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Staff : MeleeWeapon {
     public GameObject papercraft;
-    Vector3 offset = new Vector3(2, 2, 2);
+    Vector3 offset = new Vector3(-5, 0, 0);
 	override protected void Start () {
 		
 	}
