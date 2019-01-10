@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : CharacterScript
 {
+    public bool bossmonster = false;
     public Transform exphats;
     public int exphatmax;
     public Transform hphats;
@@ -121,7 +122,7 @@ public class Enemy : CharacterScript
         }
         for (int i = 0; i < VPM; i++)
         {
-            if (vpm != null)
+            if (vpm != null && bossmonster == true)
             {
                 Instantiate(vpm, this.gameObject.transform.position, Quaternion.identity);
                 vpm.GetComponent<ItemPickUp>().player = player;
