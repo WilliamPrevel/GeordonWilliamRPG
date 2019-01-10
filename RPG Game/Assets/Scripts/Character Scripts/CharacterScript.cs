@@ -163,6 +163,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (myStats.isPlayer == false)
         {
+            myStats.isDead = true;
             gameObject.SetActive(false);
         }
         else

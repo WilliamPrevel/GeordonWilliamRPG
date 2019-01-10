@@ -2936,6 +2936,16 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDamage
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45815a7626f11c4386c8b318a1fd8d9, type: 2}
   m_IsPrefabAsset: 0
@@ -3625,6 +3635,16 @@ Prefab:
     - target: {fileID: 1207382732429450, guid: c45815a7626f11c4386c8b318a1fd8d9, type: 2}
       propertyPath: m_Name
       value: PA_Warrior (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDamage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45815a7626f11c4386c8b318a1fd8d9, type: 2}
@@ -5889,6 +5909,16 @@ Prefab:
     - target: {fileID: 1207382732429450, guid: c45815a7626f11c4386c8b318a1fd8d9, type: 2}
       propertyPath: m_Name
       value: PA_Warrior (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691169601322208, guid: c45815a7626f11c4386c8b318a1fd8d9,
+        type: 2}
+      propertyPath: myStats.AttackDamage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45815a7626f11c4386c8b318a1fd8d9, type: 2}
