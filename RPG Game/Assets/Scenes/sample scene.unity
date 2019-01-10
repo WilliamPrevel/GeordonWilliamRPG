@@ -430,10 +430,15 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentArmour: {fileID: 0}
   exphats: {fileID: 0}
+  exphatmax: 0
   hphats: {fileID: 0}
+  hphatmax: 0
   mphats: {fileID: 0}
+  mphatmax: 0
   superhats: {fileID: 0}
+  superhatmax: 0
   vpm: {fileID: 0}
+  vpmmax: 0
   player: {fileID: 0}
   EnemyType: Assissin
   sightDistance: 30
@@ -2168,6 +2173,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 215933105}
+    - target: {fileID: 114406745089970822, guid: 34bc2967d77925747affb9dbf92f1878,
+        type: 2}
+      propertyPath: exphatmax
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34bc2967d77925747affb9dbf92f1878, type: 2}
   m_IsPrefabAsset: 0
@@ -2995,10 +3005,15 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentArmour: {fileID: 0}
   exphats: {fileID: 0}
+  exphatmax: 0
   hphats: {fileID: 0}
+  hphatmax: 0
   mphats: {fileID: 0}
+  mphatmax: 0
   superhats: {fileID: 0}
+  superhatmax: 0
   vpm: {fileID: 0}
+  vpmmax: 0
   player: {fileID: 0}
   EnemyType: 
   sightDistance: 10
@@ -3850,10 +3865,15 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   currentArmour: {fileID: 0}
   exphats: {fileID: 1760951423}
+  exphatmax: 0
   hphats: {fileID: 431313612}
+  hphatmax: 0
   mphats: {fileID: 1703456043}
+  mphatmax: 0
   superhats: {fileID: 1539974850}
+  superhatmax: 0
   vpm: {fileID: 0}
+  vpmmax: 0
   player: {fileID: 215933105}
   EnemyType: 
   sightDistance: 10
