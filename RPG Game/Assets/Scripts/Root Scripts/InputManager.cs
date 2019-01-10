@@ -40,54 +40,52 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (true)
-            if (Input.GetKey(KeyCode.W))
-            {
-                if (GameManager.CurrentState == GameManager.GameState.Playing)
-                    MoveForward();
+            if (Input.GetKey(KeyCode.W)){
+                if (GameManager.CurrentState == GameManager.GameState.Playing) MoveForward();
             }
-        if (Input.GetKey(KeyCode.S))
-        {
+            if (Input.GetKey(KeyCode.S))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 MoveBack();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 SpecialAttack();
-        }
-        if (Input.GetKeyUp(KeyCode.X))
-        {
+            }
+            if (Input.GetKeyUp(KeyCode.X))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 SwitchWeapon();
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 Turn();
-        }
-        if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S) == false)
-        {
+            }
+            if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S) == false)
+            {
             Idle();
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
+            }
+            if (Input.GetKey(KeyCode.Space))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 Attack();
-        }
-        if (Input.GetKey(KeyCode.E)) { 
-            if (GameManager.CurrentState == GameManager.GameState.Dialogue)
-            {
-                ConfirmQuest();
-                GameManager.CurrentState = GameManager.GameState.Playing;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+            if (Input.GetKey(KeyCode.E)) { 
+                if (GameManager.CurrentState == GameManager.GameState.Dialogue)
+                {
+                    ConfirmQuest();
+                    GameManager.CurrentState = GameManager.GameState.Playing;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
             if (GameManager.CurrentState == GameManager.GameState.Playing)
                 SwitchWeapon();
-        }
-        if (Input.GetKeyUp(KeyCode.P) || Input.GetKeyUp(KeyCode.Escape))
-        {
+            }
+            if (Input.GetKeyUp(KeyCode.P) || Input.GetKeyUp(KeyCode.Escape))
+            {
 
             if (GameManager.CurrentState == GameManager.GameState.Playing)
             {
