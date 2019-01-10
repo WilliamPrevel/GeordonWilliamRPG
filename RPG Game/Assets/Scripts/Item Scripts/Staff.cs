@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Staff : MeleeWeapon {
     public GameObject papercraft;
-	// Use this for initialization
+    Vector3 offset = new Vector3(2, 2, 2);
 	override protected void Start () {
 		
 	}
@@ -36,7 +36,7 @@ public class Staff : MeleeWeapon {
  if (player.GetComponent<PlayerScript>().myStats.Mana >= 10)
         {
             SoundManager.instance.PlaySound("Magic");
-            Instantiate(papercraft, player.transform.position, player.transform.rotation);
+            Instantiate(papercraft, player.transform.position + offset, player.transform.rotation);
             player.GetComponent<PlayerScript>().myStats.Mana -= 10;
         }
     }
