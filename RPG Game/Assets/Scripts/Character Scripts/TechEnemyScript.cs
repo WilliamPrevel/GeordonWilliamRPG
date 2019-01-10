@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TechEnemyScript : RoamingEnemyScript{
+    private SoundManager soundManager;
     public GameObject newFire;
     enum AIstate {Strafing, Roaming, Fleeing, Charging, Firing, Dead};
     AIstate currentState;
@@ -117,10 +118,11 @@ public class TechEnemyScript : RoamingEnemyScript{
 
         GameObject newnew = Instantiate(newFire, this.turret.gameObject.transform.position, this.gameObject.transform.rotation);
         newnew.transform.parent = transform;
-    newnew.SetActive(true);
+        newnew.SetActive(true);
         newnew.transform.position += new Vector3(0, 2, 2);
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, myStats.SpecialAttackReach))
         {
+            SoundManager.instance.PlaySound("Fire");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             if (hit.transform.gameObject.tag == "Player")
             {
