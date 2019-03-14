@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TechEnemyScript : RoamingEnemyScript{
-    private SoundManager soundManager;
     public GameObject newFire;
     enum AIstate {Strafing, Roaming, Fleeing, Charging, Firing, Dead};
     AIstate currentState;

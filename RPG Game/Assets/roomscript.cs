@@ -5,7 +5,7 @@ using UnityEngine;
 public class roomscript : MonoBehaviour {
    public static int spawncap = 100;
     int randomnumber;
-    GameObject newRoom;
+   public GameObject newRoom;
    public GameObject[] PotentialRooms;
     public GameObject room1;
     public bool ISfINE = true;
